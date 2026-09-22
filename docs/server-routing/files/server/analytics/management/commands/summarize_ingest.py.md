@@ -32,7 +32,7 @@ data-dir, cores, event-id 옵션을 Django parser에 등록
 ```text
 SPARK_MASTER가 standalone spark 주소인지 확인
 PROJECT_DIR/spark_jobs/summarize_ingest.py 존재 확인
-spark-submit 실행 파일, 클러스터 옵션, Python 실행 경로, 작업 인자를 list로 조립
+spark-submit 실행 파일, driver 1g·executor 1g 상한, 클러스터 옵션, Python 실행 경로, 작업 인자를 list로 조립
 event-id가 있으면 UUID로 검증하고 정규화
 현재 Python을 driver와 worker Python 환경으로 지정
 BASE_DIR에서 subprocess.run(check=True) 실행
@@ -44,7 +44,6 @@ Spark 실패 코드를 Django CommandError로 변환
 ## 주요 변수와 값 출처
 
 - `script`: `settings.PROJECT_DIR / "spark_jobs" / "summarize_ingest.py"`.
-- `command`: `settings.SPARK_SUBMIT`, `settings.SPARK_MASTER`, 선택한 core 수와 데이터 경로에서 조립한 인자 목록.
+- `command`: `settings.SPARK_SUBMIT`, `settings.SPARK_MASTER`, driver·executor 각각 1g, 선택한 core 수와 데이터 경로에서 조립한 인자 목록.
 - `selected_id`: `UUID(options["event_id"])`로 검증·정규화한 문자열.
 - `env`: 현재 프로세스 환경의 복사본에 `PYSPARK_PYTHON`과 `PYSPARK_DRIVER_PYTHON`을 `sys.executable`로 설정한 값.
-

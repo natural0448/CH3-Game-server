@@ -10,3 +10,7 @@ kafka-data/
 *.log
 **/data/
 infra/runtime/
+*.crc
+*.delta
+*.parquet
+data-window-demo/

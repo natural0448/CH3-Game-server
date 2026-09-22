@@ -29,6 +29,8 @@ class Command(BaseCommand):
             settings.SPARK_SUBMIT,
             "--master", settings.SPARK_MASTER,
             "--deploy-mode", "client",
+            "--driver-memory", "1g",
+            "--executor-memory", "1g",
             "--executor-cores", "1",
             "--total-executor-cores", str(options["cores"]),
             "--packages", "org.apache.spark:spark-sql-kafka-0-10_2.13:4.1.3",

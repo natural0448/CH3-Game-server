@@ -12,8 +12,33 @@ $manifestPath = Join-Path $dataPath 'cluster.json'
 $bootstrap = '127.0.0.1:9092,127.0.0.1:9094,127.0.0.1:9096'
 if (-not (Test-Path -LiteralPath "$runtimePath/libs")) { throw 'Install Kafka 4.1.2 in infra/runtime first.' }
 
+function Initialize-JavaRuntime {
+    $bundledJava = Join-Path $projectRoot 'infra/runtime/temurin-jdk21/jdk-21.0.12.1+1/bin/java.exe'
+    $candidates = New-Object System.Collections.Generic.List[string]
+    $candidates.Add($bundledJava)
+    if (-not [string]::IsNullOrWhiteSpace($env:JAVA_HOME)) {
+        $candidates.Add((Join-Path $env:JAVA_HOME 'bin/java.exe'))
+    }
+    $command = Get-Command java.exe -ErrorAction SilentlyContinue
+    if ($null -ne $command) { $candidates.Add($command.Source) }
+
+    foreach ($candidate in $candidates | Select-Object -Unique) {
+        if (-not (Test-Path -LiteralPath $candidate -PathType Leaf)) { continue }
+        $resolvedJava = (Resolve-Path -LiteralPath $candidate).Path
+        $javaBin = Split-Path -Parent $resolvedJava
+        $env:JAVA_HOME = Split-Path -Parent $javaBin
+        $pathEntries = @($env:Path -split ';')
+        if ($javaBin -notin $pathEntries) { $env:Path = "$javaBin;$env:Path" }
+        return $resolvedJava
+    }
+
+    throw "Java was not found. Expected the project runtime at: $bundledJava"
+}
+
+$javaPath = Initialize-JavaRuntime
+
 function Invoke-KafkaJava([string]$Class, [string[]]$Arguments) {
-    & java '-Xms128m' '-Xmx384m' "-Dlog4j2.configurationFile=$runtimePath/config/tools-log4j2.yaml" `
+    & $javaPath '-Xms96m' '-Xmx320m' '-XX:MaxDirectMemorySize=128m' "-Dlog4j2.configurationFile=$runtimePath/config/tools-log4j2.yaml" `
         '-cp' "$runtimePath/libs/*" $Class @Arguments
     if ($LASTEXITCODE -ne 0) { throw "Kafka command failed: $Class (exit $LASTEXITCODE)" }
 }
@@ -58,9 +83,16 @@ switch ($Action) {
         }
     }
     'start' {
-        if (-not (Test-Path -LiteralPath "$dataPath/node$Node/meta.properties")) { throw 'Run -Action init once first.' }
+        $nodeDataPath = Join-Path $dataPath "node$Node"
+        if (-not (Test-Path -LiteralPath "$nodeDataPath/meta.properties")) { throw 'Run -Action init once first.' }
+        $readOnlyFiles = @(Get-ChildItem -LiteralPath $nodeDataPath -File -Recurse -Force |
+            Where-Object { $_.IsReadOnly })
+        foreach ($file in $readOnlyFiles) { $file.IsReadOnly = $false }
+        if ($readOnlyFiles.Count -gt 0) {
+            Write-Host "Cleared the Windows read-only attribute from $($readOnlyFiles.Count) Kafka recovery files for node $Node."
+        }
         New-Item -ItemType Directory -Force -Path "$dataPath/logs/node$Node" | Out-Null
-        & java '-Xms128m' '-Xmx384m' "-Dkafka.logs.dir=$dataPath/logs/node$Node" `
+        & $javaPath '-Xms96m' '-Xmx320m' '-XX:MaxDirectMemorySize=128m' "-Dkafka.logs.dir=$dataPath/logs/node$Node" `
             "-Dlog4j2.configurationFile=$runtimePath/config/log4j2.yaml" '-cp' "$runtimePath/libs/*" `
             'kafka.Kafka' "$projectRoot/infra/kafka/node$Node.properties"
         if ($LASTEXITCODE -ne 0) { throw "Kafka node $Node exited with $LASTEXITCODE" }

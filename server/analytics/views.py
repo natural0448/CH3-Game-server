@@ -19,6 +19,17 @@ def summary_view(request):
     return JsonResponse({"available": True, **summary})
 
 
+@require_GET
+def windows_view(request):
+    if not request.user.is_authenticated:
+        return JsonResponse({"error": "login_required"}, status=401)
+    path = settings.DATA_DIR / "marts" / "windows.json"
+    if not path.exists():
+        return JsonResponse({"available": False, "windows": []})
+    result = json.loads(path.read_text(encoding="utf-8"))
+    return JsonResponse({"available": True, **result})
+
+
 @login_required
 def actions_snapshot(request):
     root = settings.DATA_DIR.parent / "data-replay" / "actions"

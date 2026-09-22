@@ -21,6 +21,8 @@ class Command(BaseCommand):
             settings.SPARK_SUBMIT,
             "--master", settings.SPARK_MASTER,
             "--deploy-mode", "client",
+            "--driver-memory", "1g",
+            "--executor-memory", "1g",
             "--executor-cores", "1",
             "--total-executor-cores", str(options["cores"]),
             "--conf", f"spark.pyspark.python={sys.executable}",
