@@ -24,3 +24,24 @@ settings.DATA_DIR/marts/windows.json이 없으면 {available: false, windows: []
 ### `actions_snapshot(request) -> JsonResponse`
 
 로그인한 사용자의 고정 Kafka snapshot 집계와 manifest를 읽고 행동 표시명을 붙여 반환한다. 직접 호출하는 외부 코드는 Django `login_required`, `ACTION_LABELS`, 파일 JSON 읽기다.
+
+### `metrics_snapshot(request) -> JsonResponse`
+
+```text
+GET·로그인 조건 검사
+DATA_DIR/marts/game-metrics.json이 없으면 {available:false, metrics:null}
+있으면 UTF-8 JSON을 읽어 {available:true, metrics:report}
+Kafka 조회나 Spark 작업을 실행하지 않음
+```
+
+### `load_snapshot(request) -> JsonResponse`
+
+```text
+GET·로그인 조건 검사
+DATA_DIR/load/run-50.json이 없으면 {available:false, load:null}
+있으면 LOAD_SNAPSHOT_FIELDS의 완료 측정 필드만 복사
+by_player를 room_id별 connected/success_count 작은 목록으로 축약
+계정별 행과 environment는 HTTP 응답에서 제외
+```
+
+`LOAD_SNAPSHOT_FIELDS`는 생성·시작 시각, profile, 연결·요청·성공·오류·경과·처리율·RTT 필드의 허용 목록이다.

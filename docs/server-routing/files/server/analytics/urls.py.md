@@ -7,6 +7,7 @@
 - `""` → `views.summary_view`, 이름 `summary`.
 - `"ingest/"` → `ingest_summary_view`, 이름 `ingest-summary`.
 - `"windows/"` → `views.windows_view`, 이름 `windows`.
+- `"metrics/"` → `views.metrics_snapshot`, 이름 `metrics-snapshot`.
+- `"load/"` → `views.load_snapshot`, 이름 `load-snapshot`.
 
-따라서 시간 창 조회의 외부 경로는 `GET /api/analytics/windows/`이다.
-
+따라서 추가 운영 snapshot 외부 경로는 `GET /api/analytics/metrics/`와 `GET /api/analytics/load/`이다.

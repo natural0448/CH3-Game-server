@@ -2,6 +2,8 @@
 
 이 색인은 현재 문서화된 서버·Spark 개발 파일과 1:1 짝 문서를 연결한다. 아직 문서화하지 않은 기존 파일을 현재 구조처럼 설명하지 않는다.
 
+[2026-09-28 현재 구현 정본](../handoffs/2026-09-28-day18-canonical.md)은 오늘까지 반영된 서버·분석 파이프라인·측정 도구의 기준 상태와 검증 결과를 기록한다.
+
 [17일차 Delta 고유 사실 파이프라인 기획](day17-delta-plan.md)은 현재 구현된 Kafka→Delta→집계→분석 API 흐름과 운영 자원 배치를 설명한다.
 
 ## Spark 집계
@@ -23,9 +25,12 @@
 | `server/analytics/management/commands/summarize_windows.py` | `files/server/analytics/management/commands/summarize_windows.py.md` | 최근 확정 시간 창을 게시하는 Spark 작업 제출 명령 |
 | `server/analytics/management/commands/summarize_game.py` | `files/server/analytics/management/commands/summarize_game.py.md` | raw 또는 Delta 행동 집계를 기존 Spark 클러스터에 제출 |
 | `server/analytics/management/commands/summarize_ingest.py` | `files/server/analytics/management/commands/summarize_ingest.py.md` | Spark 집계 제출 인자 조립과 프로세스 실행 |
+| `server/analytics/management/commands/collect_game_metrics.py` | `files/server/analytics/management/commands/collect_game_metrics.py.md` | DB·publisher·Python 변환기 Kafka 위치·Spark progress를 읽어 운영 snapshot 게시 |
 | `server/game/management/commands/run_game_ingest.py` | `files/server/game/management/commands/run_game_ingest.py.md` | Kafka 원천 수집을 driver·executor 1GB 상한으로 제출 |
 | `server/game/management/commands/publish_window_demo.py` | `files/server/game/management/commands/publish_window_demo.py.md` | 운영 게임 토픽과 분리된 시간 창 실습용 합성 사건을 단계별 발행 |
 | `server/game/management/commands/inspect_game_facts.py` | `files/server/game/management/commands/inspect_game_facts.py.md` | 최근 확정 사실의 세 식별자를 제한된 공개 필드로 읽는 점검 명령 |
+| `server/game/management/commands/prepare_load_players.py` | `files/server/game/management/commands/prepare_load_players.py.md` | 수업용 측정 계정과 방별 Player를 만들고 비밀번호 없는 계정 목록을 저장 |
+| `server/game/management/commands/export_game_handoff.py` | `files/server/game/management/commands/export_game_handoff.py.md` | 선택한 DB 확정 사실 범위를 UTF-8 JSONL Lake 인계 원본으로 내보내기 |
 
 ## Django 설정
 
@@ -37,9 +42,18 @@
 
 | 개발 파일 | 짝 문서 | 책임 |
 | --- | --- | --- |
-| `server/analytics/views.py` | `files/server/analytics/views.py.md` | 게시된 일반·행동·시간 창 분석 JSON의 인증된 읽기 전용 응답 |
-| `server/analytics/urls.py` | `files/server/analytics/urls.py.md` | `/api/analytics/` 아래 요약·수집·시간 창 경로 연결 |
+| `server/analytics/views.py` | `files/server/analytics/views.py.md` | 게시된 일반·행동·시간 창·운영 지표·부하 측정 JSON의 인증된 읽기 전용 응답 |
+| `server/analytics/urls.py` | `files/server/analytics/urls.py.md` | `/api/analytics/` 아래 요약·수집·시간 창·운영·부하 경로 연결 |
 | `server/analytics/test_windows_view.py` | `files/server/analytics/test_windows_view.py.md` | 시간 창 API의 인증·미생성·게시 파일·URL 회귀 검사 |
+| `server/analytics/test_day18_snapshots.py` | `files/server/analytics/test_day18_snapshots.py.md` | 운영 지표·부하 snapshot API의 인증·미생성·허용 응답 회귀 검사 |
+
+## Django 게임 HTTP
+
+| 개발 파일 | 짝 문서 | 책임 |
+| --- | --- | --- |
+| `server/game/urls.py` | `files/server/game/urls.py.md` | 관리 화면·게임 화면·인증·Player·전달·이력 HTTP 경로 연결 |
+| `server/game/views.py` | `files/server/game/views.py.md` | 로컬 전달 현황과 인증된 Player·이력·전달 JSON 응답 |
+| `server/game/test_handoff_export.py` | `files/server/game/test_handoff_export.py.md` | Lake 인계 JSONL의 정렬·필드·반개구간·timezone 계약 검사 |
 
 ## 로컬 인프라 실행기
 
@@ -48,6 +62,9 @@
 | `tools/start-dev.ps1` | `files/tools/start-dev.ps1.md` | Kafka 3노드, 프로필별 Spark Worker 수와 선택적 Docker Compose NiFi의 사전 검사·별도 터미널 실행 |
 | `tools/kafka.ps1` | `files/tools/kafka.ps1.md` | Kafka 3노드 초기화·실행·상태·토픽·consumer group 도구 호출 |
 | `tools/find_nifi_event.py` | `files/tools/find_nifi_event.py.md` | NiFi JSON 출력 폴더에서 지정한 사건 UUID를 제한 범위로 검색 |
+| `tools/ws_load.py` | `files/tools/ws_load.py.md` | 수업 계정별 로그인·WebSocket 이동 요청과 RTT·연결 결과 측정 |
+| `tools/read_load_result.py` | `files/tools/read_load_result.py.md` | 저장된 동시 접속 측정 JSON의 대표 지표 출력 |
+| `tools/compare_load.py` | `files/tools/compare_load.py.md` | 저장된 두 동시 접속 측정 결과의 입력 조건과 대표 지표 비교 |
 
 ## Kafka 노드 설정
 

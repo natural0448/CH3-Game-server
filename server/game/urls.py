@@ -14,4 +14,6 @@ urlpatterns = [
     path("api/player/", views.player_view, name="player"),
     path("api/delivery/", views.delivery_view, name="delivery"),
     path("api/history/", views.history, name="history"),
+    path("api/auth/csrf/",views.csrf_view,name="csrf",),
+    path("api/auth/login/",views.api_login,name="api-login",),
 ]
