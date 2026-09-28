@@ -29,6 +29,9 @@ controller.listener.names = CONTROLLER
 log.dirs = C:/MLO01-01/Chapter3/Game-server/data/kafka/node2
 log.cleaner.enable = false
   Windows가 memory-mapped compacted index의 rename을 막아 log dir을 실패 처리하는 것을 방지한다.
+
+log.retention.ms = -1
+  수업용 Windows 실행 중 보존기간 만료 세그먼트의 index rename·삭제를 수행하지 않는다.
 ```
 
-복제 기본값은 3, 최소 ISR은 2이며 자동 토픽 생성과 로컬 log cleaner를 끈다. 토픽 기록과 consumer offset 기록은 유지되며 수업 데이터는 자동 compact하지 않는다. `tools/kafka.ps1 -Action start -Node 2`가 이 파일을 Kafka 프로세스에 직접 전달한다.
+복제 기본값은 3, 최소 ISR은 2이며 자동 토픽 생성, 로컬 log cleaner, 실행 중 보존기간 삭제를 끈다. 토픽 기록과 consumer offset 기록은 유지된다. 수업 데이터가 자동 삭제되지 않으므로 디스크 정리는 Kafka 세 노드를 모두 정상 종료한 상태에서 별도 백업·초기화 절차로 수행한다. `tools/kafka.ps1 -Action start -Node 2`가 이 파일을 Kafka 프로세스에 직접 전달한다.

@@ -63,7 +63,7 @@ def main():
                 unique.write.format('delta').mode('errorifexists').save(target)
             else:
                 unique.createOrReplaceTempView('incoming_actions')
-                spark.sql(f'''
+                batch.sparkSession.sql(f'''
                     MERGE INTO delta.`{target}` AS saved
                     USING incoming_actions AS incoming
                     ON saved.event_id = incoming.event_id
@@ -74,3 +74,34 @@ def main():
 
         finally:
             unique.unpersist()
+
+    checkpoint = data_dir / "checkpoints" / "game-actions-delta-v1"
+    progress_path = Path(args.progress_output).resolve() if args.progress_output else data_dir / "marts" / "progress-game-actions.json"
+    progress_path.parent.mkdir(parents=True, exist_ok=True)
+    query = (
+        actions.writeStream.foreachBatch(save_unique)
+        .outputMode("append")
+        .option("checkpointLocation", checkpoint.as_uri())
+        .queryName("game-actions-delta-v1")
+        .trigger(processingTime="5 seconds")
+        .start()
+    )
+    last_batch_id = None
+    try:
+        while not query.awaitTermination(5):
+            snapshot = query.lastProgress
+            progress = (json.loads(snapshot.json) if hasattr(snapshot, "json") else snapshot) if snapshot is not None else None
+            if progress and progress["batchId"] != last_batch_id:
+                temporary = progress_path.with_suffix(".tmp")
+                temporary.write_text(json.dumps(progress, ensure_ascii=False, indent=2), encoding="utf-8")
+                temporary.replace(progress_path)
+                print("completed delta batch:", progress["batchId"], "input rows:", progress.get("numInputRows"))
+                last_batch_id = progress["batchId"]
+    except KeyboardInterrupt:
+        pass
+    finally:
+        query.stop()
+        spark.stop()
+
+if __name__ == "__main__":
+    main()

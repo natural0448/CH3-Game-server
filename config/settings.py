@@ -110,6 +110,8 @@ KAFKA_BOOTSTRAP_SERVERS = [
 ]
 KAFKA_EVENT_TOPIC = os.environ.get("KAFKA_EVENT_TOPIC", "game.events.v1")
 KAFKA_GROUP_ID = os.environ.get("KAFKA_GROUP_ID", "village-watch-v1")
+KAFKA_PACKAGE = "org.apache.spark:spark-sql-kafka-0-10_2.13:4.1.3"
+DELTA_PACKAGE = "io.delta:delta-spark_4.1_2.13:4.1.0"
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/

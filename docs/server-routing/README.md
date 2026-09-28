@@ -6,6 +6,7 @@
 
 | 개발 파일 | 짝 문서 | 책임 |
 | --- | --- | --- |
+| `spark_jobs/game_actions_delta.py` | `files/spark_jobs/game_actions_delta.py.md` | Kafka 행동 사실을 `event_id` 기준으로 Delta에 고유 저장하고 진행 상태를 기록 |
 | `spark_jobs/game_windows.py` | `files/spark_jobs/game_windows.py.md` | 서버 event_time 기준 10초 tumbling·20초 sliding 집계, kind별 Parquet·checkpoint·progress 기록 |
 | `spark_jobs/summarize_ingest.py` | `files/spark_jobs/summarize_ingest.py.md` | 수집된 Parquet의 레코드·고유 사건 집계와 선택 UUID 증거 생성 |
 | `spark_jobs/summarize_windows.py` | `files/spark_jobs/summarize_windows.py.md` | 확정 시간 창 Parquet에서 종류별 최근 행을 읽어 windows.json 게시 |
@@ -15,12 +16,19 @@
 | 개발 파일 | 짝 문서 | 책임 |
 | --- | --- | --- |
 | `server/analytics/management/commands/run_game_windows.py` | `files/server/analytics/management/commands/run_game_windows.py.md` | 기존 Spark 클러스터에 시간 창 작업을 제출하는 Django 명령 |
+| `server/analytics/management/commands/run_game_delta.py` | `files/server/analytics/management/commands/run_game_delta.py.md` | 기존 Spark 클러스터에 Delta 고유 사실 스트림을 제출하는 Django 명령 |
 | `server/analytics/management/commands/summarize_windows.py` | `files/server/analytics/management/commands/summarize_windows.py.md` | 최근 확정 시간 창을 게시하는 Spark 작업 제출 명령 |
 | `server/analytics/management/commands/summarize_game.py` | `files/server/analytics/management/commands/summarize_game.py.md` | 원본 게임 JSONL 집계를 driver·executor 1GB 상한으로 제출 |
 | `server/analytics/management/commands/summarize_ingest.py` | `files/server/analytics/management/commands/summarize_ingest.py.md` | Spark 집계 제출 인자 조립과 프로세스 실행 |
 | `server/game/management/commands/run_game_ingest.py` | `files/server/game/management/commands/run_game_ingest.py.md` | Kafka 원천 수집을 driver·executor 1GB 상한으로 제출 |
 | `server/game/management/commands/publish_window_demo.py` | `files/server/game/management/commands/publish_window_demo.py.md` | 운영 게임 토픽과 분리된 시간 창 실습용 합성 사건을 단계별 발행 |
 | `server/game/management/commands/inspect_game_facts.py` | `files/server/game/management/commands/inspect_game_facts.py.md` | 최근 확정 사실의 세 식별자를 제한된 공개 필드로 읽는 점검 명령 |
+
+## Django 설정
+
+| 개발 파일 | 짝 문서 | 책임 |
+| --- | --- | --- |
+| `config/settings.py` | `files/config/settings.py.md` | Django·MySQL·Channels·Kafka·Spark 및 Delta 패키지 설정의 값 출처 |
 
 ## Django 분석 API
 
