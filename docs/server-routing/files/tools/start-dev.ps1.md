@@ -2,7 +2,7 @@
 
 ## 책임과 호출 경계
 
-`without-nifi`와 `with-nifi` 두 프로필 중 하나로 로컬 인프라를 실행한다. 두 프로필 모두 Kafka 3노드와 Spark Master·Worker 1개를 각각 별도 PowerShell 창에서 실행한다. `with-nifi`만 Docker Compose로 정의된 ZooKeeper 3개·NiFi 3개를 별도 PowerShell 창에 추가한다. Django, publisher, Spark 작업 제출, Kafka 토픽 관리와 NiFi Flow 구성은 호출하지 않는다.
+`without-nifi`와 `with-nifi` 두 프로필 중 하나로 로컬 인프라를 실행한다. `without-nifi`는 Kafka 3노드와 Spark Master·Worker 2개를, `with-nifi`는 Kafka 3노드와 Spark Master·Worker 1개 및 Docker Compose의 ZooKeeper 3개·NiFi 3개를 각각 별도 PowerShell 창에서 실행한다. Django, publisher, Spark 작업 제출, Kafka 토픽 관리와 NiFi Flow 구성은 호출하지 않는다.
 
 Docker Compose 파일과 `.env`는 외부 인프라 경로 `C:/MLO01-01/nifi-cluster/nifi-compose`가 소유한다. 실행기는 값을 생성하거나 출력하지 않고 구성 유효성만 검사한다.
 
@@ -11,10 +11,10 @@ Docker Compose 파일과 `.env`는 외부 인프라 경로 `C:/MLO01-01/nifi-clu
 ```text
 Profile: with-nifi | without-nifi
   기본값 without-nifi.
-  without-nifi는 Kafka 3개와 Spark Master·Worker 1을 연다.
-  with-nifi는 같은 구성에 Docker NiFi·ZooKeeper를 추가한다.
+  without-nifi는 Kafka 3개와 Spark Master·Worker 1·2를 연다.
+  with-nifi는 Kafka 3개와 Spark Master·Worker 1 및 Docker NiFi·ZooKeeper를 연다.
 
-ChildService: kafka1 | kafka2 | kafka3 | spark-master | spark-worker1 | nifi
+ChildService: kafka1 | kafka2 | kafka3 | spark-master | spark-worker1 | spark-worker2 | nifi
   기본값 없음. 프로필 실행기가 서비스별 별도 창을 만들 때 내부적으로 전달한다.
   일반 실행에서는 직접 지정하지 않는다.
 
@@ -47,7 +47,7 @@ nifiComposeFile
 servicePorts
   Kafka 호스트 client/controller: 9092~9097.
   Kafka Docker bridge client: 29092, 29094, 29096.
-  Spark: 7077~7078, 8080~8081.
+  Spark: Master 7077·8080, Worker 1은 7078·8081, Worker 2는 7079·8082.
   Docker NiFi: 호스트 HTTPS 8443~8445.
 
 dockerCli
@@ -144,13 +144,14 @@ Confirm-Files(IncludeNifi, JavaPath)
 Profile이 with-nifi이거나 ChildService가 nifi일 때만 Docker CLI 탐색과 NiFi Compose 사전 검사
 
 if CheckOnly:
-    without-nifi이면 Kafka 3개·Spark Master·Worker 1 포트만 확인
-    with-nifi이면 같은 포트와 NiFi 포트·Docker Compose를 확인
+    without-nifi이면 Kafka 3개·Spark Master·Worker 1·2 포트 확인
+    with-nifi이면 Kafka 3개·Spark Master·Worker 1과 NiFi 포트·Docker Compose 확인
     ChildService이면 해당 서비스 포트만 확인
     프로세스 없이 종료
 
 if ChildService가 없음:
-    Profile에 따라 Kafka·Spark 목록 또는 Kafka·Spark·NiFi 목록 구성
+    without-nifi이면 Kafka 3개·Spark Master·Worker 1·2 목록 구성
+    with-nifi이면 Kafka 3개·Spark Master·Worker 1·NiFi 목록 구성
     NiFi 사전 검사 실패 시 NiFi만 건너뜀
     이미 포트가 열렸으면 해당 서비스 건너뜀
     나머지는 ChildService를 지정한 별도 PowerShell 창으로 이 스크립트를 재호출
@@ -160,7 +161,8 @@ if ChildService가 Kafka:
 elif ChildService가 Spark:
     SPARK_DAEMON_MEMORY를 192m으로 제한
     spark-class.cmd로 Master 또는 Worker 전경 실행
-    Worker는 4코어·실행 메모리 768m로 등록
+    Worker 번호로 서비스 포트(7077+번호), 웹 포트(8080+번호), work/worker-번호 경로 계산
+    Worker는 각각 4코어·실행 메모리 768m로 등록
 else ChildService가 nifi:
     Docker Compose 사전 검사 재확인
     compose_cluster.yaml을 docker compose up으로 전경 실행

@@ -31,7 +31,7 @@ event_id 중복 제거
 DataFrame cache
 Delta 로그가 없으면 최초 Delta 테이블 저장
 Delta 로그가 있으면 incoming_actions 임시 뷰 생성
-임시 뷰를 만든 unique DataFrame의 SparkSession으로 MERGE 실행
+foreachBatch가 전달한 batch DataFrame의 SparkSession으로 MERGE 실행
 saved.event_id와 incoming.event_id가 일치하지 않는 행만 INSERT
 처리 건수 출력
 항상 cache 해제
@@ -43,5 +43,6 @@ saved.event_id와 incoming.event_id가 일치하지 않는 행만 INSERT
 - `target`: `<data-dir>/lake/silver/game_actions`에서 `Path.as_uri()`로 만든 file URI 문자열.
 - `spark`: `main`이 만든 driver SparkSession.
 - `actions`: `game.actions.v1`에서 허용 행동만 남긴 streaming DataFrame.
+- `batch`: foreachBatch가 전달한 현재 micro-batch DataFrame이며 MERGE SQL의 SparkSession 출처.
 - `checkpoint`: `<data-dir>/checkpoints/game-actions-delta-v1`.
 - `progress_path`: 명시된 `--progress-output` 또는 `<data-dir>/marts/progress-game-actions.json`.

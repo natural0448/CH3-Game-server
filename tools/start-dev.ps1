@@ -1,7 +1,7 @@
 param(
     [ValidateSet('with-nifi', 'without-nifi')]
     [string]$Profile = 'without-nifi',
-    [ValidateSet('kafka1', 'kafka2', 'kafka3', 'spark-master', 'spark-worker1', 'nifi')]
+    [ValidateSet('kafka1', 'kafka2', 'kafka3', 'spark-master', 'spark-worker1', 'spark-worker2', 'nifi')]
     [string]$ChildService,
     [switch]$CheckOnly,
     [string]$DockerCliPath = $env:DOCKER_CLI
@@ -24,6 +24,7 @@ $servicePorts = [ordered]@{
     'kafka3' = @(9096, 9097, 29096)
     'spark-master' = @(7077, 8080)
     'spark-worker1' = @(7078, 8081)
+    'spark-worker2' = @(7079, 8082)
     'nifi' = @(8443, 8444, 8445)
 }
 
@@ -201,6 +202,7 @@ try {
             @($ChildService)
         } else {
             $profileServices = @('kafka1', 'kafka2', 'kafka3', 'spark-master', 'spark-worker1')
+            if ($Profile -eq 'without-nifi') { $profileServices += 'spark-worker2' }
             if ($Profile -eq 'with-nifi') { $profileServices += 'nifi' }
             $profileServices
         }
@@ -227,6 +229,7 @@ try {
 
     if ([string]::IsNullOrWhiteSpace($ChildService)) {
         $servicesToOpen = @('kafka1', 'kafka2', 'kafka3', 'spark-master', 'spark-worker1')
+        if ($Profile -eq 'without-nifi') { $servicesToOpen += 'spark-worker2' }
         if ($Profile -eq 'with-nifi') { $servicesToOpen += 'nifi' }
         foreach ($name in $servicesToOpen) {
             if ($name -eq 'nifi' -and $nifiPreflightIssues.Count -gt 0) {
@@ -242,9 +245,9 @@ try {
             Write-Host "Opened $name. Check its window for readiness or errors."
         }
         if ($Profile -eq 'without-nifi') {
-            Write-Host 'without-nifi opened Kafka 3 nodes and one Spark Worker. Docker/NiFi was not started.'
+            Write-Host 'without-nifi opened Kafka 3 nodes and two Spark Workers. Docker/NiFi was not started.'
         } else {
-            Write-Host 'Stop NiFi Compose, Spark Worker/Master, and Kafka with Ctrl+C in their service windows.'
+            Write-Host 'with-nifi opened Kafka 3 nodes, one Spark Worker, and NiFi Compose. Stop them with Ctrl+C in their service windows.'
         }
         return
     }
@@ -272,7 +275,7 @@ try {
                 if ([DateTime]::UtcNow -ge $deadline) { throw 'Spark Master is not ready. Check its window, then run start-dev.cmd again.' }
                 Start-Sleep -Seconds 1
             }
-            $workerNumber = [int]$ChildService.Substring($ChildService.Length - 1)
+            $workerNumber = [int]$ChildService.Substring('spark-worker'.Length)
             $workerPort = 7077 + $workerNumber
             $webPort = 8080 + $workerNumber
             $workPath = Join-Path $sparkRoot "work/worker-$workerNumber"

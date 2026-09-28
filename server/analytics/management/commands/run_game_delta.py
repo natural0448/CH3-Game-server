@@ -18,7 +18,7 @@ class Command(BaseCommand):
         progress = Path(options["progress_output"]).resolve() if options["progress_output"] else data_dir / "marts" / "progress-game-actions.json"
         command = [
             settings.SPARK_SUBMIT, "--master", settings.SPARK_MASTER,
-            "--deploy-mode", "client", "--executor-cores", "1", "--total-executor-cores", "2",
+            "--deploy-mode", "client", "--executor-cores", "1", "--total-executor-cores", "1",
             "--packages", ",".join([settings.KAFKA_PACKAGE, settings.DELTA_PACKAGE]),
             "--conf", f"spark.pyspark.python={sys.executable}",
             "--conf", f"spark.pyspark.driver.python={sys.executable}",

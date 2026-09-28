@@ -8,7 +8,7 @@
 
 ### `summary_view(request) -> JsonResponse`
 
-인증되지 않은 요청에는 401을 반환한다. `settings.DATA_DIR/marts/game-summary.json`이 없으면 미생성 상태를, 있으면 파일의 요약을 `available=true`와 함께 반환한다.
+인증되지 않은 요청에는 401을 반환한다. `settings.DATA_DIR/marts/game-summary.json`이 없으면 `available=false`와 미생성 이유를 반환한다. 파일이 있으면 `available=true`와 함께 게시 파일의 `schema_version`, `generated_at`, `source`, `record_count`, `event_count`, `by_action`, `by_room`을 반환한다. 이 뷰는 필드 값을 다시 계산하거나 Spark 작업을 실행하지 않는다.
 
 ### `windows_view(request) -> JsonResponse`
 
@@ -24,4 +24,3 @@ settings.DATA_DIR/marts/windows.json이 없으면 {available: false, windows: []
 ### `actions_snapshot(request) -> JsonResponse`
 
 로그인한 사용자의 고정 Kafka snapshot 집계와 manifest를 읽고 행동 표시명을 붙여 반환한다. 직접 호출하는 외부 코드는 Django `login_required`, `ACTION_LABELS`, 파일 JSON 읽기다.
-
