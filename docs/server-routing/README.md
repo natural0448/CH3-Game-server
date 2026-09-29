@@ -65,6 +65,8 @@
 | `tools/ws_load.py` | `files/tools/ws_load.py.md` | 수업 계정별 로그인·WebSocket 이동 요청과 RTT·연결 결과 측정 |
 | `tools/read_load_result.py` | `files/tools/read_load_result.py.md` | 저장된 동시 접속 측정 JSON의 대표 지표 출력 |
 | `tools/compare_load.py` | `files/tools/compare_load.py.md` | 저장된 두 동시 접속 측정 결과의 입력 조건과 대표 지표 비교 |
+| `tools/basics/day19_period03.py` | `files/tools/basics/day19_period03.py.md` | 3교시 bytes 길이·SHA-256 일치 연습 |
+| `tools/store_bronze.py` | `files/tools/store_bronze.py.md` | 수집 NDJSON 원본 bytes와 manifest를 새 Bronze 실행 폴더에 저장 |
 
 ## Kafka 노드 설정
 
