@@ -1,0 +1,136 @@
+{
+  "schema_version": 1,
+  "repository": "C:\\MLO01-01\\Chapter3\\Game-server",
+  "git_head": "0d22f22 day19-finish",
+  "git_status": [
+    " M docs/server-routing/README.md",
+    "?? docs/handoffs/2026-09-30-lake-url.md",
+    "?? docs/server-routing/files/tools/publish_lake_status.py.md",
+    "?? spark_jobs/parse_game_bronze.py",
+    "?? tools/basics/day20_period01.py",
+    "?? tools/publish_lake_status.py"
+  ],
+  "routing_dir": "docs/server-routing",
+  "scope": "working_tree",
+  "changed_paths": [
+    "docs/handoffs/2026-09-30-lake-url.md",
+    "docs/server-routing/README.md",
+    "docs/server-routing/files/tools/publish_lake_status.py.md",
+    "spark_jobs/parse_game_bronze.py",
+    "tools/basics/day20_period01.py",
+    "tools/publish_lake_status.py"
+  ],
+  "python_files": [
+    {
+      "path": "spark_jobs/parse_game_bronze.py",
+      "state": "present",
+      "document": "docs/server-routing/files/spark_jobs/parse_game_bronze.py.md",
+      "document_exists": false,
+      "indexed": false,
+      "symbols": [],
+      "missing_signatures": [],
+      "parse_error": null
+    },
+    {
+      "path": "tools/basics/day20_period01.py",
+      "state": "present",
+      "document": "docs/server-routing/files/tools/basics/day20_period01.py.md",
+      "document_exists": false,
+      "indexed": false,
+      "symbols": [],
+      "missing_signatures": [],
+      "parse_error": null
+    },
+    {
+      "path": "tools/publish_lake_status.py",
+      "state": "present",
+      "document": "docs/server-routing/files/tools/publish_lake_status.py.md",
+      "document_exists": true,
+      "indexed": true,
+      "symbols": [
+        {
+          "kind": "function",
+          "qualified_name": "inspect_file",
+          "line": 8,
+          "signature": "inspect_file(path)",
+          "signature_core": "inspect_file(path)",
+          "return_annotation": null,
+          "decorators": [],
+          "bases": [],
+          "documented": true
+        },
+        {
+          "kind": "function",
+          "qualified_name": "compare_to_manifest",
+          "line": 18,
+          "signature": "compare_to_manifest(observed, manifest)",
+          "signature_core": "compare_to_manifest(observed, manifest)",
+          "return_annotation": null,
+          "decorators": [],
+          "bases": [],
+          "documented": true
+        },
+        {
+          "kind": "function",
+          "qualified_name": "make_status",
+          "line": 25,
+          "signature": "make_status(original_path, copied_path, manifest_path)",
+          "signature_core": "make_status(original_path, copied_path, manifest_path)",
+          "return_annotation": null,
+          "decorators": [],
+          "bases": [],
+          "documented": true
+        },
+        {
+          "kind": "function",
+          "qualified_name": "write_status",
+          "line": 48,
+          "signature": "write_status(status, output)",
+          "signature_core": "write_status(status, output)",
+          "return_annotation": null,
+          "decorators": [],
+          "bases": [],
+          "documented": true
+        },
+        {
+          "kind": "function",
+          "qualified_name": "main",
+          "line": 58,
+          "signature": "main()",
+          "signature_core": "main()",
+          "return_annotation": null,
+          "decorators": [],
+          "bases": [],
+          "documented": true
+        }
+      ],
+      "missing_signatures": [],
+      "parse_error": null
+    }
+  ],
+  "issues": [
+    {
+      "code": "missing_document",
+      "path": "spark_jobs/parse_game_bronze.py"
+    },
+    {
+      "code": "missing_index",
+      "path": "spark_jobs/parse_game_bronze.py"
+    },
+    {
+      "code": "missing_document",
+      "path": "tools/basics/day20_period01.py"
+    },
+    {
+      "code": "missing_index",
+      "path": "tools/basics/day20_period01.py"
+    }
+  ],
+  "summary": {
+    "changed_path_count": 6,
+    "python_file_count": 3,
+    "symbol_count": 5,
+    "issue_count": 4,
+    "ok": false
+  }
+}

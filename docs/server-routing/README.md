@@ -75,6 +75,7 @@
 | `tools/basics/day19_period01.py` | `files/tools/basics/day19_period01.py.md` | 실제 summary 방 수 계산과 연습 현황 출력 |
 | `tools/lake_inventory.py` | `files/tools/lake_inventory.py.md` | 게시 summary와 방 수에서 Lake 저장 현황 JSON 생성 |
 | `tools/check_bronze.py` | `files/tools/check_bronze.py.md` | 원본 manifest와 사본의 bytes·rows·SHA-256 비교 및 run_id 출력 |
+| `tools/publish_lake_status.py` | `files/tools/publish_lake_status.py.md` | 선택한 원본·로컬 사본을 원본 manifest와 검사해 마지막 원본 보존 상태 게시 |
 
 ## Kafka 노드 설정
 
