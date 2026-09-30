@@ -20,11 +20,10 @@ observed = {
 
 # manifest의 세 기준과 비교하고 하나라도 다르면 실패로 종료한다.
 checks = {key: observed[key] == manifest[key] for key in observed}
-print(json.dumps({"observed": observed, "checks": checks}, indent=2))
-if not all(checks.values()):
-    raise SystemExit("copy does not match manifest")
-
 print(json.dumps({
     "run_id": manifest["run_id"],
     "observed": observed,
-    "checks": checks,}, indent=2))
+    "checks": checks,
+}, indent=2))
+if not all(checks.values()):
+    raise SystemExit("copy does not match manifest")

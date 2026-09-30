@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "dataset_id": "village.game-actions",
+  "dataset_version": "capture-001",
+  "source_topic": "game.actions.v1",
+  "source_of_game_state": "MySQL game_player",
+  "bronze_manifest": "data\\lake\\bronze\\game\\capture-001\\manifest.json",
+  "bronze_uri": "file:///C:/MLO01-01/Chapter3/Game-server/data/copies/bronze/game/capture-001/events.ndjson",
+  "event_identity": "event_id",
+  "transport_identity": [
+    "topic",
+    "partition",
+    "offset"
+  ],
+  "clock_storage": "UTC",
+  "calendar_timezone": "Asia/Seoul",
+  "retention_policy": {
+    "days": 30,
+    "automatic_delete_enabled": false
+  },
+  "rebuild_targets": [
+    "silver/game_actions",
+    "gold/game_daily",
+    "game-summary.json"
+  ],
+  "replay_effect": "analytics-only",
+  "input_sha256": "ea6c7b4164b827102fa3ba5b686471608bab10e1c215dadd242d4e7e79308d74"
+}

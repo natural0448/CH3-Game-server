@@ -1,0 +1,100 @@
+{
+  "schema_version": 1,
+  "repository": "C:\\MLO01-01\\Chapter3\\Game-server",
+  "git_head": "b1444ca day19-mission6 complete",
+  "git_status": [
+    " M docs/server-routing/README.md",
+    " M tools/basics/day19_period01.py",
+    " M tools/check_bronze.py",
+    " M tools/lake_inventory.py",
+    "?? docs/handoffs/2026-09-30-day19-through-period07.md",
+    "?? docs/handoffs/evidence/",
+    "?? docs/server-routing/files/spark_jobs/bronze_preview.py.md",
+    "?? docs/server-routing/files/tools/basics/day19_period01.py.md",
+    "?? docs/server-routing/files/tools/basics/day19_period07.py.md",
+    "?? docs/server-routing/files/tools/check_bronze.py.md",
+    "?? docs/server-routing/files/tools/lake_inventory.py.md",
+    "?? spark_jobs/bronze_preview.py",
+    "?? tools/basics/day19_period07.py"
+  ],
+  "routing_dir": "docs/server-routing",
+  "scope": "working_tree",
+  "changed_paths": [
+    "docs/handoffs/2026-09-30-day19-through-period07.md",
+    "docs/handoffs/evidence/day19-period07/check-bronze.json",
+    "docs/handoffs/evidence/day19-period07/routing-audit.json",
+    "docs/handoffs/evidence/day19-period07/spark-output.txt",
+    "docs/handoffs/evidence/day19-period07/workers.json",
+    "docs/server-routing/README.md",
+    "docs/server-routing/files/spark_jobs/bronze_preview.py.md",
+    "docs/server-routing/files/tools/basics/day19_period01.py.md",
+    "docs/server-routing/files/tools/basics/day19_period07.py.md",
+    "docs/server-routing/files/tools/check_bronze.py.md",
+    "docs/server-routing/files/tools/lake_inventory.py.md",
+    "spark_jobs/bronze_preview.py",
+    "tools/basics/day19_period01.py",
+    "tools/basics/day19_period07.py",
+    "tools/check_bronze.py",
+    "tools/lake_inventory.py"
+  ],
+  "python_files": [
+    {
+      "path": "spark_jobs/bronze_preview.py",
+      "state": "present",
+      "document": "docs/server-routing/files/spark_jobs/bronze_preview.py.md",
+      "document_exists": true,
+      "indexed": true,
+      "symbols": [],
+      "missing_signatures": [],
+      "parse_error": null
+    },
+    {
+      "path": "tools/basics/day19_period01.py",
+      "state": "present",
+      "document": "docs/server-routing/files/tools/basics/day19_period01.py.md",
+      "document_exists": true,
+      "indexed": true,
+      "symbols": [],
+      "missing_signatures": [],
+      "parse_error": null
+    },
+    {
+      "path": "tools/basics/day19_period07.py",
+      "state": "present",
+      "document": "docs/server-routing/files/tools/basics/day19_period07.py.md",
+      "document_exists": true,
+      "indexed": true,
+      "symbols": [],
+      "missing_signatures": [],
+      "parse_error": null
+    },
+    {
+      "path": "tools/check_bronze.py",
+      "state": "present",
+      "document": "docs/server-routing/files/tools/check_bronze.py.md",
+      "document_exists": true,
+      "indexed": true,
+      "symbols": [],
+      "missing_signatures": [],
+      "parse_error": null
+    },
+    {
+      "path": "tools/lake_inventory.py",
+      "state": "present",
+      "document": "docs/server-routing/files/tools/lake_inventory.py.md",
+      "document_exists": true,
+      "indexed": true,
+      "symbols": [],
+      "missing_signatures": [],
+      "parse_error": null
+    }
+  ],
+  "issues": [],
+  "summary": {
+    "changed_path_count": 16,
+    "python_file_count": 5,
+    "symbol_count": 0,
+    "issue_count": 0,
+    "ok": true
+  }
+}

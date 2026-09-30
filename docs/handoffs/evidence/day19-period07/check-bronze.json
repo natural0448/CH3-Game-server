@@ -1,0 +1,13 @@
+{
+  "run_id": "capture-002",
+  "observed": {
+    "bytes": 4590247,
+    "sha256": "ee469add49cb13de324e8fe00c4a4bc8cc97b2fc1e1787b52c9ec2ef03c8613b",
+    "rows": 5766
+  },
+  "checks": {
+    "bytes": true,
+    "sha256": true,
+    "rows": true
+  }
+}

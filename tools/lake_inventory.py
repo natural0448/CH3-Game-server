@@ -5,6 +5,7 @@ from pathlib import Path
 root = Path("data")
 summary_path = root / "marts" / "game-summary.json"
 summary = json.loads(summary_path.read_text(encoding="utf-8"))
+room_count = len(summary["by_room"])
 
 # 집계 위치·원본의 두 식별자·현재 상태의 기준 저장소를 구분해 기록한다.
 # rebuildable은 원본을 보존할 때만 성립한다.
@@ -13,6 +14,7 @@ result = {
     "serving": {
         "path": str(summary_path),
         "event_count": summary["event_count"],
+        "room_count": room_count,
         "rebuildable": True,
     },
     "source": {

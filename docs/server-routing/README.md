@@ -6,6 +6,8 @@
 
 [17일차 Delta 고유 사실 파이프라인 기획](day17-delta-plan.md)은 현재 구현된 Kafka→Delta→집계→분석 API 흐름과 운영 자원 배치를 설명한다.
 
+[19일차 7교시까지 반영·검증](../handoffs/2026-09-30-day19-through-period07.md)은 로컬 Bronze 사본 검사와 기존 Spark Worker 두 대의 미리보기 실행 결과·명령을 기록한다.
+
 ## Spark 집계
 
 | 개발 파일 | 짝 문서 | 책임 |
@@ -15,6 +17,7 @@
 | `spark_jobs/game_windows.py` | `files/spark_jobs/game_windows.py.md` | 서버 event_time 기준 10초 tumbling·20초 sliding 집계, kind별 Parquet·checkpoint·progress 기록 |
 | `spark_jobs/summarize_ingest.py` | `files/spark_jobs/summarize_ingest.py.md` | 수집된 Parquet의 레코드·고유 사건 집계와 선택 UUID 증거 생성 |
 | `spark_jobs/summarize_windows.py` | `files/spark_jobs/summarize_windows.py.md` | 확정 시간 창 Parquet에서 종류별 최근 행을 읽어 windows.json 게시 |
+| `spark_jobs/bronze_preview.py` | `files/spark_jobs/bronze_preview.py.md` | 기존 Spark 클러스터에서 Bronze 5행과 partition별 행·고유 key·offset 범위 확인 |
 
 ## Django 관리 명령
 
@@ -43,7 +46,8 @@
 | 개발 파일 | 짝 문서 | 책임 |
 | --- | --- | --- |
 | `server/analytics/views.py` | `files/server/analytics/views.py.md` | 게시된 일반·행동·시간 창·운영 지표·부하 측정 JSON의 인증된 읽기 전용 응답 |
-| `server/analytics/urls.py` | `files/server/analytics/urls.py.md` | `/api/analytics/` 아래 요약·수집·시간 창·운영·부하 경로 연결 |
+| `server/analytics/urls.py` | `files/server/analytics/urls.py.md` | `/api/analytics/` 아래 요약·수집·시간 창·운영·부하·원본 보존 경로 연결 |
+| `server/analytics/lake_views.py` | `files/server/analytics/lake_views.py.md` | 인증된 GET으로 게시 Lake 보존 검사 상태만 반환 |
 | `server/analytics/test_windows_view.py` | `files/server/analytics/test_windows_view.py.md` | 시간 창 API의 인증·미생성·게시 파일·URL 회귀 검사 |
 | `server/analytics/test_day18_snapshots.py` | `files/server/analytics/test_day18_snapshots.py.md` | 운영 지표·부하 snapshot API의 인증·미생성·허용 응답 회귀 검사 |
 
@@ -67,6 +71,10 @@
 | `tools/compare_load.py` | `files/tools/compare_load.py.md` | 저장된 두 동시 접속 측정 결과의 입력 조건과 대표 지표 비교 |
 | `tools/basics/day19_period03.py` | `files/tools/basics/day19_period03.py.md` | 3교시 bytes 길이·SHA-256 일치 연습 |
 | `tools/store_bronze.py` | `files/tools/store_bronze.py.md` | 수집 NDJSON 원본 bytes와 manifest를 새 Bronze 실행 폴더에 저장 |
+| `tools/basics/day19_period07.py` | `files/tools/basics/day19_period07.py.md` | 행 수와 서로 다른 key 수 비교 연습 |
+| `tools/basics/day19_period01.py` | `files/tools/basics/day19_period01.py.md` | 실제 summary 방 수 계산과 연습 현황 출력 |
+| `tools/lake_inventory.py` | `files/tools/lake_inventory.py.md` | 게시 summary와 방 수에서 Lake 저장 현황 JSON 생성 |
+| `tools/check_bronze.py` | `files/tools/check_bronze.py.md` | 원본 manifest와 사본의 bytes·rows·SHA-256 비교 및 run_id 출력 |
 
 ## Kafka 노드 설정
 
