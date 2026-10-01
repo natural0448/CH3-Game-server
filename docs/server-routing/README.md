@@ -2,6 +2,8 @@
 
 이 색인은 현재 문서화된 서버·Spark 개발 파일과 1:1 짝 문서를 연결한다. 아직 문서화하지 않은 기존 파일을 현재 구조처럼 설명하지 않는다.
 
+[20일차 8교시 수정·검증](../handoffs/2026-10-01-day20-through-period08.md)은 Bronze→품질→Silver→Gold→화면 요약·계약과 Windows 실행 순서를 기록한다.
+
 [2026-09-28 현재 구현 정본](../handoffs/2026-09-28-day18-canonical.md)은 오늘까지 반영된 서버·분석 파이프라인·측정 도구의 기준 상태와 검증 결과를 기록한다.
 
 [17일차 Delta 고유 사실 파이프라인 기획](day17-delta-plan.md)은 현재 구현된 Kafka→Delta→집계→분석 API 흐름과 운영 자원 배치를 설명한다.
@@ -104,3 +106,25 @@
 | 개발 파일 | 짝 문서 | 책임 |
 | --- | --- | --- |
 | `data/contracts/nifi-ingestion-plan.json` | `files/data/contracts/nifi-ingestion-plan.json.md` | 확정 행동 토픽을 독립 소비해 JSON 파일로 보존하는 NiFi Flow 계약 |
+
+## 20일차 계층 파이프라인
+
+| 개발 파일 | 짝 문서 | 책임 |
+| --- | --- | --- |
+| `spark_jobs/parse_game_bronze.py` | `files/spark_jobs/parse_game_bronze.py.md` | Bronze JSON 해석 |
+| `spark_jobs/check_game_quality.py` | `files/spark_jobs/check_game_quality.py.md` | 품질 검사 |
+| `spark_jobs/dedup_game_actions.py` | `files/spark_jobs/dedup_game_actions.py.md` | 행동 중복 제거 |
+| `spark_jobs/add_game_date.py` | `files/spark_jobs/add_game_date.py.md` | 한국 날짜 추가 |
+| `spark_jobs/build_game_daily.py` | `files/spark_jobs/build_game_daily.py.md` | 일별 Gold |
+| `spark_jobs/publish_game_summary.py` | `files/spark_jobs/publish_game_summary.py.md` | 작은 집계 JSON 게시 |
+| `tools/write_layer_contract.py` | `files/tools/write_layer_contract.py.md` | 계층 계약 작성 |
+| `infra/run-game-layers.sh` | `files/infra/run-game-layers.sh.md` | 단계별 Bash 명령 보관 |
+| `tools/basics/day20_period01.py` | `files/tools/basics/day20_period01.py.md` | 20일차 1교시 연습 |
+| `tools/basics/day20_period02.py` | `files/tools/basics/day20_period02.py.md` | 20일차 2교시 연습 |
+| `tools/basics/day20_period03.py` | `files/tools/basics/day20_period03.py.md` | 20일차 3교시 연습 |
+| `tools/basics/day20_period04.py` | `files/tools/basics/day20_period04.py.md` | 20일차 4교시 연습 |
+| `tools/basics/day20_period05.py` | `files/tools/basics/day20_period05.py.md` | 20일차 5교시 연습 |
+| `tools/basics/day20_period06.py` | `files/tools/basics/day20_period06.py.md` | 20일차 6교시 연습 |
+| `tools/basics/day20_period07.py` | `files/tools/basics/day20_period07.py.md` | 20일차 7교시 연습 |
+| `tools/basics/day20_period08.py` | `files/tools/basics/day20_period08.py.md` | 20일차 8교시 연습 |
+| `infra/layer-profile.ps1` | `files/infra/layer-profile.ps1.md` | Windows에서 capture-002 입력·출력 URI 설정 |

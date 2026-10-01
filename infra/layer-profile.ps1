@@ -1,0 +1,8 @@
+$sparkSubmit = 'C:\MLO01-01\Chapter3\Oder-insight\Spark-exam\spark-4.1.3-bin-hadoop3-1\bin\spark-submit.cmd'
+$env:SPARK_MASTER_URL = 'spark://127.0.0.1:7077'
+$env:BRONZE_INPUT_URI = 'file:///C:/MLO01-01/Chapter3/Game-server/data/lake/bronze/game/capture-002/events.ndjson'
+$env:PARSED_URI = 'file:///C:/MLO01-01/Chapter3/Game-server/data/lake/staging/parsed-capture-002'
+$env:QUALITY_URI = 'file:///C:/MLO01-01/Chapter3/Game-server/data/lake/staging/quality-capture-002'
+$env:SILVER_BASE_URI = 'file:///C:/MLO01-01/Chapter3/Game-server/data/lake/silver/game_actions/capture-002-base'
+$env:SILVER_URI = 'file:///C:/MLO01-01/Chapter3/Game-server/data/lake/silver/game_actions/capture-002'
+$env:GOLD_URI = 'file:///C:/MLO01-01/Chapter3/Game-server/data/lake/gold/game_daily/capture-002'

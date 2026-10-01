@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-10-01T03:35:48.669144+00:00",
+  "event_count": 5763,
+  "by_action": [
+    {
+      "event_type": "player.gathered",
+      "count": 58
+    },
+    {
+      "event_type": "player.moved",
+      "count": 5657
+    },
+    {
+      "event_type": "player.trained",
+      "count": 48
+    }
+  ],
+  "by_room": [
+    {
+      "room_id": "load18-01",
+      "count": 2344
+    },
+    {
+      "room_id": "load18-02",
+      "count": 1771
+    },
+    {
+      "room_id": "load18-03",
+      "count": 899
+    },
+    {
+      "room_id": "room-01",
+      "count": 539
+    },
+    {
+      "room_id": "room-02",
+      "count": 35
+    },
+    {
+      "room_id": "room-3",
+      "count": 175
+    }
+  ],
+  "dataset_version": "capture-2026-10-01"
+}

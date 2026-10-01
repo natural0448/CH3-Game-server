@@ -1,0 +1,241 @@
+{
+  "schema_version": 1,
+  "repository": "C:\\MLO01-01\\Chapter3\\Game-server",
+  "git_head": "21f0929 day20 - mission 1~3",
+  "git_status": [
+    " M docs/server-routing/README.md",
+    "?? docs/handoffs/2026-10-01-day20-through-period08.md",
+    "?? docs/server-routing/files/infra/layer-profile.ps1.md",
+    "?? docs/server-routing/files/infra/run-game-layers.sh.md",
+    "?? docs/server-routing/files/spark_jobs/add_game_date.py.md",
+    "?? docs/server-routing/files/spark_jobs/build_game_daily.py.md",
+    "?? docs/server-routing/files/spark_jobs/check_game_quality.py.md",
+    "?? docs/server-routing/files/spark_jobs/dedup_game_actions.py.md",
+    "?? docs/server-routing/files/spark_jobs/parse_game_bronze.py.md",
+    "?? docs/server-routing/files/spark_jobs/publish_game_summary.py.md",
+    "?? docs/server-routing/files/tools/basics/day20_period01.py.md",
+    "?? docs/server-routing/files/tools/basics/day20_period02.py.md",
+    "?? docs/server-routing/files/tools/basics/day20_period03.py.md",
+    "?? docs/server-routing/files/tools/basics/day20_period04.py.md",
+    "?? docs/server-routing/files/tools/basics/day20_period05.py.md",
+    "?? docs/server-routing/files/tools/basics/day20_period06.py.md",
+    "?? docs/server-routing/files/tools/basics/day20_period07.py.md",
+    "?? docs/server-routing/files/tools/basics/day20_period08.py.md",
+    "?? docs/server-routing/files/tools/write_layer_contract.py.md",
+    "?? docs/server-routing/verification/day20/",
+    "?? infra/layer-profile.ps1",
+    "?? infra/run-game-layers.sh",
+    "?? \"output data/\"",
+    "?? spark_jobs/add_game_date.py",
+    "?? spark_jobs/build_game_daily.py",
+    "?? spark_jobs/dedup_game_actions.py",
+    "?? spark_jobs/layout_projection.py",
+    "?? spark_jobs/publish_game_summary.py",
+    "?? tools/basics/day20_period03.py",
+    "?? tools/basics/day20_period04.py",
+    "?? tools/basics/day20_period05.py",
+    "?? tools/basics/day20_period06.py",
+    "?? tools/basics/day20_period07.py",
+    "?? tools/basics/day20_period08.py",
+    "?? tools/basics/day21_period01.py",
+    "?? tools/write_layer_contract.py"
+  ],
+  "routing_dir": "docs/server-routing",
+  "scope": "working_tree",
+  "changed_paths": [
+    "docs/handoffs/2026-10-01-day20-through-period08.md",
+    "docs/server-routing/README.md",
+    "docs/server-routing/files/infra/layer-profile.ps1.md",
+    "docs/server-routing/files/infra/run-game-layers.sh.md",
+    "docs/server-routing/files/spark_jobs/add_game_date.py.md",
+    "docs/server-routing/files/spark_jobs/build_game_daily.py.md",
+    "docs/server-routing/files/spark_jobs/check_game_quality.py.md",
+    "docs/server-routing/files/spark_jobs/dedup_game_actions.py.md",
+    "docs/server-routing/files/spark_jobs/parse_game_bronze.py.md",
+    "docs/server-routing/files/spark_jobs/publish_game_summary.py.md",
+    "docs/server-routing/files/tools/basics/day20_period01.py.md",
+    "docs/server-routing/files/tools/basics/day20_period02.py.md",
+    "docs/server-routing/files/tools/basics/day20_period03.py.md",
+    "docs/server-routing/files/tools/basics/day20_period04.py.md",
+    "docs/server-routing/files/tools/basics/day20_period05.py.md",
+    "docs/server-routing/files/tools/basics/day20_period06.py.md",
+    "docs/server-routing/files/tools/basics/day20_period07.py.md",
+    "docs/server-routing/files/tools/basics/day20_period08.py.md",
+    "docs/server-routing/files/tools/write_layer_contract.py.md",
+    "docs/server-routing/verification/day20/routing-audit.json",
+    "docs/server-routing/verification/day20/spark-verification.json",
+    "infra/layer-profile.ps1",
+    "infra/run-game-layers.sh",
+    "output data/marts/game-summary.json",
+    "spark_jobs/add_game_date.py",
+    "spark_jobs/build_game_daily.py",
+    "spark_jobs/dedup_game_actions.py",
+    "spark_jobs/layout_projection.py",
+    "spark_jobs/publish_game_summary.py",
+    "tools/basics/day20_period03.py",
+    "tools/basics/day20_period04.py",
+    "tools/basics/day20_period05.py",
+    "tools/basics/day20_period06.py",
+    "tools/basics/day20_period07.py",
+    "tools/basics/day20_period08.py",
+    "tools/basics/day21_period01.py",
+    "tools/write_layer_contract.py"
+  ],
+  "python_files": [
+    {
+      "path": "spark_jobs/add_game_date.py",
+      "state": "present",
+      "document": "docs/server-routing/files/spark_jobs/add_game_date.py.md",
+      "document_exists": true,
+      "indexed": true,
+      "symbols": [],
+      "missing_signatures": [],
+      "parse_error": null
+    },
+    {
+      "path": "spark_jobs/build_game_daily.py",
+      "state": "present",
+      "document": "docs/server-routing/files/spark_jobs/build_game_daily.py.md",
+      "document_exists": true,
+      "indexed": true,
+      "symbols": [],
+      "missing_signatures": [],
+      "parse_error": null
+    },
+    {
+      "path": "spark_jobs/dedup_game_actions.py",
+      "state": "present",
+      "document": "docs/server-routing/files/spark_jobs/dedup_game_actions.py.md",
+      "document_exists": true,
+      "indexed": true,
+      "symbols": [],
+      "missing_signatures": [],
+      "parse_error": null
+    },
+    {
+      "path": "spark_jobs/layout_projection.py",
+      "state": "present",
+      "document": "docs/server-routing/files/spark_jobs/layout_projection.py.md",
+      "document_exists": false,
+      "indexed": false,
+      "symbols": [],
+      "missing_signatures": [],
+      "parse_error": null
+    },
+    {
+      "path": "spark_jobs/publish_game_summary.py",
+      "state": "present",
+      "document": "docs/server-routing/files/spark_jobs/publish_game_summary.py.md",
+      "document_exists": true,
+      "indexed": true,
+      "symbols": [],
+      "missing_signatures": [],
+      "parse_error": null
+    },
+    {
+      "path": "tools/basics/day20_period03.py",
+      "state": "present",
+      "document": "docs/server-routing/files/tools/basics/day20_period03.py.md",
+      "document_exists": true,
+      "indexed": true,
+      "symbols": [],
+      "missing_signatures": [],
+      "parse_error": null
+    },
+    {
+      "path": "tools/basics/day20_period04.py",
+      "state": "present",
+      "document": "docs/server-routing/files/tools/basics/day20_period04.py.md",
+      "document_exists": true,
+      "indexed": true,
+      "symbols": [],
+      "missing_signatures": [],
+      "parse_error": null
+    },
+    {
+      "path": "tools/basics/day20_period05.py",
+      "state": "present",
+      "document": "docs/server-routing/files/tools/basics/day20_period05.py.md",
+      "document_exists": true,
+      "indexed": true,
+      "symbols": [],
+      "missing_signatures": [],
+      "parse_error": null
+    },
+    {
+      "path": "tools/basics/day20_period06.py",
+      "state": "present",
+      "document": "docs/server-routing/files/tools/basics/day20_period06.py.md",
+      "document_exists": true,
+      "indexed": true,
+      "symbols": [],
+      "missing_signatures": [],
+      "parse_error": null
+    },
+    {
+      "path": "tools/basics/day20_period07.py",
+      "state": "present",
+      "document": "docs/server-routing/files/tools/basics/day20_period07.py.md",
+      "document_exists": true,
+      "indexed": true,
+      "symbols": [],
+      "missing_signatures": [],
+      "parse_error": null
+    },
+    {
+      "path": "tools/basics/day20_period08.py",
+      "state": "present",
+      "document": "docs/server-routing/files/tools/basics/day20_period08.py.md",
+      "document_exists": true,
+      "indexed": true,
+      "symbols": [],
+      "missing_signatures": [],
+      "parse_error": null
+    },
+    {
+      "path": "tools/basics/day21_period01.py",
+      "state": "present",
+      "document": "docs/server-routing/files/tools/basics/day21_period01.py.md",
+      "document_exists": false,
+      "indexed": false,
+      "symbols": [],
+      "missing_signatures": [],
+      "parse_error": null
+    },
+    {
+      "path": "tools/write_layer_contract.py",
+      "state": "present",
+      "document": "docs/server-routing/files/tools/write_layer_contract.py.md",
+      "document_exists": true,
+      "indexed": true,
+      "symbols": [],
+      "missing_signatures": [],
+      "parse_error": null
+    }
+  ],
+  "issues": [
+    {
+      "code": "missing_document",
+      "path": "spark_jobs/layout_projection.py"
+    },
+    {
+      "code": "missing_index",
+      "path": "spark_jobs/layout_projection.py"
+    },
+    {
+      "code": "missing_document",
+      "path": "tools/basics/day21_period01.py"
+    },
+    {
+      "code": "missing_index",
+      "path": "tools/basics/day21_period01.py"
+    }
+  ],
+  "summary": {
+    "changed_path_count": 37,
+    "python_file_count": 13,
+    "symbol_count": 0,
+    "issue_count": 4,
+    "ok": false
+  }
+}
