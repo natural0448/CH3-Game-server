@@ -118,7 +118,7 @@
 | `spark_jobs/build_game_daily.py` | `files/spark_jobs/build_game_daily.py.md` | 일별 Gold |
 | `spark_jobs/publish_game_summary.py` | `files/spark_jobs/publish_game_summary.py.md` | 작은 집계 JSON 게시 |
 | `tools/write_layer_contract.py` | `files/tools/write_layer_contract.py.md` | 계층 계약 작성 |
-| `infra/run-game-layers.sh` | `files/infra/run-game-layers.sh.md` | 단계별 Bash 명령 보관 |
+| `infra/run-game-layers.sh` | `files/infra/run-game-layers.sh.md` | 실제 Windows 경로의 단계별 PowerShell 명령 보관 |
 | `tools/basics/day20_period01.py` | `files/tools/basics/day20_period01.py.md` | 20일차 1교시 연습 |
 | `tools/basics/day20_period02.py` | `files/tools/basics/day20_period02.py.md` | 20일차 2교시 연습 |
 | `tools/basics/day20_period03.py` | `files/tools/basics/day20_period03.py.md` | 20일차 3교시 연습 |

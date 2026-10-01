@@ -1,5 +1,7 @@
 # 20일차 8교시까지 필요한 수정
 
+후속 수정: `infra/run-game-layers.sh`는 실제 Windows 경로가 포함된 PowerShell 명령 보관 파일로 변경했다. 아래 Bash 설명과 `bash -n` 결과는 변경 전 기록이다. 현재 실행 명령은 해당 파일을 사용하며 [Windows 명령 수정 인수인계](2026-10-01-day20-windows-layer-commands.md)를 참조한다.
+
 ## 결과와 범위
 
 교안 `Bronze·Silver·Gold로 만드는 마을 일별 통계.html`과 현재 구현을 비교했다. 필요한 날짜·버전·계약·명령 연결과 채집 미션만 수정했다. 서버 인증·URL·모델·게임 명령과 폴더 구조는 변경하지 않았다. 기존 Bronze capture-001/002, Silver/Gold capture-001, 게시 중인 data/marts/game-summary.json은 쓰거나 삭제하지 않았다. 신규 게임 행동·Kafka 수집을 실행하지 않았다.
