@@ -133,3 +133,8 @@ LOGIN_REDIRECT_URL = "/play/"
 LOGOUT_REDIRECT_URL = "/accounts/login/"
 SPARK_SUBMIT = os.environ["SPARK_SUBMIT"]
 SPARK_MASTER = os.environ.get("SPARK_MASTER", "spark://127.0.0.1:7077")
+
+# Advertising requests are made by the game server, never with browser-held media keys.
+ADS_BASE_URL = os.environ.get("ADS_BASE_URL", "http://127.0.0.1:8001").rstrip("/")
+ADS_MEDIA_ID = os.environ.get("ADS_MEDIA_ID", "village-game")
+ADS_MEDIA_KEY = os.environ.get("ADS_MEDIA_KEY", "")

@@ -128,3 +128,27 @@
 | `tools/basics/day20_period07.py` | `files/tools/basics/day20_period07.py.md` | 20일차 7교시 연습 |
 | `tools/basics/day20_period08.py` | `files/tools/basics/day20_period08.py.md` | 20일차 8교시 연습 |
 | `infra/layer-profile.ps1` | `files/infra/layer-profile.ps1.md` | Windows에서 capture-002 입력·출력 URI 설정 |
+
+
+## 22일차 추가 파일
+
+| 개발 파일 | 짝 문서 |
+|---|---|
+| server/game/ad_gateway.py | [문서](files/server/game/ad_gateway.py.md) |
+| server/game/ad_views.py | [문서](files/server/game/ad_views.py.md) |
+| server/game/static/game/ad_preview.js | [문서](files/server/game/static/game/ad_preview.js.md) |
+| server/game/templates/game/ad_preview.html | [문서](files/server/game/templates/game/ad_preview.html.md) |
+| server/game/static/ads/creatives/forest-tools.png | [문서](files/server/game/static/ads/creatives/forest-tools.png.md) |
+| server/game/static/ads/creatives/camp-tea.png | [문서](files/server/game/static/ads/creatives/camp-tea.png.md) |
+| server/game/test_ads.py | [문서](files/server/game/test_ads.py.md) |
+| data/evidence/asset-sources.md | [문서](files/data/evidence/asset-sources.md.md) |
+
+## 22일차 이미지 광고 흐름
+
+광고주 폼 → campaign creative_path → 선택 당시 creative snapshot → media API → 게임 세션 Player 중계 → 동일 origin PNG bytes → Pygame main thread image decode/draw/flip. 매체 키는 두 서버 설정에만 존재하며 브라우저/접속기에 전달하지 않는다. 실제 학생 창 관찰은 별도 evidence이며 임시 fixture 검증 결과로 대신 기록하지 않는다.
+
+## 로컬 게임 설정
+
+| 개발 파일 | 짝 문서 |
+|---|---|
+| server/.env | [문서](files/server/.env.md) |

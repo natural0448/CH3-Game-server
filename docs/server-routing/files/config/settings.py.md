@@ -71,3 +71,7 @@ ASGI와 Channels 설정 제공
 ```
 
 직접 호출: `dotenv.load_dotenv`. Django와 관리 명령이 모듈 상수를 읽는다.
+
+## 22일차 이미지 광고 최종 반영
+
+ADS_BASE_URL은 process env의 기본 http://127.0.0.1:8001에서 끝 /를 제거한다. ADS_MEDIA_ID 기본 village-game, ADS_MEDIA_KEY 기본 빈 문자열이며 server/.env/process env에서만 읽는다. 기존 Django·MySQL·Channels·analytics 설정은 유지한다. 키는 브라우저·Pygame 설정·JSON에 전달하지 않는다.
