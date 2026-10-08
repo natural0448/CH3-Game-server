@@ -107,22 +107,3 @@ publisher는 **한 프로세스만** 별도 터미널에서 실행합니다. Gam
 - [Noto CJK](https://github.com/notofonts/noto-cjk)
 
 에셋별 원본 파일/치수/라이선스는 `../Game-client/assets/README.md`에 기록했습니다.
-
-## 23일차 수정 교안 · 3교시 광고 사건 전달
-
-직접 구현 대상은 [server/game/ad_gateway.py](server/game/ad_gateway.py)의 `request_ad_event(player, decision_id, event_type)` 본문이다. 현재 저장된 함수는 수정 교안의 전체 완성 코드와 일치한다.
-
-1. 로그인 Player의 `str(player.pk)`로 subject를 포함한 payload를 만든다.
-2. `status, data = call_ads("/api/media/events/", payload)`로 사건 API를 호출한다.
-3. 허용된 거절만 ValueError로 전달하고, 성공 응답의 사건 ID·종류·created의 bool 타입을 검사한다. `created=False`도 정상 반환한다.
-
-기존 구조에는 `call_ads()`가 없었으므로 같은 파일에 교안 2교시의 두 매체 헤더·HTTPError 처리 계약을 보충했다. `request_decision()`, AdsUnavailable, import, 로그인 view, URL, 서버 설정은 보존했다. 게임 중계 view는 현재 구조의 `server/game/ad_views.py::ad_event()`를 그대로 사용한다.
-
-교안의 [공식 검증 파일](https://praxolve.net/encore/mlops2026/chapters/chapter-3/days/day-23/lessons/encore.chapter3.game-mongo-analytics/embed-content/assets/day23-period3/check-ad-event-logic.py)은 로그인한 교안 사이트에서 내려받아 `Game-server/config/check_day23_period3.py`로 저장한다. 현재 자동 다운로드는 로그인 페이지로 이동하여 이 파일의 저장·실행은 미완료다. 기존 `config/settings.py`는 유지한다. 저장 후 실행 명령은 다음과 같다.
-
-```powershell
-Set-Location C:\MLO01-01\Chapter3\Game-server
-.\server\.venv\Scripts\python.exe config/check_day23_period3.py
-```
-
-별도 검증에서 교안 정답과 함수 AST 일치, 교안 표의 24개 계약 검사, 격리 DB의 게임 테스트 20개가 통과했다. 증거는 `docs/server-routing/verification/day23-request-ad-event/`에 있다. 이 결과는 공식 검증 파일의 실행 결과와 구분한다. Pygame 실제 표시·클릭 연결은 교안의 별도 연결 자료이며 3교시의 함수 작성과 구별한다.

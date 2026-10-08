@@ -156,19 +156,9 @@
 
 ## 기존 Pygame 사건 전송과 수정 교안 범위
 
-기존 구현의 활성 화면 draw/flip receipt → Controller impression → AuthSession/CSRF → 게임 세션 Player → 두 매체 헤더 인증 → 최초 사건 저장 → 공개 receipt 경로를 보존한다. 최신 수정 교안의 3교시 직접 구현은 server/game/ad_gateway.py의 request_ad_event 본문 세 구간이며 Pygame 노출·클릭은 별도 연결 자료다. 수정1교시는 입찰 반환·선택 snapshot,2교시는 사건 API·광고주 선택/실적 목록이다. 일별 보고서·집계·파일 전달은 미적용이다.
+기존 구현의 활성 화면 draw/flip receipt → Controller impression → AuthSession/CSRF → 게임 세션 Player → 두 매체 헤더 인증 → 최초 사건 저장 → 공개 receipt 경로를 보존한다. 자동 Pygame 노출·클릭은 수정 교안의3교시 기능이며 기존 코드의 회귀검사를 수행했다. 수정1교시는 입찰 반환·선택 snapshot,2교시는 사건 API·광고주 선택/실적 목록이다. 일별 보고서·집계·파일 전달은 미적용이다.
 
 
 ## 교안 정본 대응
 
-정본은22일차 수정 교안과 「현재 ad_server에서 노출·클릭과 광고주 보고서 완성하기」 v2.3의1·2교시다. AST/실습/표23개 대조 및 적응 목록은 ad_server/docs/server-routing/verification/lesson-alignment/source-comparison.json, 실행 순서는 ad_server/README.md에 있다. 기존4인수 선택·bid_amount 스키마·이미지·계정·DB·combined view와 계층을 보존했다. 새 광고주 events 목록은 구현했고 일별 reports/집계/파일전달은 미적용이다. 이전 교안의 자동 접속기 코드는 별도 연결 기능으로 보존했다. 최신 3교시 평가와 구별한다.
-
-최신 3교시는 request_ad_event를 교안의 전체 완성 코드와 동일하게 맞추고, 기존 구조에 없던 call_ads를 같은 파일에 보충했다. 선택 함수·combined view·URL은 보존했다. [함수 문서](files/server/game/ad_gateway.py.md), [진행 안내](../../README.md#23일차-수정-교안--3교시-광고-사건-전달), 검증 증거 verification/day23-request-ad-event/를 따른다. 공식 검증 파일 config/check_day23_period3.py는 로그인 다운로드 제한으로 미저장·미실행이며 임의 검증 파일로 대체하지 않았다.
-
-## 2026-10-07 문서 등록과 교안 차이 검토
-
-[오늘 문서 전체 등록 목록](../../../ad_server/docs/server-routing/reviews/2026-10-07-document-registry.md)에 이 프로젝트 19개를 포함한 전체 106개 문서와 검증 근거를 등록했다. [교안 차이 검토](../../../ad_server/docs/server-routing/reviews/2026-10-07-lesson-deviations.md)와 [본 작업 인수인계](../../../ad_server/docs/handoffs/2026-10-07-document-registration-and-lesson-review.md)를 함께 읽는다. 이전 인수인계는 작업 시점의 이력이며 최신 구조/교안 준수로 확대 해석하지 않는다.
-
-| 개발 파일 | 짝 문서 |
-|---|---|
-| README.md | [문서](files/README.md.md) |
+정본은22일차 수정 교안과 「현재 ad_server에서 노출·클릭과 광고주 보고서 완성하기」 v2.3의1·2교시다. AST/실습/표23개 대조 및 적응 목록은 ad_server/docs/server-routing/verification/lesson-alignment/source-comparison.json, 실행 순서는 ad_server/README.md에 있다. 기존4인수 선택·bid_amount 스키마·이미지·계정·DB·combined view와 계층을 보존했다. 새 광고주 events 목록은 구현했고 일별 reports/집계/파일전달은 미적용이다. 이전 정본의 자동 접속기 코드는 수정3교시의 기존 구현으로 보존했다.

@@ -1,0 +1,67 @@
+{
+  "root_git": "Git 상태 확인 불가: 저장소 아님",
+  "parent_git": "권한 제한으로 상위 Git 조회 불가",
+  "head": {
+    "code": 0,
+    "text": "6aa5329 22일차 - 진행사항 반영",
+    "error": ""
+  },
+  "status": {
+    "code": 0,
+    "text": "M docs/server-routing/README.md\n M docs/server-routing/files/server/game/ad_gateway.py.md\n M docs/server-routing/files/server/game/ad_views.py.md\n M docs/server-routing/files/server/game/test_ads.py.md\n M docs/server-routing/files/server/game/urls.py.md\n M server/game/ad_gateway.py\n M server/game/ad_views.py\n M server/game/test_ads.py\n M server/game/urls.py\n?? docs/handoffs/2026-10-07-day22-day23-revised-lesson-alignment.md\n?? docs/handoffs/2026-10-07-day23-period01-02-sync.md\n?? docs/server-routing/verification/day23-final-audit.json\n?? docs/server-routing/verification/day23-game-file-start-audit.json\n?? docs/server-routing/verification/day23-game-file/\n?? docs/server-routing/verification/day23-start-audit.json\n?? docs/server-routing/verification/lesson-align-final-audit.json\n?? docs/server-routing/verification/lesson-align-start-audit.json",
+    "error": ""
+  },
+  "unstaged": {
+    "code": 0,
+    "text": "M\tdocs/server-routing/README.md\nM\tdocs/server-routing/files/server/game/ad_gateway.py.md\nM\tdocs/server-routing/files/server/game/ad_views.py.md\nM\tdocs/server-routing/files/server/game/test_ads.py.md\nM\tdocs/server-routing/files/server/game/urls.py.md\nM\tserver/game/ad_gateway.py\nM\tserver/game/ad_views.py\nM\tserver/game/test_ads.py\nM\tserver/game/urls.py",
+    "error": "warning: in the working copy of 'server/game/ad_gateway.py', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'server/game/test_ads.py', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'server/game/urls.py', LF will be replaced by CRLF the next time Git touches it"
+  },
+  "staged": {
+    "code": 0,
+    "text": "",
+    "error": ""
+  },
+  "untracked": {
+    "code": 0,
+    "text": "docs/handoffs/2026-10-07-day22-day23-revised-lesson-alignment.md\ndocs/handoffs/2026-10-07-day23-period01-02-sync.md\ndocs/server-routing/verification/day23-final-audit.json\ndocs/server-routing/verification/day23-game-file-start-audit.json\ndocs/server-routing/verification/day23-game-file/before/Game-client/README.md.txt\ndocs/server-routing/verification/day23-game-file/before/Game-server/README.md.txt\ndocs/server-routing/verification/day23-game-file/start.json\ndocs/server-routing/verification/day23-start-audit.json\ndocs/server-routing/verification/lesson-align-final-audit.json\ndocs/server-routing/verification/lesson-align-start-audit.json",
+    "error": ""
+  },
+  "files": {
+    "server/game/ad_gateway.py": "d824bd00059a33f4b63e892a0fdca4a8c3ec520753a2716dfa8feb2e7745c2b1",
+    "docs/server-routing/files/server/game/ad_gateway.py.md": "72587e8f419213ff6074ea82f3d1636b9c39de8c204259e13dcc8eb348d9dd36",
+    "docs/server-routing/README.md": "6b8f7500a0a943cba055f14116cf096333695d38d2e17d83492106408edb54cb",
+    "server/game/test_ads.py": "a14b8cd08f113f99f3f2feb29512fb351cf50a853bf533f663b16267b0723965",
+    "docs/server-routing/files/server/game/test_ads.py.md": "ca6fe03739b56b89b4df91186d3a3c783d900da968553d2c7ab7af1eb38fc7af",
+    "README.md": "9c9249a692a8ee97a89ffe5d4930700890a7ad55143a2111a972088b8c1b8d7a"
+  },
+  "env_sha256": "469b1f097a6dda8a845408a0a9051c0f53053a1bf3176e67b3548a9907cfee65",
+  "lesson_sha256": "e71c2dac0b38748b171c5691de46b64fe361dd8682a8d5303ad13176aa004e0f",
+  "client_git": {
+    "head": {
+      "code": 0,
+      "text": "2dd8d97 22일차 내용 반영",
+      "error": ""
+    },
+    "status": {
+      "code": 0,
+      "text": "M README.md\n M client/app.py\n M client/application/ads.py\n M client/application/controller.py\n M client/contracts/ads.py\n M client/contracts/messages.py\n M client/network/ads.py\n M client/network/http.py\n M client/network/session.py\n M client/network/worker.py\n M client/ui/ads.py\n M client/ui/input.py\n M client/ui/renderer.py\n M docs/client-routing/README.md\n M docs/client-routing/files/README.md.md\n M docs/client-routing/files/client/app.py.md\n M docs/client-routing/files/client/application/ads.py.md\n M docs/client-routing/files/client/application/controller.py.md\n M docs/client-routing/files/client/contracts/ads.py.md\n M docs/client-routing/files/client/contracts/messages.py.md\n M docs/client-routing/files/client/network/ads.py.md\n M docs/client-routing/files/client/network/http.py.md\n M docs/client-routing/files/client/network/session.py.md\n M docs/client-routing/files/client/network/worker.py.md\n M docs/client-routing/files/client/ui/ads.py.md\n M docs/client-routing/files/client/ui/input.py.md\n M docs/client-routing/files/client/ui/renderer.py.md\n M docs/client-routing/files/tests/test_ads_feature.py.md\n M tests/test_ads_feature.py\n?? docs/client-routing/files/tests/test_ads_events.py.md\n?? docs/client-routing/verification/day23-final-audit.json\n?? docs/client-routing/verification/day23-period03-final-audit.json\n?? docs/client-routing/verification/day23-start-audit.json\n?? docs/client-routing/verification/lesson-align-final-audit.json\n?? docs/client-routing/verification/lesson-align-start-audit.json\n?? docs/handoffs/2026-10-07-day22-day23-revised-lesson-alignment.md\n?? docs/handoffs/2026-10-07-day23-period01-02-sync.md\n?? docs/handoffs/2026-10-07-day23-period03-current-structure.md\n?? tests/test_ads_events.py",
+      "error": ""
+    },
+    "staged": {
+      "code": 0,
+      "text": "",
+      "error": ""
+    },
+    "unstaged": {
+      "code": 0,
+      "text": "M\tREADME.md\nM\tclient/app.py\nM\tclient/application/ads.py\nM\tclient/application/controller.py\nM\tclient/contracts/ads.py\nM\tclient/contracts/messages.py\nM\tclient/network/ads.py\nM\tclient/network/http.py\nM\tclient/network/session.py\nM\tclient/network/worker.py\nM\tclient/ui/ads.py\nM\tclient/ui/input.py\nM\tclient/ui/renderer.py\nM\tdocs/client-routing/README.md\nM\tdocs/client-routing/files/README.md.md\nM\tdocs/client-routing/files/client/app.py.md\nM\tdocs/client-routing/files/client/application/ads.py.md\nM\tdocs/client-routing/files/client/application/controller.py.md\nM\tdocs/client-routing/files/client/contracts/ads.py.md\nM\tdocs/client-routing/files/client/contracts/messages.py.md\nM\tdocs/client-routing/files/client/network/ads.py.md\nM\tdocs/client-routing/files/client/network/http.py.md\nM\tdocs/client-routing/files/client/network/session.py.md\nM\tdocs/client-routing/files/client/network/worker.py.md\nM\tdocs/client-routing/files/client/ui/ads.py.md\nM\tdocs/client-routing/files/client/ui/input.py.md\nM\tdocs/client-routing/files/client/ui/renderer.py.md\nM\tdocs/client-routing/files/tests/test_ads_feature.py.md\nM\ttests/test_ads_feature.py",
+      "error": "warning: in the working copy of 'client/app.py', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'client/application/ads.py', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'client/application/controller.py', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'client/contracts/ads.py', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'client/contracts/messages.py', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'client/network/ads.py', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'client/network/http.py', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'client/network/session.py', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'client/network/worker.py', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'client/ui/ads.py', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'client/ui/input.py', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'client/ui/renderer.py', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'tests/test_ads_feature.py', LF will be replaced by CRLF the next time Git touches it"
+    },
+    "untracked": {
+      "code": 0,
+      "text": "docs/client-routing/files/tests/test_ads_events.py.md\ndocs/client-routing/verification/day23-final-audit.json\ndocs/client-routing/verification/day23-period03-final-audit.json\ndocs/client-routing/verification/day23-start-audit.json\ndocs/client-routing/verification/lesson-align-final-audit.json\ndocs/client-routing/verification/lesson-align-start-audit.json\ndocs/handoffs/2026-10-07-day22-day23-revised-lesson-alignment.md\ndocs/handoffs/2026-10-07-day23-period01-02-sync.md\ndocs/handoffs/2026-10-07-day23-period03-current-structure.md\ntests/test_ads_events.py",
+      "error": ""
+    }
+  },
+  "client_readme_sha256": "62947638bad6651364fa171787244b9bfa5d1ff4fca79c151aa7e5851a79b3b0"
+}

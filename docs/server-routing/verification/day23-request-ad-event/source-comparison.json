@@ -1,0 +1,8 @@
+{
+  "request_ad_event_ast_matches_lesson_answer": true,
+  "preserved": {
+    "AdsUnavailable": true,
+    "request_decision": true
+  },
+  "official_checker": "not_run: asset redirects to login; no authenticated browser available"
+}

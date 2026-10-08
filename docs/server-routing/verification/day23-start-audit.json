@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "repository": "C:\\MLO01-01\\Chapter3\\Game-server",
+  "git_head": "6aa5329 22일차 - 진행사항 반영",
+  "git_status": [],
+  "routing_dir": "docs/server-routing",
+  "scope": "working_tree",
+  "changed_paths": [],
+  "python_files": [],
+  "issues": [],
+  "summary": {
+    "changed_path_count": 0,
+    "python_file_count": 0,
+    "symbol_count": 0,
+    "issue_count": 0,
+    "ok": true
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "game_server_changed_since_start": [
+    "server/game/ad_gateway.py",
+    "docs/server-routing/files/server/game/ad_gateway.py.md",
+    "docs/server-routing/README.md",
+    "server/game/test_ads.py",
+    "docs/server-routing/files/server/game/test_ads.py.md",
+    "README.md"
+  ],
+  "game_client_changed_since_start": [
+    "README.md"
+  ],
+  "environment_unchanged": true,
+  "no_source_add_move_delete": true,
+  "game_tests": {
+    "count": 20,
+    "result": "PASS",
+    "database": "isolated memory SQLite"
+  },
+  "contract_checks": {
+    "count": 24,
+    "result": "PASS"
+  },
+  "official_checker": "not_run: login download required"
+}

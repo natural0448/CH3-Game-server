@@ -12,33 +12,6 @@ class AdsUnavailable(Exception):
     pass
 
 
-def call_ads(path, payload):
-    request = Request(
-        settings.ADS_BASE_URL + path,
-        data=json.dumps(payload).encode("utf-8"),
-        headers={"Content-Type": "application/json",
-                 "X-Media-ID": settings.ADS_MEDIA_ID,
-                 "X-Media-Key": settings.ADS_MEDIA_KEY},
-        method="POST",
-    )
-    try:
-        with urlopen(request, timeout=3) as response:
-            return response.status, json.load(response)
-    except HTTPError as exc:
-        try:
-            body = json.loads(exc.read(65536))
-            error = body.get("error", "") if isinstance(body, dict) else ""
-            code = error.split(":", 1)[0] if isinstance(error, str) else ""
-            if code in {"decision_snapshot_missing", "decision_not_found_for_subject",
-                        "impression_required", "decision_id_required", "event_type_invalid"}:
-                return exc.code, {"error": code}
-        except (ValueError, UnicodeDecodeError, OSError):
-            pass
-        return exc.code, {"error": "ad_request_rejected"}
-    except (URLError, TimeoutError, ValueError):
-        return 503, {"error": "ads_unavailable"}
-
-
 def request_decision(player, slot_id):
     if slot_id not in ("village-board", "lobby-banner"):
         raise ValueError("invalid_slot")
@@ -79,32 +52,40 @@ def request_decision(player, slot_id):
 
 
 def request_ad_event(player, decision_id, event_type):
-    """Use the logged-in player's identity; clients supply only the event target."""
+    if (not isinstance(decision_id, str) or not decision_id
+            or len(decision_id) > 128
+            or not isinstance(event_type, str) or event_type not in {"impression", "click"}):
+        raise ValueError("invalid_ad_event")
     if not settings.ADS_MEDIA_KEY:
         raise AdsUnavailable("media_key_missing")
-    if (not isinstance(decision_id, str) or not decision_id
-            or len(decision_id) > 128 or event_type not in ("impression", "click")):
-        raise ValueError("invalid_ad_event")
-    payload = {
-        "media_id": settings.ADS_MEDIA_ID,
-        "subject": {
-            "media_id": settings.ADS_MEDIA_ID,
-            "subject_id": str(player.pk),
-        },
-        "decision_id": decision_id,
-        "event_type": event_type,
-    }
-    status, data = call_ads("/api/media/events/", payload)
-    if status == 503:
-        raise AdsUnavailable("ads_unavailable")
-    if status != 200:
-        code = data.get("error") if isinstance(data, dict) else None
+    media_id = settings.ADS_MEDIA_ID
+    request = Request(settings.ADS_BASE_URL + "/api/media/events/", method="POST",
+        data=json.dumps({"media_id": media_id,
+            "subject": {"media_id": media_id, "subject_id": str(player.pk)},
+            "decision_id": decision_id, "event_type": event_type}).encode("utf-8"),
+        headers={"Content-Type": "application/json", "X-Media-ID": media_id,
+                 "X-Media-Key": settings.ADS_MEDIA_KEY})
+    try:
+        with urlopen(request, timeout=3) as response:
+            raw = response.read(65537)
+        if len(raw) > 65536:
+            raise ValueError("oversized_event_response")
+        data = json.loads(raw)
+        if (not isinstance(data, dict) or data.get("event_id") != decision_id + ":" + event_type
+                or data.get("event_type") != event_type or type(data.get("created")) is not bool):
+            raise ValueError("invalid_event_response")
+        return {name: data[name] for name in ("event_id", "event_type", "created")}
+    except HTTPError as exc:
+        try:
+            body = json.loads(exc.read(65536))
+            error = body.get("error", "") if isinstance(body, dict) else ""
+            code = error.split(":", 1)[0] if isinstance(error, str) else ""
+        except (ValueError, UnicodeDecodeError, OSError):
+            code = ""
+        if exc.code == 503:
+            raise AdsUnavailable("ads_unavailable") from exc
         allowed = {"decision_snapshot_missing", "decision_not_found_for_subject",
                    "impression_required", "decision_id_required", "event_type_invalid"}
-        raise ValueError(code if code in allowed else "ad_event_rejected")
-    if (not isinstance(data, dict)
-            or data.get("event_id") != decision_id + ":" + event_type
-            or data.get("event_type") != event_type
-            or type(data.get("created")) is not bool):
-        raise AdsUnavailable("invalid_ad_event_response")
-    return {name: data[name] for name in ("event_id", "event_type", "created")}
+        raise ValueError(code if code in allowed else "ad_event_rejected") from exc
+    except (URLError, TimeoutError, OSError, ValueError, KeyError, TypeError) as exc:
+        raise AdsUnavailable("ads_unavailable") from exc

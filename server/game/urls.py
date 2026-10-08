@@ -8,6 +8,7 @@ app_name = "game"
 urlpatterns = [
     path("ads/preview/", ad_views.ad_preview, name="ad-preview"),
     path("api/ads/decision/", ad_views.ad_decision, name="ad-decision"),
+    path("api/ads/events/", ad_views.ad_event, name="ad-events"),
     path("", views.delivery_dashboard, name="delivery-dashboard"),
     path("api/auth/csrf/", auth_views.csrf_token, name="csrf"),
     path("api/auth/login/", auth_views.login_view, name="login"),

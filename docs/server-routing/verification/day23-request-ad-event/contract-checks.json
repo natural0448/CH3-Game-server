@@ -1,0 +1,105 @@
+{
+  "checks": 24,
+  "cases": [
+    {
+      "case": "new event",
+      "result": "PASS"
+    },
+    {
+      "case": "duplicate event",
+      "result": "PASS"
+    },
+    {
+      "case": "decision_snapshot_missing",
+      "result": "PASS"
+    },
+    {
+      "case": "decision_not_found_for_subject",
+      "result": "PASS"
+    },
+    {
+      "case": "impression_required",
+      "result": "PASS"
+    },
+    {
+      "case": "decision_id_required",
+      "result": "PASS"
+    },
+    {
+      "case": "event_type_invalid",
+      "result": "PASS"
+    },
+    {
+      "case": "unknown error",
+      "result": "PASS"
+    },
+    {
+      "case": "list rejection",
+      "result": "PASS"
+    },
+    {
+      "case": "string rejection",
+      "result": "PASS"
+    },
+    {
+      "case": "503",
+      "result": "PASS"
+    },
+    {
+      "case": "list success",
+      "result": "PASS"
+    },
+    {
+      "case": "string success",
+      "result": "PASS"
+    },
+    {
+      "case": "missing success",
+      "result": "PASS"
+    },
+    {
+      "case": "wrong event id",
+      "result": "PASS"
+    },
+    {
+      "case": "wrong event type",
+      "result": "PASS"
+    },
+    {
+      "case": "numeric created",
+      "result": "PASS"
+    },
+    {
+      "case": "string created",
+      "result": "PASS"
+    },
+    {
+      "case": "empty decision",
+      "result": "PASS"
+    },
+    {
+      "case": "non-string decision",
+      "result": "PASS"
+    },
+    {
+      "case": "long decision",
+      "result": "PASS"
+    },
+    {
+      "case": "invalid type",
+      "result": "PASS"
+    },
+    {
+      "case": "list event type",
+      "result": "PASS"
+    },
+    {
+      "case": "missing media key",
+      "result": "PASS"
+    }
+  ],
+  "subject_mutation_detected": true,
+  "mutation_scope": "isolated function copy; source file unchanged",
+  "reason": "로그인 Player 7 대신 999를 전송하면 결정에 저장된 대상과 일치하지 않는다.",
+  "official_checker": "not_run (login required)"
+}

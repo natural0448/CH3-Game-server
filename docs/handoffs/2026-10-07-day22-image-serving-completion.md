@@ -1,5 +1,7 @@
 # 2026-10-07 · Game-server 22일차 광고 이미지 연결
 
+> 2026-10-07 검토 주석: 아래는 해당 작업 시점의 결과를 보존한 이력입니다. 교안 버전·적용 범위·검사 수는 최신 상태와 다를 수 있습니다. [차이와 현재 상태](../../../ad_server/docs/server-routing/reviews/2026-10-07-lesson-deviations.md).
+
 상세 인수인계: [광고 집행 보완](../../../ad_server/docs/handoffs/2026-10-07-day22-image-serving-completion.md).
 
 작업 시작 Git: clean; 4f75c2d; staged/unstaged/untracked 없음. 기존 사용자 변경 없음. 현재 개발 변경은 이번 요청에서 추가/수정한 아래 파일이며 commit/stage하지 않았다. 비밀값을 기록하지 않는다.

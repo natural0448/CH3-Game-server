@@ -34,18 +34,14 @@ class GatewayTests(SimpleTestCase):
 
     def test_event_public_receipt_duplicate_and_recipient(self):
         receipt = {"event_id": "d1:impression", "event_type": "impression", "created": False, "secret": "excluded"}
-        response = io.BytesIO(json.dumps(receipt).encode())
-        response.status = 200
-        with patch("game.ad_gateway.urlopen", return_value=response) as opened:
+        with patch("game.ad_gateway.urlopen", return_value=io.BytesIO(json.dumps(receipt).encode())) as opened:
             result = request_ad_event(SimpleNamespace(pk=12), "d1", "impression")
         self.assertEqual(result, {key: receipt[key] for key in ("event_id", "event_type", "created")})
         sent = json.loads(opened.call_args.args[0].data)
         self.assertEqual(opened.call_args.args[0].get_header("X-media-id"), "village-game")
         self.assertEqual(sent["subject"], {"media_id": "village-game", "subject_id": "12"})
         for changes in [{"created": "False"}, {"event_id": "other:impression"}, {"event_type": "click"}]:
-            response = io.BytesIO(json.dumps({**receipt, **changes}).encode())
-            response.status = 200
-            with self.subTest(changes=changes), patch("game.ad_gateway.urlopen", return_value=response), self.assertRaises(AdsUnavailable):
+            with self.subTest(changes=changes), patch("game.ad_gateway.urlopen", return_value=io.BytesIO(json.dumps({**receipt, **changes}).encode())), self.assertRaises(AdsUnavailable):
                 request_ad_event(SimpleNamespace(pk=12), "d1", "impression")
 
     def test_public_player_identity_and_legacy_amount_are_adapted(self):

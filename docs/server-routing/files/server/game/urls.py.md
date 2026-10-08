@@ -29,6 +29,6 @@ URL reverse namespace의 출처다.
 
 직접 호출: `django.urls.path`와 `game.auth_views`, `game.views`의 view callable.
 
-## 22일차 이미지 광고 최종 반영
+## 23일차 1~2교시 최종 반영
 
-기존 game/auth 경로에 GET /ads/preview/→ad_views.ad_preview와 POST /api/ads/decision/→ad_views.ad_decision을 추가한다. 기존 root URL include와 충돌하지 않으며 다른 경로는 그대로다.
+기존 game/auth/query/static/광고 decision/preview 경로를 유지하고 api/ads/events/를 ad_event(name=ad-events)에 연결한다. urlpatterns는 path 목록이다.
