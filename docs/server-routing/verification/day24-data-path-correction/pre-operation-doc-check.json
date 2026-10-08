@@ -1,0 +1,43 @@
+{
+  "ok": true,
+  "source": "server/game/management/commands/export_player_snapshot.py",
+  "source_relocated_and_corrected_before_request": true,
+  "symbols": [
+    {
+      "kind": "class",
+      "qualified_name": "Command",
+      "line": 13,
+      "signature": "class Command(BaseCommand)",
+      "signature_core": "Command",
+      "return_annotation": null,
+      "decorators": [],
+      "bases": [
+        "BaseCommand"
+      ],
+      "documented": true
+    },
+    {
+      "kind": "method",
+      "qualified_name": "Command.add_arguments",
+      "line": 16,
+      "signature": "Command.add_arguments(self, parser)",
+      "signature_core": "Command.add_arguments(self, parser)",
+      "return_annotation": null,
+      "decorators": [],
+      "bases": [],
+      "documented": true
+    },
+    {
+      "kind": "method",
+      "qualified_name": "Command.handle",
+      "line": 19,
+      "signature": "Command.handle(self, *args, **options)",
+      "signature_core": "Command.handle(self, *args, **options)",
+      "return_annotation": null,
+      "decorators": [],
+      "bases": [],
+      "documented": true
+    }
+  ],
+  "note": "Current user implementation documented before moving its data artifact. No Python edits."
+}

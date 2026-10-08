@@ -1,0 +1,136 @@
+{
+  "root": {
+    "exit_code": 0,
+    "output": "C:/MLO01-01/Chapter3/Game-server",
+    "error": ""
+  },
+  "head": {
+    "exit_code": 0,
+    "output": "5fd757d day23 진행사항",
+    "error": ""
+  },
+  "status": {
+    "exit_code": 0,
+    "output": "M .gitignore\n M README.md\n M docs/server-routing/README.md\n M docs/server-routing/files/README.md.md\n M docs/server-routing/files/server/game/ad_views.py.md\n M docs/server-routing/files/server/game/urls.py.md\n?? docs/handoffs/2026-10-08-day24-data-path-correction.md\n?? docs/handoffs/2026-10-08-day24-period01-review.md\n?? docs/handoffs/2026-10-08-game-routing-progress-sync.md\n?? docs/server-routing/day24-progress.md\n?? docs/server-routing/files/.gitignore.md\n?? docs/server-routing/files/data/exports/player-cdc.ndjson.md\n?? docs/server-routing/files/server/game/management/commands/export_player_snapshot.py.md\n?? docs/server-routing/files/tools/check_day24_logic.py.md\n?? docs/server-routing/verification/day24-data-path-correction/artifact-move.json\n?? docs/server-routing/verification/day24-data-path-correction/data-layout-before.json\n?? docs/server-routing/verification/day24-data-path-correction/export_player_snapshot-start.txt\n?? docs/server-routing/verification/day24-data-path-correction/finish-state.json\n?? docs/server-routing/verification/day24-data-path-correction/gitignore-check.json\n?? docs/server-routing/verification/day24-data-path-correction/period01-official-current.json\n?? docs/server-routing/verification/day24-data-path-correction/pre-operation-doc-check.json\n?? docs/server-routing/verification/day24-data-path-correction/routing-before.json\n?? docs/server-routing/verification/day24-data-path-correction/routing-final.json\n?? docs/server-routing/verification/day24-data-path-correction/snapshot-check.json\n?? docs/server-routing/verification/day24-data-path-correction/start-state.json\n?? docs/server-routing/verification/day24-period01-review/checker-download-login-response.txt\n?? docs/server-routing/verification/day24-period01-review/checker-origin-local.json\n?? docs/server-routing/verification/day24-period01-review/checker-origin.json\n?? docs/server-routing/verification/day24-period01-review/checker-symbols.json\n?? docs/server-routing/verification/day24-period01-review/finish-state.json\n?? docs/server-routing/verification/day24-period01-review/isolated-review-summary.json\n?? docs/server-routing/verification/day24-period01-review/period01-current-project.json\n?? docs/server-routing/verification/day24-period01-review/period01-isolated-as-written.json\n?? docs/server-routing/verification/day24-period01-review/period01-isolated-query-fields-only-diagnostic.json\n?? docs/server-routing/verification/day24-period01-review/period01-sandbox-temp-failure.json\n?? docs/server-routing/verification/day24-period01-review/routing-before.json\n?? docs/server-routing/verification/day24-period01-review/routing-final.json\n?? docs/server-routing/verification/day24-period01-review/runtime-readiness.json\n?? docs/server-routing/verification/day24-period01-review/start-state.json\n?? docs/server-routing/verification/day24-routing-sync/agent-contract-start.json\n?? docs/server-routing/verification/day24-routing-sync/agent-doc-check.json\n?? docs/server-routing/verification/day24-routing-sync/agent-final-audit.json\n?? docs/server-routing/verification/day24-routing-sync/agent-period01-current.json\n?? docs/server-routing/verification/day24-routing-sync/agent-scope-final.json\n?? docs/server-routing/verification/day24-routing-sync/agent-scope-start.json\n?? docs/server-routing/verification/day24-routing-sync/agent-start-audit.json\n?? docs/server-routing/verification/day24-routing-sync/agent-state-final.json\n?? docs/server-routing/verification/day24-routing-sync/agent-state-start.json\n?? docs/server-routing/verification/day24-routing-sync/finish-state.json\n?? docs/server-routing/verification/day24-routing-sync/start-state.json\n?? server/game/management/commands/export_player_snapshot.py\n?? tools/check_day24_logic.py",
+    "error": ""
+  },
+  "head_changes": {
+    "exit_code": 0,
+    "output": "M\t.gitignore\nM\tREADME.md\nM\tdocs/server-routing/README.md\nM\tdocs/server-routing/files/README.md.md\nM\tdocs/server-routing/files/server/game/ad_views.py.md\nM\tdocs/server-routing/files/server/game/urls.py.md",
+    "error": "warning: in the working copy of '.gitignore', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'README.md', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'docs/server-routing/README.md', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'docs/server-routing/files/README.md.md', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'docs/server-routing/files/server/game/ad_views.py.md', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'docs/server-routing/files/server/game/urls.py.md', LF will be replaced by CRLF the next time Git touches it"
+  },
+  "staged": {
+    "exit_code": 0,
+    "output": "",
+    "error": ""
+  },
+  "unstaged": {
+    "exit_code": 0,
+    "output": "M\t.gitignore\nM\tREADME.md\nM\tdocs/server-routing/README.md\nM\tdocs/server-routing/files/README.md.md\nM\tdocs/server-routing/files/server/game/ad_views.py.md\nM\tdocs/server-routing/files/server/game/urls.py.md",
+    "error": "warning: in the working copy of '.gitignore', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'README.md', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'docs/server-routing/README.md', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'docs/server-routing/files/README.md.md', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'docs/server-routing/files/server/game/ad_views.py.md', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'docs/server-routing/files/server/game/urls.py.md', LF will be replaced by CRLF the next time Git touches it"
+  },
+  "untracked": {
+    "exit_code": 0,
+    "output": "docs/handoffs/2026-10-08-day24-data-path-correction.md\ndocs/handoffs/2026-10-08-day24-period01-review.md\ndocs/handoffs/2026-10-08-game-routing-progress-sync.md\ndocs/server-routing/day24-progress.md\ndocs/server-routing/files/.gitignore.md\ndocs/server-routing/files/data/exports/player-cdc.ndjson.md\ndocs/server-routing/files/server/game/management/commands/export_player_snapshot.py.md\ndocs/server-routing/files/tools/check_day24_logic.py.md\ndocs/server-routing/verification/day24-data-path-correction/artifact-move.json\ndocs/server-routing/verification/day24-data-path-correction/data-layout-before.json\ndocs/server-routing/verification/day24-data-path-correction/export_player_snapshot-start.txt\ndocs/server-routing/verification/day24-data-path-correction/finish-state.json\ndocs/server-routing/verification/day24-data-path-correction/gitignore-check.json\ndocs/server-routing/verification/day24-data-path-correction/period01-official-current.json\ndocs/server-routing/verification/day24-data-path-correction/pre-operation-doc-check.json\ndocs/server-routing/verification/day24-data-path-correction/routing-before.json\ndocs/server-routing/verification/day24-data-path-correction/routing-final.json\ndocs/server-routing/verification/day24-data-path-correction/snapshot-check.json\ndocs/server-routing/verification/day24-data-path-correction/start-state.json\ndocs/server-routing/verification/day24-period01-review/checker-download-login-response.txt\ndocs/server-routing/verification/day24-period01-review/checker-origin-local.json\ndocs/server-routing/verification/day24-period01-review/checker-origin.json\ndocs/server-routing/verification/day24-period01-review/checker-symbols.json\ndocs/server-routing/verification/day24-period01-review/finish-state.json\ndocs/server-routing/verification/day24-period01-review/isolated-review-summary.json\ndocs/server-routing/verification/day24-period01-review/period01-current-project.json\ndocs/server-routing/verification/day24-period01-review/period01-isolated-as-written.json\ndocs/server-routing/verification/day24-period01-review/period01-isolated-query-fields-only-diagnostic.json\ndocs/server-routing/verification/day24-period01-review/period01-sandbox-temp-failure.json\ndocs/server-routing/verification/day24-period01-review/routing-before.json\ndocs/server-routing/verification/day24-period01-review/routing-final.json\ndocs/server-routing/verification/day24-period01-review/runtime-readiness.json\ndocs/server-routing/verification/day24-period01-review/start-state.json\ndocs/server-routing/verification/day24-routing-sync/agent-contract-start.json\ndocs/server-routing/verification/day24-routing-sync/agent-doc-check.json\ndocs/server-routing/verification/day24-routing-sync/agent-final-audit.json\ndocs/server-routing/verification/day24-routing-sync/agent-period01-current.json\ndocs/server-routing/verification/day24-routing-sync/agent-scope-final.json\ndocs/server-routing/verification/day24-routing-sync/agent-scope-start.json\ndocs/server-routing/verification/day24-routing-sync/agent-start-audit.json\ndocs/server-routing/verification/day24-routing-sync/agent-state-final.json\ndocs/server-routing/verification/day24-routing-sync/agent-state-start.json\ndocs/server-routing/verification/day24-routing-sync/finish-state.json\ndocs/server-routing/verification/day24-routing-sync/start-state.json\nserver/game/management/commands/export_player_snapshot.py\ntools/check_day24_logic.py",
+    "error": ""
+  },
+  "comparison_to_start": {
+    "repository": "C:\\MLO01-01\\Chapter3\\Game-server",
+    "audit_scope": "selected current game source",
+    "routing_index": "docs\\server-routing\\README.md",
+    "python_file_count": 8,
+    "symbol_count": 50,
+    "signature_issues": [],
+    "protected_source_files": {
+      "checked": 165,
+      "missing": [],
+      "changed": [],
+      "unchanged": true
+    },
+    "environment_files": {
+      "checked": 1,
+      "missing": [],
+      "changed": [],
+      "unchanged": true
+    },
+    "head_unchanged": true,
+    "staged_unchanged": true,
+    "unexpected_non_document_git_paths": [],
+    "concurrent_user_source_paths": [],
+    "modified_tracked_markdown": [
+      "README.md",
+      "docs/server-routing/README.md",
+      "docs/server-routing/files/README.md.md",
+      "docs/server-routing/files/server/game/ad_views.py.md",
+      "docs/server-routing/files/server/game/urls.py.md"
+    ],
+    "added_document_paths_this_turn": [
+      "docs/handoffs/2026-10-08-game-routing-progress-sync.md",
+      "docs/server-routing/day24-progress.md",
+      "docs/server-routing/verification/day24-routing-sync/agent-contract-start.json",
+      "docs/server-routing/verification/day24-routing-sync/agent-doc-check.json",
+      "docs/server-routing/verification/day24-routing-sync/agent-final-audit.json",
+      "docs/server-routing/verification/day24-routing-sync/agent-period01-current.json",
+      "docs/server-routing/verification/day24-routing-sync/agent-scope-final.json",
+      "docs/server-routing/verification/day24-routing-sync/agent-scope-start.json",
+      "docs/server-routing/verification/day24-routing-sync/agent-start-audit.json",
+      "docs/server-routing/verification/day24-routing-sync/agent-state-final.json",
+      "docs/server-routing/verification/day24-routing-sync/agent-state-start.json",
+      "docs/server-routing/verification/day24-routing-sync/finish-state.json",
+      "docs/server-routing/verification/day24-routing-sync/start-state.json"
+    ],
+    "reviewed_markdown": [
+      "README.md",
+      "docs/handoffs/2026-10-08-game-routing-progress-sync.md",
+      "docs/server-routing/README.md",
+      "docs/server-routing/day24-progress.md",
+      "docs/server-routing/files/README.md.md",
+      "docs/server-routing/files/server/game/ad_views.py.md",
+      "docs/server-routing/files/server/game/urls.py.md"
+    ],
+    "preexisting_changed_paths": [
+      ".gitignore",
+      "docs/server-routing/README.md"
+    ],
+    "preexisting_untracked_paths": [
+      "docs/handoffs/2026-10-08-day24-data-path-correction.md",
+      "docs/handoffs/2026-10-08-day24-period01-review.md",
+      "docs/server-routing/files/.gitignore.md",
+      "docs/server-routing/files/data/exports/player-cdc.ndjson.md",
+      "docs/server-routing/files/server/game/management/commands/export_player_snapshot.py.md",
+      "docs/server-routing/files/tools/check_day24_logic.py.md",
+      "docs/server-routing/verification/day24-data-path-correction/artifact-move.json",
+      "docs/server-routing/verification/day24-data-path-correction/data-layout-before.json",
+      "docs/server-routing/verification/day24-data-path-correction/export_player_snapshot-start.txt",
+      "docs/server-routing/verification/day24-data-path-correction/finish-state.json",
+      "docs/server-routing/verification/day24-data-path-correction/gitignore-check.json",
+      "docs/server-routing/verification/day24-data-path-correction/period01-official-current.json",
+      "docs/server-routing/verification/day24-data-path-correction/pre-operation-doc-check.json",
+      "docs/server-routing/verification/day24-data-path-correction/routing-before.json",
+      "docs/server-routing/verification/day24-data-path-correction/routing-final.json",
+      "docs/server-routing/verification/day24-data-path-correction/snapshot-check.json",
+      "docs/server-routing/verification/day24-data-path-correction/start-state.json",
+      "docs/server-routing/verification/day24-period01-review/checker-download-login-response.txt",
+      "docs/server-routing/verification/day24-period01-review/checker-origin-local.json",
+      "docs/server-routing/verification/day24-period01-review/checker-origin.json",
+      "docs/server-routing/verification/day24-period01-review/checker-symbols.json",
+      "docs/server-routing/verification/day24-period01-review/finish-state.json",
+      "docs/server-routing/verification/day24-period01-review/isolated-review-summary.json",
+      "docs/server-routing/verification/day24-period01-review/period01-current-project.json",
+      "docs/server-routing/verification/day24-period01-review/period01-isolated-as-written.json",
+      "docs/server-routing/verification/day24-period01-review/period01-isolated-query-fields-only-diagnostic.json",
+      "docs/server-routing/verification/day24-period01-review/period01-sandbox-temp-failure.json",
+      "docs/server-routing/verification/day24-period01-review/routing-before.json",
+      "docs/server-routing/verification/day24-period01-review/routing-final.json",
+      "docs/server-routing/verification/day24-period01-review/runtime-readiness.json",
+      "docs/server-routing/verification/day24-period01-review/start-state.json",
+      "server/game/management/commands/export_player_snapshot.py",
+      "tools/check_day24_logic.py"
+    ],
+    "summary": {
+      "ok": true
+    }
+  },
+  "start_state": "start-state.json",
+  "note": "agent changes docs only; new snapshot_intake.py is separately observed/preserved user work"
+}

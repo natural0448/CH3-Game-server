@@ -1,5 +1,22 @@
 # 10일차 전체 · 11일차 4교시까지
 
+## 현재 진행 상태 · 2026-10-08
+
+24일차는 **1교시 Player 공개 snapshot 내보내기까지 구현**했다. 실제 관리 명령은 `server/game/management/commands/export_player_snapshot.py`이며 공식 1교시 검사 결과는 **12개 통과·0개 실패**다. 광고 2교시는 `ads/snapshot_intake.py` 문제틀 작성 중이며 완료되지 않았다. 3~8교시의 준비 상태·변경 fixture·계약·비교·누락 요약·인계는 미적용이다.
+
+실제 원본은 기존 **`Game-server/data/exports/player-cdc.ndjson`**에 있다. `server/data`는 없다. 현재 파일은 56행·13,275 bytes이며 이미 생성되어 다시 내보낼 필요는 없다. 상대 출력 경로는 명령 실행 폴더를 기준으로 하므로 실행 위치는 Game-server 루트다. 광고 작업 폴더에서 후속 입력 경로는 `../Game-server/data/exports/player-cdc.ndjson`이다.
+
+```powershell
+Set-Location C:\MLO01-01\Chapter3\Game-server
+.\server\.venv\Scripts\python.exe -X utf8 -B tools/check_day24_logic.py --project server --period 1
+```
+
+최초 생성의 표준 명령은 `python server/manage.py export_player_snapshot --output data/exports/player-cdc.ndjson`이다. 이후 다시 수집할 때는 기존 원본을 보존할 새 출력 파일명을 지정한다. 현재 snapshot과 MySQL binlog CDC는 별개의 진행 상태다.
+
+[현재 라우팅과 진행 상태](docs/server-routing/day24-progress.md), [관리 명령 문서](docs/server-routing/files/server/game/management/commands/export_player_snapshot.py.md), [저장 경로 정정 기록](docs/handoffs/2026-10-08-day24-data-path-correction.md)을 따른다. 최초 1교시 검토의 실패는 수정 전 이력이고 최신 성공 결과와 구별한다. 22일차 이미지 광고 연결 및 23일차 사건 중계는 기존 구현을 유지하며, 23일차 공식 3교시 검사기 미저장·미실행 상태도 별도로 유지한다.
+
+아래 2026-09-15 안내는 10·11일차 작업 시점의 기록이다.
+
 2026-09-15 첨부 교안과 현재 파일을 비교해 보완했습니다. 경로는 사용자의 구조를 유지합니다.
 
 ```text

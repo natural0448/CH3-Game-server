@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "repository": "C:\\MLO01-01\\Chapter3\\Game-server",
+  "git_head": "5fd757d day23 진행사항",
+  "git_status": [
+    "?? docs/server-routing/verification/day24-period01-review/"
+  ],
+  "routing_dir": "docs/server-routing",
+  "scope": "working_tree",
+  "changed_paths": [
+    "docs/server-routing/verification/day24-period01-review/check_day24_logic-original.txt",
+    "docs/server-routing/verification/day24-period01-review/checker-origin.json",
+    "docs/server-routing/verification/day24-period01-review/start-state.json"
+  ],
+  "python_files": [],
+  "issues": [],
+  "summary": {
+    "changed_path_count": 3,
+    "python_file_count": 0,
+    "symbol_count": 0,
+    "issue_count": 0,
+    "ok": true
+  }
+}

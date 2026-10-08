@@ -1,0 +1,43 @@
+{
+  "repository": "C:\\MLO01-01\\Chapter3\\Game-server",
+  "head": {
+    "exit_code": 0,
+    "output": "5fd757d day23 진행사항",
+    "stderr": ""
+  },
+  "status": {
+    "exit_code": 0,
+    "output": "M .gitignore\n M docs/server-routing/README.md\n?? docs/handoffs/2026-10-08-day24-data-path-correction.md\n?? docs/handoffs/2026-10-08-day24-period01-review.md\n?? docs/server-routing/files/.gitignore.md\n?? docs/server-routing/files/data/\n?? docs/server-routing/files/server/game/management/commands/export_player_snapshot.py.md\n?? docs/server-routing/files/tools/check_day24_logic.py.md\n?? docs/server-routing/verification/day24-data-path-correction/\n?? docs/server-routing/verification/day24-period01-review/\n?? docs/server-routing/verification/day24-routing-sync/\n?? server/game/management/commands/export_player_snapshot.py\n?? tools/check_day24_logic.py",
+    "stderr": ""
+  },
+  "staged": {
+    "exit_code": 0,
+    "output": "",
+    "stderr": ""
+  },
+  "unstaged": {
+    "exit_code": 0,
+    "output": "M\t.gitignore\nM\tdocs/server-routing/README.md",
+    "stderr": "warning: in the working copy of '.gitignore', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'docs/server-routing/README.md', LF will be replaced by CRLF the next time Git touches it"
+  },
+  "untracked": {
+    "exit_code": 0,
+    "output": "docs/handoffs/2026-10-08-day24-data-path-correction.md\ndocs/handoffs/2026-10-08-day24-period01-review.md\ndocs/server-routing/files/.gitignore.md\ndocs/server-routing/files/data/exports/player-cdc.ndjson.md\ndocs/server-routing/files/server/game/management/commands/export_player_snapshot.py.md\ndocs/server-routing/files/tools/check_day24_logic.py.md\ndocs/server-routing/verification/day24-data-path-correction/artifact-move.json\ndocs/server-routing/verification/day24-data-path-correction/data-layout-before.json\ndocs/server-routing/verification/day24-data-path-correction/export_player_snapshot-start.txt\ndocs/server-routing/verification/day24-data-path-correction/finish-state.json\ndocs/server-routing/verification/day24-data-path-correction/gitignore-check.json\ndocs/server-routing/verification/day24-data-path-correction/period01-official-current.json\ndocs/server-routing/verification/day24-data-path-correction/pre-operation-doc-check.json\ndocs/server-routing/verification/day24-data-path-correction/routing-before.json\ndocs/server-routing/verification/day24-data-path-correction/routing-final.json\ndocs/server-routing/verification/day24-data-path-correction/snapshot-check.json\ndocs/server-routing/verification/day24-data-path-correction/start-state.json\ndocs/server-routing/verification/day24-period01-review/checker-download-login-response.txt\ndocs/server-routing/verification/day24-period01-review/checker-origin-local.json\ndocs/server-routing/verification/day24-period01-review/checker-origin.json\ndocs/server-routing/verification/day24-period01-review/checker-symbols.json\ndocs/server-routing/verification/day24-period01-review/finish-state.json\ndocs/server-routing/verification/day24-period01-review/isolated-review-summary.json\ndocs/server-routing/verification/day24-period01-review/period01-current-project.json\ndocs/server-routing/verification/day24-period01-review/period01-isolated-as-written.json\ndocs/server-routing/verification/day24-period01-review/period01-isolated-query-fields-only-diagnostic.json\ndocs/server-routing/verification/day24-period01-review/period01-sandbox-temp-failure.json\ndocs/server-routing/verification/day24-period01-review/routing-before.json\ndocs/server-routing/verification/day24-period01-review/routing-final.json\ndocs/server-routing/verification/day24-period01-review/runtime-readiness.json\ndocs/server-routing/verification/day24-period01-review/start-state.json\ndocs/server-routing/verification/day24-routing-sync/agent-contract-start.json\ndocs/server-routing/verification/day24-routing-sync/agent-scope-start.json\ndocs/server-routing/verification/day24-routing-sync/agent-start-audit.json\ndocs/server-routing/verification/day24-routing-sync/start-state.json\nserver/game/management/commands/export_player_snapshot.py\ntools/check_day24_logic.py",
+    "stderr": ""
+  },
+  "baseline_hashes": {
+    "README.md": "133422330282fb1c1a24a190c1541b2c4e28cf860965b804847c134a192d6587",
+    "docs/server-routing/README.md": "6d69d7ca5c04ce5b4a7e962c04d4ca4aac7d8a4addf48833385c40f7848f5ed1",
+    "docs/server-routing/files/README.md.md": "8b315af89d820ef6b983a465535b12274e72baffe7ad40291a0719ee563c9a89",
+    "docs/server-routing/files/server/game/ad_views.py.md": "1a55c36fd7b0e264add5a9010c451f4389ffac34695d17ff3782878004ff504a",
+    "docs/server-routing/files/server/game/urls.py.md": "6159f9c82ed1c54677e9be2807294e6528b85c8fb163e27d0e1d3c8406103dc9",
+    "server/game/ad_gateway.py": "e7afd0f07a7a927523d0aea678458e4cb87f36d857a75bfc2be3b54d84326736",
+    "server/game/ad_views.py": "c62c7c9579ac601c6c1b2a9c77c638403c239edd8243f0b18d3e7b43020f05a5",
+    "server/game/urls.py": "da56c29a95480b9c08af082017ac2db4828488a82f0b73485e9299f94dfe45e8",
+    "server/game/management/commands/export_player_snapshot.py": "30673e6cf8b658640089dafa1e856b9076ecb78e23f256d03abe8dcbef91ebaa",
+    "tools/check_day24_logic.py": "39640dbe2885bda44988fdfe8b2044d0f8f72c48376688e24222550c078d0e2a",
+    "config/settings.py": "de0bcec1b8c0796180914337dee54c5cb4f1b86961e9012148c4f8e60341e992",
+    ".gitignore": "ae4e63e6b82ae78e68b1105edf3cdce4df3ca2bfc61473e2590f149359ca36e3",
+    "data/exports/player-cdc.ndjson": "6ea30948a1c6924b186676511207bd2099683ca00cf1b1582cb595e6437375d0"
+  }
+}

@@ -2,13 +2,19 @@
 
 이 색인은 현재 문서화된 서버·Spark 개발 파일과 1:1 짝 문서를 연결한다. 아직 문서화하지 않은 기존 파일을 현재 구조처럼 설명하지 않는다.
 
+## 현재 진행 기준 · 2026-10-08
+
+[현재 진행과 호출 경계](day24-progress.md)를 먼저 읽는다. 22일차 이미지 광고 연결과 23일차 광고 사건 중계는 기존 구현이며, 24일차는 **1교시 공개 Player snapshot 내보내기까지 구현**했다. 공식 1교시 검사는 **12개 통과·0개 실패**다. 실제 입력은 기존 루트 `data/exports/player-cdc.ndjson`에 있고 `server/data`는 없다. 광고의 2교시는 문제틀 작성 중으로 완료되지 않았고 3~8교시는 미적용이다.
+
+상대 출력은 실행 폴더 기준이므로 Game-server 루트에서 `python server/manage.py export_player_snapshot --output data/exports/player-cdc.ndjson`을 사용한다. 광고 작업 폴더의 입력은 `../Game-server/data/exports/player-cdc.ndjson`이다. 파일은 이미 존재하며 초기 검토의 실패 기록과 현재 통과 결과를 구별한다. [이번 문서 정합화 기록](../handoffs/2026-10-08-game-routing-progress-sync.md)과 [기존 경로 정정 기록](../handoffs/2026-10-08-day24-data-path-correction.md)에 근거를 남겼다.
+
 [20일차 8교시 수정·검증](../handoffs/2026-10-01-day20-through-period08.md)은 Bronze→품질→Silver→Gold→화면 요약·계약과 Windows 실행 순서를 기록한다.
 
-[2026-09-28 현재 구현 정본](../handoffs/2026-09-28-day18-canonical.md)은 오늘까지 반영된 서버·분석 파이프라인·측정 도구의 기준 상태와 검증 결과를 기록한다.
+2026-09-28 현재 구현 정본의 기존 참조 경로는 `../handoffs/2026-09-28-day18-canonical.md`다. 서버·분석 파이프라인·측정 도구의 기준 상태와 검증 결과를 기록한 문서로 안내되어 있었으나 현재 대상 파일은 없다.
 
 [17일차 Delta 고유 사실 파이프라인 기획](day17-delta-plan.md)은 현재 구현된 Kafka→Delta→집계→분석 API 흐름과 운영 자원 배치를 설명한다.
 
-[19일차 7교시까지 반영·검증](../handoffs/2026-09-30-day19-through-period07.md)은 로컬 Bronze 사본 검사와 기존 Spark Worker 두 대의 미리보기 실행 결과·명령을 기록한다.
+19일차 7교시까지 반영·검증의 기존 참조 경로는 `../handoffs/2026-09-30-day19-through-period07.md`다. 로컬 Bronze 사본 검사와 기존 Spark Worker 두 대의 미리보기 실행 결과·명령을 기록한 문서로 안내되어 있었으나 현재 대상 파일은 없다.
 
 ## Spark 집계
 
@@ -25,6 +31,7 @@
 
 | 개발 파일 | 짝 문서 | 책임 |
 | --- | --- | --- |
+| `server/game/management/commands/export_player_snapshot.py` | `files/server/game/management/commands/export_player_snapshot.py.md` | Player 공개 다섯 필드와 수집 메타데이터를 NDJSON으로 내보내기. 저장소 루트에서 실행해 기존 data/exports 사용 |
 | `server/analytics/management/commands/run_game_windows.py` | `files/server/analytics/management/commands/run_game_windows.py.md` | 기존 Spark 클러스터에 시간 창 작업을 제출하는 Django 명령 |
 | `server/analytics/management/commands/run_game_delta.py` | `files/server/analytics/management/commands/run_game_delta.py.md` | 기존 Spark 클러스터에 Delta 고유 사실 스트림을 제출하는 Django 명령 |
 | `server/analytics/management/commands/summarize_windows.py` | `files/server/analytics/management/commands/summarize_windows.py.md` | 최근 확정 시간 창을 게시하는 Spark 작업 제출 명령 |
@@ -36,6 +43,13 @@
 | `server/game/management/commands/inspect_game_facts.py` | `files/server/game/management/commands/inspect_game_facts.py.md` | 최근 확정 사실의 세 식별자를 제한된 공개 필드로 읽는 점검 명령 |
 | `server/game/management/commands/prepare_load_players.py` | `files/server/game/management/commands/prepare_load_players.py.md` | 수업용 측정 계정과 방별 Player를 만들고 비밀번호 없는 계정 목록을 저장 |
 | `server/game/management/commands/export_game_handoff.py` | `files/server/game/management/commands/export_game_handoff.py.md` | 선택한 DB 확정 사실 범위를 UTF-8 JSONL Lake 인계 원본으로 내보내기 |
+
+## 24일차 공개 snapshot 파일
+
+| 현재 데이터 파일 | 짝 문서 | 책임 |
+| --- | --- | --- |
+| `data/exports/player-cdc.ndjson` | `files/data/exports/player-cdc.ndjson.md` | 사용자가 생성한 Player 공개 snapshot 원본. 기존 루트 data 폴더에 보관하며 광고의 2교시 입력으로 사용 |
+| `.gitignore` | `files/.gitignore.md` | 실제 data 산출물은 제외하고 지정한 snapshot 라우팅 문서만 추적 가능하게 허용 |
 
 ## Django 설정
 
@@ -57,7 +71,7 @@
 
 | 개발 파일 | 짝 문서 | 책임 |
 | --- | --- | --- |
-| `server/game/urls.py` | `files/server/game/urls.py.md` | 관리 화면·게임 화면·인증·Player·전달·이력 HTTP 경로 연결 |
+| `server/game/urls.py` | `files/server/game/urls.py.md` | 관리 화면·게임 화면·인증·Player·전달·이력·광고 미리보기/선택/사건 HTTP 경로 연결 |
 | `server/game/views.py` | `files/server/game/views.py.md` | 로컬 전달 현황과 인증된 Player·이력·전달 JSON 응답 |
 | `server/game/test_handoff_export.py` | `files/server/game/test_handoff_export.py.md` | Lake 인계 JSONL의 정렬·필드·반개구간·timezone 계약 검사 |
 
@@ -65,6 +79,7 @@
 
 | 개발 파일 | 짝 문서 | 책임 |
 | --- | --- | --- |
+| `tools/check_day24_logic.py` | `files/tools/check_day24_logic.py.md` | 24일차 학생 함수를 SQLite 메모리 DB와 임시 파일로 검사하는 교안 원본 도구. 현재 구조에서 1교시는 `--project server` |
 | `tools/start-dev.ps1` | `files/tools/start-dev.ps1.md` | Kafka 3노드, 프로필별 Spark Worker 수와 선택적 Docker Compose NiFi의 사전 검사·별도 터미널 실행 |
 | `tools/kafka.ps1` | `files/tools/kafka.ps1.md` | Kafka 3노드 초기화·실행·상태·토픽·consumer group 도구 호출 |
 | `tools/find_nifi_event.py` | `files/tools/find_nifi_event.py.md` | NiFi JSON 출력 폴더에서 지정한 사건 UUID를 제한 범위로 검색 |

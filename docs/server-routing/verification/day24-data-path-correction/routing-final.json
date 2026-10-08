@@ -1,0 +1,333 @@
+{
+  "schema_version": 1,
+  "repository": "C:\\MLO01-01\\Chapter3\\Game-server",
+  "git_head": "5fd757d day23 진행사항",
+  "git_status": [
+    " M .gitignore",
+    " M docs/server-routing/README.md",
+    "?? docs/handoffs/2026-10-08-day24-data-path-correction.md",
+    "?? docs/handoffs/2026-10-08-day24-period01-review.md",
+    "?? docs/server-routing/files/.gitignore.md",
+    "?? docs/server-routing/files/data/",
+    "?? docs/server-routing/files/server/game/management/commands/export_player_snapshot.py.md",
+    "?? docs/server-routing/files/tools/check_day24_logic.py.md",
+    "?? docs/server-routing/verification/day24-data-path-correction/",
+    "?? docs/server-routing/verification/day24-period01-review/",
+    "?? server/game/management/commands/export_player_snapshot.py",
+    "?? tools/check_day24_logic.py"
+  ],
+  "routing_dir": "docs/server-routing",
+  "scope": "working_tree",
+  "changed_paths": [
+    ".gitignore",
+    "docs/handoffs/2026-10-08-day24-data-path-correction.md",
+    "docs/handoffs/2026-10-08-day24-period01-review.md",
+    "docs/server-routing/README.md",
+    "docs/server-routing/files/.gitignore.md",
+    "docs/server-routing/files/data/exports/player-cdc.ndjson.md",
+    "docs/server-routing/files/server/game/management/commands/export_player_snapshot.py.md",
+    "docs/server-routing/files/tools/check_day24_logic.py.md",
+    "docs/server-routing/verification/day24-data-path-correction/artifact-move.json",
+    "docs/server-routing/verification/day24-data-path-correction/data-layout-before.json",
+    "docs/server-routing/verification/day24-data-path-correction/export_player_snapshot-start.txt",
+    "docs/server-routing/verification/day24-data-path-correction/gitignore-check.json",
+    "docs/server-routing/verification/day24-data-path-correction/period01-official-current.json",
+    "docs/server-routing/verification/day24-data-path-correction/pre-operation-doc-check.json",
+    "docs/server-routing/verification/day24-data-path-correction/routing-before.json",
+    "docs/server-routing/verification/day24-data-path-correction/routing-final.json",
+    "docs/server-routing/verification/day24-data-path-correction/snapshot-check.json",
+    "docs/server-routing/verification/day24-data-path-correction/start-state.json",
+    "docs/server-routing/verification/day24-period01-review/checker-download-login-response.txt",
+    "docs/server-routing/verification/day24-period01-review/checker-origin-local.json",
+    "docs/server-routing/verification/day24-period01-review/checker-origin.json",
+    "docs/server-routing/verification/day24-period01-review/checker-symbols.json",
+    "docs/server-routing/verification/day24-period01-review/finish-state.json",
+    "docs/server-routing/verification/day24-period01-review/isolated-review-summary.json",
+    "docs/server-routing/verification/day24-period01-review/period01-current-project.json",
+    "docs/server-routing/verification/day24-period01-review/period01-isolated-as-written.json",
+    "docs/server-routing/verification/day24-period01-review/period01-isolated-query-fields-only-diagnostic.json",
+    "docs/server-routing/verification/day24-period01-review/period01-sandbox-temp-failure.json",
+    "docs/server-routing/verification/day24-period01-review/routing-before.json",
+    "docs/server-routing/verification/day24-period01-review/routing-final.json",
+    "docs/server-routing/verification/day24-period01-review/runtime-readiness.json",
+    "docs/server-routing/verification/day24-period01-review/start-state.json",
+    "server/game/management/commands/export_player_snapshot.py",
+    "tools/check_day24_logic.py"
+  ],
+  "python_files": [
+    {
+      "path": "server/game/management/commands/export_player_snapshot.py",
+      "state": "present",
+      "document": "docs/server-routing/files/server/game/management/commands/export_player_snapshot.py.md",
+      "document_exists": true,
+      "indexed": true,
+      "symbols": [
+        {
+          "kind": "class",
+          "qualified_name": "Command",
+          "line": 13,
+          "signature": "class Command(BaseCommand)",
+          "signature_core": "Command",
+          "return_annotation": null,
+          "decorators": [],
+          "bases": [
+            "BaseCommand"
+          ],
+          "documented": true
+        },
+        {
+          "kind": "method",
+          "qualified_name": "Command.add_arguments",
+          "line": 16,
+          "signature": "Command.add_arguments(self, parser)",
+          "signature_core": "Command.add_arguments(self, parser)",
+          "return_annotation": null,
+          "decorators": [],
+          "bases": [],
+          "documented": true
+        },
+        {
+          "kind": "method",
+          "qualified_name": "Command.handle",
+          "line": 19,
+          "signature": "Command.handle(self, *args, **options)",
+          "signature_core": "Command.handle(self, *args, **options)",
+          "return_annotation": null,
+          "decorators": [],
+          "bases": [],
+          "documented": true
+        }
+      ],
+      "missing_signatures": [],
+      "parse_error": null
+    },
+    {
+      "path": "tools/check_day24_logic.py",
+      "state": "present",
+      "document": "docs/server-routing/files/tools/check_day24_logic.py.md",
+      "document_exists": true,
+      "indexed": true,
+      "symbols": [
+        {
+          "kind": "function",
+          "qualified_name": "row",
+          "line": 27,
+          "signature": "row(player_id=1, **updates)",
+          "signature_core": "row(player_id=1, **updates)",
+          "return_annotation": null,
+          "decorators": [],
+          "bases": [],
+          "documented": true
+        },
+        {
+          "kind": "function",
+          "qualified_name": "public",
+          "line": 35,
+          "signature": "public(value)",
+          "signature_core": "public(value)",
+          "return_annotation": null,
+          "decorators": [],
+          "bases": [],
+          "documented": true
+        },
+        {
+          "kind": "function",
+          "qualified_name": "write_rows",
+          "line": 39,
+          "signature": "write_rows(path, values)",
+          "signature_core": "write_rows(path, values)",
+          "return_annotation": null,
+          "decorators": [],
+          "bases": [],
+          "documented": true
+        },
+        {
+          "kind": "function",
+          "qualified_name": "equal",
+          "line": 45,
+          "signature": "equal(actual, expected)",
+          "signature_core": "equal(actual, expected)",
+          "return_annotation": null,
+          "decorators": [],
+          "bases": [],
+          "documented": true
+        },
+        {
+          "kind": "function",
+          "qualified_name": "rejected",
+          "line": 50,
+          "signature": "rejected(call, exceptions=CAUGHT)",
+          "signature_core": "rejected(call, exceptions=CAUGHT)",
+          "return_annotation": null,
+          "decorators": [],
+          "bases": [],
+          "documented": true
+        },
+        {
+          "kind": "class",
+          "qualified_name": "Checks",
+          "line": 58,
+          "signature": "class Checks",
+          "signature_core": "Checks",
+          "return_annotation": null,
+          "decorators": [],
+          "bases": [],
+          "documented": true
+        },
+        {
+          "kind": "method",
+          "qualified_name": "Checks.__init__",
+          "line": 59,
+          "signature": "Checks.__init__(self)",
+          "signature_core": "Checks.__init__(self)",
+          "return_annotation": null,
+          "decorators": [],
+          "bases": [],
+          "documented": true
+        },
+        {
+          "kind": "method",
+          "qualified_name": "Checks.run",
+          "line": 62,
+          "signature": "Checks.run(self, name, call)",
+          "signature_core": "Checks.run(self, name, call)",
+          "return_annotation": null,
+          "decorators": [],
+          "bases": [],
+          "documented": true
+        },
+        {
+          "kind": "method",
+          "qualified_name": "Checks.mutation",
+          "line": 71,
+          "signature": "Checks.mutation(self, name, call)",
+          "signature_core": "Checks.mutation(self, name, call)",
+          "return_annotation": null,
+          "decorators": [],
+          "bases": [],
+          "documented": true
+        },
+        {
+          "kind": "function",
+          "qualified_name": "command",
+          "line": 78,
+          "signature": "command(module_name, **options)",
+          "signature_core": "command(module_name, **options)",
+          "return_annotation": null,
+          "decorators": [],
+          "bases": [],
+          "documented": true
+        },
+        {
+          "kind": "function",
+          "qualified_name": "test_one",
+          "line": 86,
+          "signature": "test_one(checks, root)",
+          "signature_core": "test_one(checks, root)",
+          "return_annotation": null,
+          "decorators": [],
+          "bases": [],
+          "documented": true
+        },
+        {
+          "kind": "function",
+          "qualified_name": "test_two",
+          "line": 132,
+          "signature": "test_two(checks, module, root)",
+          "signature_core": "test_two(checks, module, root)",
+          "return_annotation": null,
+          "decorators": [],
+          "bases": [],
+          "documented": true
+        },
+        {
+          "kind": "function",
+          "qualified_name": "test_three",
+          "line": 165,
+          "signature": "test_three(checks, module, root)",
+          "signature_core": "test_three(checks, module, root)",
+          "return_annotation": null,
+          "decorators": [],
+          "bases": [],
+          "documented": true
+        },
+        {
+          "kind": "function",
+          "qualified_name": "test_four",
+          "line": 194,
+          "signature": "test_four(checks, module, root)",
+          "signature_core": "test_four(checks, module, root)",
+          "return_annotation": null,
+          "decorators": [],
+          "bases": [],
+          "documented": true
+        },
+        {
+          "kind": "function",
+          "qualified_name": "test_five",
+          "line": 229,
+          "signature": "test_five(checks, module, root)",
+          "signature_core": "test_five(checks, module, root)",
+          "return_annotation": null,
+          "decorators": [],
+          "bases": [],
+          "documented": true
+        },
+        {
+          "kind": "function",
+          "qualified_name": "test_six",
+          "line": 257,
+          "signature": "test_six(checks, module, root)",
+          "signature_core": "test_six(checks, module, root)",
+          "return_annotation": null,
+          "decorators": [],
+          "bases": [],
+          "documented": true
+        },
+        {
+          "kind": "function",
+          "qualified_name": "test_seven",
+          "line": 290,
+          "signature": "test_seven(checks, module, root)",
+          "signature_core": "test_seven(checks, module, root)",
+          "return_annotation": null,
+          "decorators": [],
+          "bases": [],
+          "documented": true
+        },
+        {
+          "kind": "function",
+          "qualified_name": "test_eight",
+          "line": 313,
+          "signature": "test_eight(checks, module, root)",
+          "signature_core": "test_eight(checks, module, root)",
+          "return_annotation": null,
+          "decorators": [],
+          "bases": [],
+          "documented": true
+        },
+        {
+          "kind": "function",
+          "qualified_name": "main",
+          "line": 367,
+          "signature": "main()",
+          "signature_core": "main()",
+          "return_annotation": null,
+          "decorators": [],
+          "bases": [],
+          "documented": true
+        }
+      ],
+      "missing_signatures": [],
+      "parse_error": null
+    }
+  ],
+  "issues": [],
+  "summary": {
+    "changed_path_count": 34,
+    "python_file_count": 2,
+    "symbol_count": 22,
+    "issue_count": 0,
+    "ok": true
+  }
+}

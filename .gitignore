@@ -9,6 +9,12 @@ env.windows.ps1
 kafka-data/
 *.log
 **/data/
+# Track only the routing document for this public snapshot; runtime data stays ignored.
+!docs/server-routing/files/data/
+docs/server-routing/files/data/*
+!docs/server-routing/files/data/exports/
+docs/server-routing/files/data/exports/*
+!docs/server-routing/files/data/exports/player-cdc.ndjson.md
 infra/runtime/
 *.crc
 *.delta

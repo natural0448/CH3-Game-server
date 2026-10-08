@@ -1,0 +1,21 @@
+{
+  "period": 1,
+  "project": "C:\\MLO01-01\\Chapter3\\Game-server\\server",
+  "passed": 1,
+  "failed": 1,
+  "database": "sqlite-memory-only",
+  "mongo": "not-connected",
+  "student_sources_unchanged": true,
+  "source_sha256": {},
+  "checks": [
+    {
+      "name": "저장 코드 로드·검사 준비",
+      "passed": false,
+      "error": "ModuleNotFoundError: No module named 'game.management.commands.export_player_snapshot'"
+    },
+    {
+      "name": "학생 저장 파일 변경 없음",
+      "passed": true
+    }
+  ]
+}

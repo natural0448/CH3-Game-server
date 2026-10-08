@@ -1,0 +1,15 @@
+{
+  "source": "C:\\MLO01-01\\Chapter3\\Game-server\\server\\game\\management\\commands\\export_player_snapshot.py",
+  "source_sha256": "30673e6cf8b658640089dafa1e856b9076ecb78e23f256d03abe8dcbef91ebaa",
+  "original_snapshot": "C:\\MLO01-01\\Chapter3\\Game-server\\server\\data\\exports\\player-cdc.ndjson",
+  "original_bytes": 13275,
+  "original_sha256": "6ea30948a1c6924b186676511207bd2099683ca00cf1b1582cb595e6437375d0",
+  "target": "C:\\MLO01-01\\Chapter3\\Game-server\\data\\exports\\player-cdc.ndjson",
+  "target_exists": false,
+  "configured_data_dir": "C:\\MLO01-01\\Chapter3\\Game-server\\data",
+  "root_exports_existing_hashes": {
+    "game-kafka-next.ndjson": "ee469add49cb13de324e8fe00c4a4bc8cc97b2fc1e1787b52c9ec2ef03c8613b",
+    "game-kafka.ndjson": "ea6c7b4164b827102fa3ba5b686471608bab10e1c215dadd242d4e7e79308d74"
+  },
+  "snapshot_created_before_this_request": true
+}

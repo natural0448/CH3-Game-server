@@ -1,0 +1,41 @@
+{
+  "root": {
+    "exit_code": 0,
+    "output": "C:/MLO01-01/Chapter3/Game-server",
+    "error": ""
+  },
+  "head": {
+    "exit_code": 0,
+    "output": "5fd757d day23 진행사항",
+    "error": ""
+  },
+  "status": {
+    "exit_code": 0,
+    "output": "M docs/server-routing/README.md\n?? docs/handoffs/2026-10-08-day24-period01-review.md\n?? docs/server-routing/files/tools/check_day24_logic.py.md\n?? docs/server-routing/verification/day24-period01-review/checker-download-login-response.txt\n?? docs/server-routing/verification/day24-period01-review/checker-origin-local.json\n?? docs/server-routing/verification/day24-period01-review/checker-origin.json\n?? docs/server-routing/verification/day24-period01-review/checker-symbols.json\n?? docs/server-routing/verification/day24-period01-review/finish-state.json\n?? docs/server-routing/verification/day24-period01-review/isolated-review-summary.json\n?? docs/server-routing/verification/day24-period01-review/period01-current-project.json\n?? docs/server-routing/verification/day24-period01-review/period01-isolated-as-written.json\n?? docs/server-routing/verification/day24-period01-review/period01-isolated-query-fields-only-diagnostic.json\n?? docs/server-routing/verification/day24-period01-review/period01-sandbox-temp-failure.json\n?? docs/server-routing/verification/day24-period01-review/routing-before.json\n?? docs/server-routing/verification/day24-period01-review/routing-final.json\n?? docs/server-routing/verification/day24-period01-review/runtime-readiness.json\n?? docs/server-routing/verification/day24-period01-review/start-state.json\n?? server/game/management/commands/export_player_snapshot.py\n?? tools/check_day24_logic.py",
+    "error": ""
+  },
+  "head_changes": {
+    "exit_code": 0,
+    "output": "M\tdocs/server-routing/README.md",
+    "error": "warning: in the working copy of 'docs/server-routing/README.md', LF will be replaced by CRLF the next time Git touches it"
+  },
+  "staged": {
+    "exit_code": 0,
+    "output": "",
+    "error": ""
+  },
+  "unstaged": {
+    "exit_code": 0,
+    "output": "M\tdocs/server-routing/README.md",
+    "error": "warning: in the working copy of 'docs/server-routing/README.md', LF will be replaced by CRLF the next time Git touches it"
+  },
+  "untracked": {
+    "exit_code": 0,
+    "output": "docs/handoffs/2026-10-08-day24-period01-review.md\ndocs/server-routing/files/tools/check_day24_logic.py.md\ndocs/server-routing/verification/day24-period01-review/checker-download-login-response.txt\ndocs/server-routing/verification/day24-period01-review/checker-origin-local.json\ndocs/server-routing/verification/day24-period01-review/checker-origin.json\ndocs/server-routing/verification/day24-period01-review/checker-symbols.json\ndocs/server-routing/verification/day24-period01-review/finish-state.json\ndocs/server-routing/verification/day24-period01-review/isolated-review-summary.json\ndocs/server-routing/verification/day24-period01-review/period01-current-project.json\ndocs/server-routing/verification/day24-period01-review/period01-isolated-as-written.json\ndocs/server-routing/verification/day24-period01-review/period01-isolated-query-fields-only-diagnostic.json\ndocs/server-routing/verification/day24-period01-review/period01-sandbox-temp-failure.json\ndocs/server-routing/verification/day24-period01-review/routing-before.json\ndocs/server-routing/verification/day24-period01-review/routing-final.json\ndocs/server-routing/verification/day24-period01-review/runtime-readiness.json\ndocs/server-routing/verification/day24-period01-review/start-state.json\nserver/game/management/commands/export_player_snapshot.py\ntools/check_day24_logic.py",
+    "error": ""
+  },
+  "environment_hashes": {
+    "server\\.env": "469b1f097a6dda8a845408a0a9051c0f53053a1bf3176e67b3548a9907cfee65"
+  },
+  "boundary_note": "Chapter3: Git 상태 확인 불가: 저장소 아님. Existing changes are preserved; source relocation predates this request."
+}

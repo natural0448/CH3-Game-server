@@ -1,0 +1,63 @@
+{
+  "period": 1,
+  "project": "C:\\MLO01-01\\Chapter3\\Game-server\\server\\data\\day24-check-temp\\day24-review-ylskj6r9",
+  "passed": 11,
+  "failed": 1,
+  "database": "sqlite-memory-only",
+  "mongo": "not-connected",
+  "student_sources_unchanged": true,
+  "source_sha256": {
+    "C:\\MLO01-01\\Chapter3\\Game-server\\server\\data\\day24-check-temp\\day24-review-ylskj6r9\\game\\management\\commands\\export_player_snapshot.py": "cb4e29b574c7beeb865565e85b2c9abcc95fa396ac3b027ec754f57f61036837"
+  },
+  "checks": [
+    {
+      "name": "빈 실제 QuerySet은 0행 파일",
+      "passed": true
+    },
+    {
+      "name": "빈 파일 바이트",
+      "passed": true
+    },
+    {
+      "name": "실제 Player ORM id 오름차순",
+      "passed": true
+    },
+    {
+      "name": "계정·좌표 제외한 정확한 8필드",
+      "passed": false,
+      "error": "AssertionError: 기대값 [{'updated_at', 'captured_at', 'schema_version', 'id', 'room_id', 'coins', 'source_kind', 'version'}, {'updated_at', 'captured_at', 'schema_version', 'id', 'room_id', 'coins', 'source_kind', 'version'}]; 실제값 [{'updated_at', 'captured_at', 'schema', 'id', 'room_id', 'coins', 'version', 'source'}, {'updated_at', 'captured_at', 'schema', 'id', 'room_id', 'coins', 'version', 'source'}]"
+    },
+    {
+      "name": "공개 코인·버전",
+      "passed": true
+    },
+    {
+      "name": "captured_at 하나",
+      "passed": true
+    },
+    {
+      "name": "시각 시간대",
+      "passed": true
+    },
+    {
+      "name": "실제 bytes 체크섬",
+      "passed": true
+    },
+    {
+      "name": "반환 행 수",
+      "passed": true
+    },
+    {
+      "name": "naive 시각 실패는 기존 파일 보존·임시 파일 정리",
+      "passed": true
+    },
+    {
+      "name": "오답 감지: 계정 필드 유출",
+      "passed": true
+    },
+    {
+      "name": "학생 저장 파일 변경 없음",
+      "passed": true
+    }
+  ]
+}

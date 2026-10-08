@@ -1,0 +1,26 @@
+{
+  "data/exports/player-cdc.ndjson": {
+    "exit_code": 0,
+    "ignored": true,
+    "expected_ignored": true,
+    "passed": true
+  },
+  "server/.env": {
+    "exit_code": 0,
+    "ignored": true,
+    "expected_ignored": true,
+    "passed": true
+  },
+  "docs/server-routing/files/data/exports/player-cdc.ndjson.md": {
+    "exit_code": 1,
+    "ignored": false,
+    "expected_ignored": false,
+    "passed": true
+  },
+  "docs/server-routing/files/data/exports/unrelated-artifact.md": {
+    "exit_code": 0,
+    "ignored": true,
+    "expected_ignored": true,
+    "passed": true
+  }
+}

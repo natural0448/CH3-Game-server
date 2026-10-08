@@ -1,0 +1,33 @@
+{
+  "period": 1,
+  "project": "C:\\MLO01-01\\Chapter3\\Game-server\\server\\data\\day24-check-temp\\day24-review-s2p_8jah",
+  "passed": 1,
+  "failed": 3,
+  "database": "sqlite-memory-only",
+  "mongo": "not-connected",
+  "student_sources_unchanged": true,
+  "source_sha256": {
+    "C:\\MLO01-01\\Chapter3\\Game-server\\server\\data\\day24-check-temp\\day24-review-s2p_8jah\\game\\management\\commands\\export_player_snapshot.py": "0a3a530240c689f4e8036e478ea32c73c3727692dfa37c4e1655c4fe3396b5d6"
+  },
+  "checks": [
+    {
+      "name": "빈 실제 QuerySet은 0행 파일",
+      "passed": false,
+      "error": "FieldError: Cannot resolve keyword 'name' into field. Choices are: coins, gameevent, id, room_id, updated_at, user, user_id, version, x, y"
+    },
+    {
+      "name": "빈 파일 바이트",
+      "passed": false,
+      "error": "FileNotFoundError: [Errno 2] No such file or directory: 'C:\\\\MLO01-01\\\\Chapter3\\\\Game-server\\\\server\\\\data\\\\day24-check-temp\\\\day24-check-b555sx65\\\\players.ndjson'"
+    },
+    {
+      "name": "저장 코드 로드·검사 준비",
+      "passed": false,
+      "error": "FieldError: Cannot resolve keyword 'name' into field. Choices are: coins, gameevent, id, room_id, updated_at, user, user_id, version, x, y"
+    },
+    {
+      "name": "학생 저장 파일 변경 없음",
+      "passed": true
+    }
+  ]
+}

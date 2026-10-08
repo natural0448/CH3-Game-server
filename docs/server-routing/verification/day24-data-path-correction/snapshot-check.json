@@ -1,0 +1,19 @@
+{
+  "snapshot": "C:\\MLO01-01\\Chapter3\\Game-server\\data\\exports\\player-cdc.ndjson",
+  "rows": 56,
+  "bytes": 13275,
+  "sha256": "6ea30948a1c6924b186676511207bd2099683ca00cf1b1582cb595e6437375d0",
+  "checks": {
+    "exactly_8_fields": true,
+    "schema_and_source": true,
+    "public_types": true,
+    "id_order_and_unique": true,
+    "one_captured_at": true,
+    "aware_timestamps": true,
+    "snapshot_bytes_unchanged": true,
+    "no_server_data_folder": true,
+    "other_exports_unchanged": true
+  },
+  "db_export_executed": false,
+  "source_unchanged": true
+}

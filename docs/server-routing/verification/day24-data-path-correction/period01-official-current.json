@@ -1,0 +1,62 @@
+{
+  "period": 1,
+  "project": "C:\\MLO01-01\\Chapter3\\Game-server\\server",
+  "passed": 12,
+  "failed": 0,
+  "database": "sqlite-memory-only",
+  "mongo": "not-connected",
+  "student_sources_unchanged": true,
+  "source_sha256": {
+    "C:\\MLO01-01\\Chapter3\\Game-server\\server\\game\\management\\commands\\export_player_snapshot.py": "30673e6cf8b658640089dafa1e856b9076ecb78e23f256d03abe8dcbef91ebaa"
+  },
+  "checks": [
+    {
+      "name": "빈 실제 QuerySet은 0행 파일",
+      "passed": true
+    },
+    {
+      "name": "빈 파일 바이트",
+      "passed": true
+    },
+    {
+      "name": "실제 Player ORM id 오름차순",
+      "passed": true
+    },
+    {
+      "name": "계정·좌표 제외한 정확한 8필드",
+      "passed": true
+    },
+    {
+      "name": "공개 코인·버전",
+      "passed": true
+    },
+    {
+      "name": "captured_at 하나",
+      "passed": true
+    },
+    {
+      "name": "시각 시간대",
+      "passed": true
+    },
+    {
+      "name": "실제 bytes 체크섬",
+      "passed": true
+    },
+    {
+      "name": "반환 행 수",
+      "passed": true
+    },
+    {
+      "name": "naive 시각 실패는 기존 파일 보존·임시 파일 정리",
+      "passed": true
+    },
+    {
+      "name": "오답 감지: 계정 필드 유출",
+      "passed": true
+    },
+    {
+      "name": "학생 저장 파일 변경 없음",
+      "passed": true
+    }
+  ]
+}

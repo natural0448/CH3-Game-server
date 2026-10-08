@@ -1,0 +1,21 @@
+{
+  "period": 1,
+  "project": "C:\\MLO01-01\\Chapter3\\Game-server\\server",
+  "passed": 1,
+  "failed": 1,
+  "database": "sqlite-memory-only",
+  "mongo": "not-connected",
+  "student_sources_unchanged": true,
+  "source_sha256": {},
+  "checks": [
+    {
+      "name": "저장 코드 로드·검사 준비",
+      "passed": false,
+      "error": "PermissionError: [WinError 5] 액세스가 거부되었습니다: 'C:\\\\Users\\\\이해나\\\\AppData\\\\Local\\\\Packages\\\\sandbox.{67381c87-c7b7-4152-99e3-b635ea939be7}\\\\AC\\\\Temp\\\\day24-check-unm6d3jb'"
+    },
+    {
+      "name": "학생 저장 파일 변경 없음",
+      "passed": true
+    }
+  ]
+}

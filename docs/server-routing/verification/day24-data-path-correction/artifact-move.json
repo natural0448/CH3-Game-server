@@ -1,0 +1,15 @@
+{
+  "source": "C:\\MLO01-01\\Chapter3\\Game-server\\server\\data\\exports\\player-cdc.ndjson",
+  "target": "C:\\MLO01-01\\Chapter3\\Game-server\\data\\exports\\player-cdc.ndjson",
+  "bytes": 13275,
+  "sha256": "6ea30948a1c6924b186676511207bd2099683ca00cf1b1582cb595e6437375d0",
+  "hash_unchanged": true,
+  "target_overwritten": false,
+  "removed_empty_folders": [
+    "C:\\MLO01-01\\Chapter3\\Game-server\\server\\data\\day24-check-temp",
+    "C:\\MLO01-01\\Chapter3\\Game-server\\server\\data\\exports",
+    "C:\\MLO01-01\\Chapter3\\Game-server\\server\\data"
+  ],
+  "retained_nonempty_folders": [],
+  "db_export_executed": false
+}

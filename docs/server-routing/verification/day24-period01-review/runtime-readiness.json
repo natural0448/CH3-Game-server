@@ -1,0 +1,11 @@
+{
+  "python": "3.12.13",
+  "database_engine": "django.db.backends.mysql",
+  "use_tz": true,
+  "public_fields_present": true,
+  "command_exists": false,
+  "snapshot_exists": false,
+  "database_access": "read-only count; no rows or credentials copied",
+  "player_count": 56,
+  "database_read": "passed"
+}

@@ -1,0 +1,269 @@
+{
+  "scope": "changed documentation current sections + selected current implemented source pairs",
+  "protected_source_hashes_unchanged": {
+    "server/game/ad_gateway.py": true,
+    "server/game/ad_views.py": true,
+    "server/game/urls.py": true,
+    "server/game/management/commands/export_player_snapshot.py": true,
+    "tools/check_day24_logic.py": true,
+    "config/settings.py": true,
+    ".gitignore": true,
+    "data/exports/player-cdc.ndjson": true
+  },
+  "routes": [
+    {
+      "route": "ads/preview/",
+      "target": "ad_views.ad_preview",
+      "documented": true
+    },
+    {
+      "route": "api/ads/decision/",
+      "target": "ad_views.ad_decision",
+      "documented": true
+    },
+    {
+      "route": "api/ads/events/",
+      "target": "ad_views.ad_event",
+      "documented": true
+    },
+    {
+      "route": "",
+      "target": "views.delivery_dashboard",
+      "documented": true
+    },
+    {
+      "route": "api/auth/csrf/",
+      "target": "auth_views.csrf_token",
+      "documented": true
+    },
+    {
+      "route": "api/auth/login/",
+      "target": "auth_views.login_view",
+      "documented": true
+    },
+    {
+      "route": "api/auth/logout/",
+      "target": "auth_views.logout_view",
+      "documented": true
+    },
+    {
+      "route": "play/",
+      "target": "views.play",
+      "documented": true
+    },
+    {
+      "route": "api/player/",
+      "target": "views.player_view",
+      "documented": true
+    },
+    {
+      "route": "api/delivery/",
+      "target": "views.delivery_view",
+      "documented": true
+    },
+    {
+      "route": "api/history/",
+      "target": "views.history",
+      "documented": true
+    },
+    {
+      "route": "api/auth/csrf/",
+      "target": "views.csrf_view",
+      "documented": true
+    },
+    {
+      "route": "api/auth/login/",
+      "target": "views.api_login",
+      "documented": true
+    }
+  ],
+  "local_links": [
+    {
+      "source": "README.md",
+      "target": "docs/server-routing/day24-progress.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "docs/server-routing/files/server/game/management/commands/export_player_snapshot.py.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "docs/handoffs/2026-10-08-day24-data-path-correction.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "target": "server/game/ad_gateway.py",
+      "exists": true
+    },
+    {
+      "source": "docs/server-routing/README.md",
+      "target": "day24-progress.md",
+      "exists": true
+    },
+    {
+      "source": "docs/server-routing/README.md",
+      "target": "../handoffs/2026-10-08-game-routing-progress-sync.md",
+      "exists": true
+    },
+    {
+      "source": "docs/server-routing/README.md",
+      "target": "../handoffs/2026-10-08-day24-data-path-correction.md",
+      "exists": true
+    },
+    {
+      "source": "docs/server-routing/README.md",
+      "target": "../handoffs/2026-10-01-day20-through-period08.md",
+      "exists": true
+    },
+    {
+      "source": "docs/server-routing/README.md",
+      "target": "day17-delta-plan.md",
+      "exists": true
+    },
+    {
+      "source": "docs/server-routing/README.md",
+      "target": "files/server/game/ad_gateway.py.md",
+      "exists": true
+    },
+    {
+      "source": "docs/server-routing/README.md",
+      "target": "files/server/game/ad_views.py.md",
+      "exists": true
+    },
+    {
+      "source": "docs/server-routing/README.md",
+      "target": "files/server/game/static/game/ad_preview.js.md",
+      "exists": true
+    },
+    {
+      "source": "docs/server-routing/README.md",
+      "target": "files/server/game/templates/game/ad_preview.html.md",
+      "exists": true
+    },
+    {
+      "source": "docs/server-routing/README.md",
+      "target": "files/server/game/static/ads/creatives/forest-tools.png.md",
+      "exists": true
+    },
+    {
+      "source": "docs/server-routing/README.md",
+      "target": "files/server/game/static/ads/creatives/camp-tea.png.md",
+      "exists": true
+    },
+    {
+      "source": "docs/server-routing/README.md",
+      "target": "files/server/game/test_ads.py.md",
+      "exists": true
+    },
+    {
+      "source": "docs/server-routing/README.md",
+      "target": "files/data/evidence/asset-sources.md.md",
+      "exists": true
+    },
+    {
+      "source": "docs/server-routing/README.md",
+      "target": "files/server/.env.md",
+      "exists": true
+    },
+    {
+      "source": "docs/server-routing/README.md",
+      "target": "files/server/game/ad_gateway.py.md",
+      "exists": true
+    },
+    {
+      "source": "docs/server-routing/README.md",
+      "target": "../../README.md",
+      "exists": true
+    },
+    {
+      "source": "docs/server-routing/README.md",
+      "target": "../../../ad_server/docs/server-routing/reviews/2026-10-07-document-registry.md",
+      "exists": true
+    },
+    {
+      "source": "docs/server-routing/README.md",
+      "target": "../../../ad_server/docs/server-routing/reviews/2026-10-07-lesson-deviations.md",
+      "exists": true
+    },
+    {
+      "source": "docs/server-routing/README.md",
+      "target": "../../../ad_server/docs/handoffs/2026-10-07-document-registration-and-lesson-review.md",
+      "exists": true
+    },
+    {
+      "source": "docs/server-routing/README.md",
+      "target": "files/README.md.md",
+      "exists": true
+    },
+    {
+      "source": "docs/server-routing/day24-progress.md",
+      "target": "files/server/game/ad_gateway.py.md",
+      "exists": true
+    },
+    {
+      "source": "docs/server-routing/day24-progress.md",
+      "target": "files/server/game/ad_views.py.md",
+      "exists": true
+    },
+    {
+      "source": "docs/server-routing/day24-progress.md",
+      "target": "files/server/game/urls.py.md",
+      "exists": true
+    },
+    {
+      "source": "docs/server-routing/day24-progress.md",
+      "target": "files/server/game/management/commands/export_player_snapshot.py.md",
+      "exists": true
+    },
+    {
+      "source": "docs/server-routing/day24-progress.md",
+      "target": "files/data/exports/player-cdc.ndjson.md",
+      "exists": true
+    },
+    {
+      "source": "docs/server-routing/day24-progress.md",
+      "target": "../handoffs/2026-10-08-day24-period01-review.md",
+      "exists": true
+    },
+    {
+      "source": "docs/server-routing/day24-progress.md",
+      "target": "../handoffs/2026-10-08-day24-data-path-correction.md",
+      "exists": true
+    },
+    {
+      "source": "docs/server-routing/day24-progress.md",
+      "target": "../handoffs/2026-10-08-game-routing-progress-sync.md",
+      "exists": true
+    }
+  ],
+  "snapshot": {
+    "exists": true,
+    "server_data_exists": false,
+    "rows": 56,
+    "bytes": 13275,
+    "sha256": "6ea30948a1c6924b186676511207bd2099683ca00cf1b1582cb595e6437375d0",
+    "exact_keys": true,
+    "schema_source": true
+  },
+  "ad_views_document_has_only_current_calls": true,
+  "summary": {
+    "ok": true
+  },
+  "link_scope": "all Markdown local links in the seven changed/new game documentation files",
+  "known_absent_historical_references": [
+    {
+      "path": "docs/handoffs/2026-09-28-day18-canonical.md",
+      "file_exists": false,
+      "rendered_as_link": false
+    },
+    {
+      "path": "docs/handoffs/2026-09-30-day19-through-period07.md",
+      "file_exists": false,
+      "rendered_as_link": false
+    }
+  ],
+  "latest_ad_period_two_state": "unfinished user problem template in ads/snapshot_intake.py; not completed"
+}

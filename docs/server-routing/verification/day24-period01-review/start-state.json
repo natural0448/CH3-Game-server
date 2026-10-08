@@ -1,0 +1,41 @@
+{
+  "root": {
+    "exit_code": 0,
+    "output": "C:/MLO01-01/Chapter3/Game-server",
+    "error": ""
+  },
+  "head": {
+    "exit_code": 0,
+    "output": "5fd757d day23 진행사항",
+    "error": ""
+  },
+  "status": {
+    "exit_code": 0,
+    "output": "",
+    "error": ""
+  },
+  "head_changes": {
+    "exit_code": 0,
+    "output": "",
+    "error": ""
+  },
+  "staged": {
+    "exit_code": 0,
+    "output": "",
+    "error": ""
+  },
+  "unstaged": {
+    "exit_code": 0,
+    "output": "",
+    "error": ""
+  },
+  "untracked": {
+    "exit_code": 0,
+    "output": "",
+    "error": ""
+  },
+  "environment_hashes": {
+    "server/.env": "469b1f097a6dda8a845408a0a9051c0f53053a1bf3176e67b3548a9907cfee65"
+  },
+  "boundary_note": "Chapter3: Git 상태 확인 불가: 저장소 아님. C:/MLO01-01: 상위 디렉터리 접근 권한으로 확인 불가. 각 대상 저장소 경계는 별도로 확인됨."
+}

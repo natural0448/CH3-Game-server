@@ -1,6 +1,8 @@
 # README.md
 
-게임 서버의 현재 실행·폴더 구조와 과거 수업 반영 기록을 설명한다. config는 프로젝트 루트에 있고 manage.py·가상환경·game 앱은 server 아래에 있다. 기존 10/11일차 안내와 22일차 이미지 광고 연결을 보존한다.
+게임 서버의 현재 실행·폴더 구조와 과거 수업 반영 기록을 설명한다. config는 프로젝트 루트에 있고 manage.py·가상환경·game 앱은 server 아래에 있다. 2026-10-08 현재 진행 안내를 앞에 두고 기존 10/11일차 안내를 당시 작업 이력으로 구별한다.
+
+24일차는 게임의 `export_player_snapshot` 관리 명령과 공식 1교시 검사 12개 통과·0개 실패, 실제 루트 `data/exports/player-cdc.ndjson`의 56행·13,275 bytes를 안내한다. `server/data`는 없으며 출력의 상대 경로는 실행 폴더 기준이므로 저장소 루트에서 `python server/manage.py export_player_snapshot --output data/exports/player-cdc.ndjson`을 실행한다. 원본은 이미 존재한다. 광고 소비 경로는 `../Game-server/data/exports/player-cdc.ndjson`이고 2교시는 `ads/snapshot_intake.py` 문제틀 작성 중으로 완료되지 않았으며 3~8교시는 미적용이다. 초기 실패 기록과 수정 후 성공 결과를 구별하고 `docs/server-routing/day24-progress.md` 및 경로 정정 인수인계에 연결한다.
 
 최신 23일차 3교시 직접 구현 위치는 server/game/ad_gateway.py::request_ad_event 본문이다. Player 기반 payload, events API 호출, 거절/성공 응답 검증을 안내한다. 누락된 call_ads를 같은 파일에 보충했고 기존 request_decision·combined ad_views·URL·서버 설정을 보존했다는 실제 구현 상태를 설명한다.
 

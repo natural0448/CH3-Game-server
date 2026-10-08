@@ -1,0 +1,336 @@
+{
+  "method": "AST; code values emitted only for route declarations and return expressions; no environment reads",
+  "files": [
+    {
+      "path": "server/game/urls.py",
+      "imports": [
+        {
+          "module": "django.urls",
+          "names": [
+            "path"
+          ]
+        },
+        {
+          "module": "game",
+          "names": [
+            "ad_views",
+            "auth_views",
+            "views"
+          ]
+        }
+      ],
+      "functions": [],
+      "routes": [
+        "path('ads/preview/', ad_views.ad_preview, name='ad-preview')",
+        "path('api/ads/decision/', ad_views.ad_decision, name='ad-decision')",
+        "path('api/ads/events/', ad_views.ad_event, name='ad-events')",
+        "path('', views.delivery_dashboard, name='delivery-dashboard')",
+        "path('api/auth/csrf/', auth_views.csrf_token, name='csrf')",
+        "path('api/auth/login/', auth_views.login_view, name='login')",
+        "path('api/auth/logout/', auth_views.logout_view, name='logout')",
+        "path('play/', views.play, name='play')",
+        "path('api/player/', views.player_view, name='player')",
+        "path('api/delivery/', views.delivery_view, name='delivery')",
+        "path('api/history/', views.history, name='history')",
+        "path('api/auth/csrf/', views.csrf_view, name='csrf')",
+        "path('api/auth/login/', views.api_login, name='api-login')"
+      ]
+    },
+    {
+      "path": "server/game/ad_views.py",
+      "imports": [
+        {
+          "module": null,
+          "names": [
+            "json"
+          ]
+        },
+        {
+          "module": "django.contrib.auth.decorators",
+          "names": [
+            "login_required"
+          ]
+        },
+        {
+          "module": "django.http",
+          "names": [
+            "JsonResponse"
+          ]
+        },
+        {
+          "module": "django.shortcuts",
+          "names": [
+            "render"
+          ]
+        },
+        {
+          "module": "django.views.decorators.http",
+          "names": [
+            "require_GET",
+            "require_POST"
+          ]
+        },
+        {
+          "module": "ad_gateway",
+          "names": [
+            "AdsUnavailable",
+            "request_ad_event",
+            "request_decision"
+          ]
+        },
+        {
+          "module": "models",
+          "names": [
+            "Player"
+          ]
+        }
+      ],
+      "functions": [
+        {
+          "name": "ad_preview",
+          "calls": [
+            "render"
+          ],
+          "returns": [
+            "render(request, 'game/ad_preview.html')"
+          ]
+        },
+        {
+          "name": "ad_decision",
+          "calls": [
+            "JsonResponse",
+            "Player.objects.filter",
+            "Player.objects.filter(user=request.user).first",
+            "isinstance",
+            "json.loads",
+            "payload.get",
+            "request_decision"
+          ],
+          "returns": [
+            "JsonResponse({'error': 'login_required'}, status=401)",
+            "JsonResponse({'error': 'player_missing'}, status=404)",
+            "JsonResponse({'error': 'invalid_json'}, status=400)",
+            "JsonResponse({'error': 'invalid_slot'}, status=400)",
+            "JsonResponse(request_decision(player, slot_id))",
+            "JsonResponse({'error': 'invalid_json'}, status=400)",
+            "JsonResponse({'error': 'ads_unavailable'}, status=503)"
+          ]
+        },
+        {
+          "name": "ad_event",
+          "calls": [
+            "JsonResponse",
+            "Player.objects.filter",
+            "Player.objects.filter(user=request.user).first",
+            "ValueError",
+            "isinstance",
+            "json.loads",
+            "request_ad_event",
+            "set",
+            "str"
+          ],
+          "returns": [
+            "JsonResponse({'error': 'login_required'}, status=401)",
+            "JsonResponse({'error': 'player_missing'}, status=409)",
+            "response",
+            "JsonResponse({'error': code if code in allowed else 'ad_event_rejected'}, status=400)",
+            "JsonResponse({'error': 'ads_unavailable'}, status=503)"
+          ]
+        }
+      ],
+      "routes": []
+    },
+    {
+      "path": "server/game/ad_gateway.py",
+      "imports": [
+        {
+          "module": null,
+          "names": [
+            "json"
+          ]
+        },
+        {
+          "module": "urllib.error",
+          "names": [
+            "HTTPError",
+            "URLError"
+          ]
+        },
+        {
+          "module": "urllib.request",
+          "names": [
+            "Request",
+            "urlopen"
+          ]
+        },
+        {
+          "module": "django.conf",
+          "names": [
+            "settings"
+          ]
+        }
+      ],
+      "functions": [
+        {
+          "name": "call_ads",
+          "calls": [
+            "Request",
+            "body.get",
+            "error.split",
+            "exc.read",
+            "isinstance",
+            "json.dumps",
+            "json.dumps(payload).encode",
+            "json.load",
+            "json.loads",
+            "urlopen"
+          ],
+          "returns": [
+            "(response.status, json.load(response))",
+            "(exc.code, {'error': 'ad_request_rejected'})",
+            "(503, {'error': 'ads_unavailable'})",
+            "(exc.code, {'error': code})"
+          ]
+        },
+        {
+          "name": "request_decision",
+          "calls": [
+            "AdsUnavailable",
+            "Request",
+            "ValueError",
+            "any",
+            "data.get",
+            "isinstance",
+            "json.dumps",
+            "json.dumps({'media_id': media_id, 'subject': {'media_id': media_id, 'subject_id': str(player.pk)}, 'slot_id': slot_id, 'context': {}}).encode",
+            "json.loads",
+            "len",
+            "response.read",
+            "result.values",
+            "str",
+            "type",
+            "urlopen"
+          ],
+          "returns": [
+            "{**result, 'body': body, 'creative_path': path, 'bid_amount': amount, 'bid_units': amount, 'empty': False}",
+            "{'ad': None}"
+          ]
+        },
+        {
+          "name": "request_ad_event",
+          "calls": [
+            "AdsUnavailable",
+            "ValueError",
+            "call_ads",
+            "data.get",
+            "isinstance",
+            "len",
+            "str",
+            "type"
+          ],
+          "returns": [
+            "{name: data[name] for name in ('event_id', 'event_type', 'created')}"
+          ]
+        }
+      ],
+      "routes": []
+    },
+    {
+      "path": "server/game/management/commands/export_player_snapshot.py",
+      "imports": [
+        {
+          "module": null,
+          "names": [
+            "hashlib"
+          ]
+        },
+        {
+          "module": null,
+          "names": [
+            "json"
+          ]
+        },
+        {
+          "module": null,
+          "names": [
+            "os"
+          ]
+        },
+        {
+          "module": null,
+          "names": [
+            "tempfile"
+          ]
+        },
+        {
+          "module": "pathlib",
+          "names": [
+            "Path"
+          ]
+        },
+        {
+          "module": "django.core.management.base",
+          "names": [
+            "BaseCommand",
+            "CommandError"
+          ]
+        },
+        {
+          "module": "django.db",
+          "names": [
+            "DatabaseError"
+          ]
+        },
+        {
+          "module": "django.utils",
+          "names": [
+            "timezone"
+          ]
+        },
+        {
+          "module": "game.models",
+          "names": [
+            "Player"
+          ]
+        }
+      ],
+      "functions": [
+        {
+          "name": "add_arguments",
+          "calls": [
+            "parser.add_argument"
+          ],
+          "returns": []
+        },
+        {
+          "name": "handle",
+          "calls": [
+            "CommandError",
+            "Path",
+            "Player.objects.order_by",
+            "Player.objects.order_by('id').values",
+            "Player.objects.order_by('id').values('id', 'room_id', 'coins', 'version', 'updated_at').iterator",
+            "ValueError",
+            "hashlib.sha256",
+            "hashlib.sha256(temporary_path.read_bytes()).hexdigest",
+            "json.dumps",
+            "os.replace",
+            "self.stdout.write",
+            "str",
+            "stream.write",
+            "target.parent.mkdir",
+            "tempfile.NamedTemporaryFile",
+            "temporary_path.read_bytes",
+            "temporary_path.unlink",
+            "timezone.is_naive",
+            "timezone.now",
+            "timezone.now().isoformat",
+            "updated_at.isoformat"
+          ],
+          "returns": []
+        }
+      ],
+      "routes": []
+    }
+  ]
+}

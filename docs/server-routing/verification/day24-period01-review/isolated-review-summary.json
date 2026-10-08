@@ -1,0 +1,51 @@
+{
+  "original_sha256": "22820838b99952688325023a5e469dde111c3637d720e992d4c4193c87098d22",
+  "source_unchanged": true,
+  "tests": [
+    {
+      "variant": "as-written",
+      "exit_code": 1,
+      "passed": 1,
+      "failed": 3,
+      "errors": [
+        {
+          "name": "빈 실제 QuerySet은 0행 파일",
+          "passed": false,
+          "error": "FieldError: Cannot resolve keyword 'name' into field. Choices are: coins, gameevent, id, room_id, updated_at, user, user_id, version, x, y"
+        },
+        {
+          "name": "빈 파일 바이트",
+          "passed": false,
+          "error": "FileNotFoundError: [Errno 2] No such file or directory: 'C:\\\\MLO01-01\\\\Chapter3\\\\Game-server\\\\server\\\\data\\\\day24-check-temp\\\\day24-check-b555sx65\\\\players.ndjson'"
+        },
+        {
+          "name": "저장 코드 로드·검사 준비",
+          "passed": false,
+          "error": "FieldError: Cannot resolve keyword 'name' into field. Choices are: coins, gameevent, id, room_id, updated_at, user, user_id, version, x, y"
+        }
+      ],
+      "production_source_edited": false,
+      "project_settings_loaded": false,
+      "database": "sqlite-memory-only",
+      "mongo": "not-connected"
+    },
+    {
+      "variant": "query-fields-only-diagnostic",
+      "exit_code": 1,
+      "passed": 11,
+      "failed": 1,
+      "errors": [
+        {
+          "name": "계정·좌표 제외한 정확한 8필드",
+          "passed": false,
+          "error": "AssertionError: 기대값 [{'updated_at', 'captured_at', 'schema_version', 'id', 'room_id', 'coins', 'source_kind', 'version'}, {'updated_at', 'captured_at', 'schema_version', 'id', 'room_id', 'coins', 'source_kind', 'version'}]; 실제값 [{'updated_at', 'captured_at', 'schema', 'id', 'room_id', 'coins', 'version', 'source'}, {'updated_at', 'captured_at', 'schema', 'id', 'room_id', 'coins', 'version', 'source'}]"
+        }
+      ],
+      "production_source_edited": false,
+      "project_settings_loaded": false,
+      "database": "sqlite-memory-only",
+      "mongo": "not-connected"
+    }
+  ],
+  "note": "Query-fields-only variant is a diagnostic temporary copy, not the current user implementation or a completed solution. Sandbox TEMP was directed to a new workspace folder in this process only."
+}

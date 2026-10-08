@@ -1,0 +1,66 @@
+{
+  "head": {
+    "exit_code": 0,
+    "output": "5fd757d day23 진행사항"
+  },
+  "status": {
+    "exit_code": 0,
+    "output": "M .gitignore\n M docs/server-routing/README.md\n?? docs/handoffs/2026-10-08-day24-data-path-correction.md\n?? docs/handoffs/2026-10-08-day24-period01-review.md\n?? docs/server-routing/files/.gitignore.md\n?? docs/server-routing/files/data/exports/player-cdc.ndjson.md\n?? docs/server-routing/files/server/game/management/commands/export_player_snapshot.py.md\n?? docs/server-routing/files/tools/check_day24_logic.py.md\n?? docs/server-routing/verification/day24-data-path-correction/artifact-move.json\n?? docs/server-routing/verification/day24-data-path-correction/data-layout-before.json\n?? docs/server-routing/verification/day24-data-path-correction/export_player_snapshot-start.txt\n?? docs/server-routing/verification/day24-data-path-correction/gitignore-check.json\n?? docs/server-routing/verification/day24-data-path-correction/period01-official-current.json\n?? docs/server-routing/verification/day24-data-path-correction/pre-operation-doc-check.json\n?? docs/server-routing/verification/day24-data-path-correction/routing-before.json\n?? docs/server-routing/verification/day24-data-path-correction/routing-final.json\n?? docs/server-routing/verification/day24-data-path-correction/snapshot-check.json\n?? docs/server-routing/verification/day24-data-path-correction/start-state.json\n?? docs/server-routing/verification/day24-period01-review/checker-download-login-response.txt\n?? docs/server-routing/verification/day24-period01-review/checker-origin-local.json\n?? docs/server-routing/verification/day24-period01-review/checker-origin.json\n?? docs/server-routing/verification/day24-period01-review/checker-symbols.json\n?? docs/server-routing/verification/day24-period01-review/finish-state.json\n?? docs/server-routing/verification/day24-period01-review/isolated-review-summary.json\n?? docs/server-routing/verification/day24-period01-review/period01-current-project.json\n?? docs/server-routing/verification/day24-period01-review/period01-isolated-as-written.json\n?? docs/server-routing/verification/day24-period01-review/period01-isolated-query-fields-only-diagnostic.json\n?? docs/server-routing/verification/day24-period01-review/period01-sandbox-temp-failure.json\n?? docs/server-routing/verification/day24-period01-review/routing-before.json\n?? docs/server-routing/verification/day24-period01-review/routing-final.json\n?? docs/server-routing/verification/day24-period01-review/runtime-readiness.json\n?? docs/server-routing/verification/day24-period01-review/start-state.json\n?? server/game/management/commands/export_player_snapshot.py\n?? tools/check_day24_logic.py"
+  },
+  "head_changes": {
+    "exit_code": 0,
+    "output": "M\t.gitignore\nM\tdocs/server-routing/README.md"
+  },
+  "staged": {
+    "exit_code": 0,
+    "output": ""
+  },
+  "unstaged": {
+    "exit_code": 0,
+    "output": "M\t.gitignore\nM\tdocs/server-routing/README.md"
+  },
+  "untracked": {
+    "exit_code": 0,
+    "output": "docs/handoffs/2026-10-08-day24-data-path-correction.md\ndocs/handoffs/2026-10-08-day24-period01-review.md\ndocs/server-routing/files/.gitignore.md\ndocs/server-routing/files/data/exports/player-cdc.ndjson.md\ndocs/server-routing/files/server/game/management/commands/export_player_snapshot.py.md\ndocs/server-routing/files/tools/check_day24_logic.py.md\ndocs/server-routing/verification/day24-data-path-correction/artifact-move.json\ndocs/server-routing/verification/day24-data-path-correction/data-layout-before.json\ndocs/server-routing/verification/day24-data-path-correction/export_player_snapshot-start.txt\ndocs/server-routing/verification/day24-data-path-correction/gitignore-check.json\ndocs/server-routing/verification/day24-data-path-correction/period01-official-current.json\ndocs/server-routing/verification/day24-data-path-correction/pre-operation-doc-check.json\ndocs/server-routing/verification/day24-data-path-correction/routing-before.json\ndocs/server-routing/verification/day24-data-path-correction/routing-final.json\ndocs/server-routing/verification/day24-data-path-correction/snapshot-check.json\ndocs/server-routing/verification/day24-data-path-correction/start-state.json\ndocs/server-routing/verification/day24-period01-review/checker-download-login-response.txt\ndocs/server-routing/verification/day24-period01-review/checker-origin-local.json\ndocs/server-routing/verification/day24-period01-review/checker-origin.json\ndocs/server-routing/verification/day24-period01-review/checker-symbols.json\ndocs/server-routing/verification/day24-period01-review/finish-state.json\ndocs/server-routing/verification/day24-period01-review/isolated-review-summary.json\ndocs/server-routing/verification/day24-period01-review/period01-current-project.json\ndocs/server-routing/verification/day24-period01-review/period01-isolated-as-written.json\ndocs/server-routing/verification/day24-period01-review/period01-isolated-query-fields-only-diagnostic.json\ndocs/server-routing/verification/day24-period01-review/period01-sandbox-temp-failure.json\ndocs/server-routing/verification/day24-period01-review/routing-before.json\ndocs/server-routing/verification/day24-period01-review/routing-final.json\ndocs/server-routing/verification/day24-period01-review/runtime-readiness.json\ndocs/server-routing/verification/day24-period01-review/start-state.json\nserver/game/management/commands/export_player_snapshot.py\ntools/check_day24_logic.py"
+  },
+  "agent_development_modifications": [
+    ".gitignore"
+  ],
+  "agent_data_move": {
+    "from": "server/data/exports/player-cdc.ndjson",
+    "to": "data/exports/player-cdc.ndjson",
+    "ignored_by_git": true,
+    "hash_unchanged": true
+  },
+  "existing_python_source_unchanged": true,
+  "environment_hashes_unchanged": true,
+  "python_edits": false,
+  "db_export_executed": false,
+  "server_lifecycle_actions": false,
+  "routing_summary": {
+    "changed_path_count": 34,
+    "python_file_count": 2,
+    "symbol_count": 22,
+    "issue_count": 0,
+    "ok": true
+  },
+  "document_links": [
+    {
+      "document": "docs\\server-routing\\files\\server\\game\\management\\commands\\export_player_snapshot.py.md",
+      "target": "../../../../../../handoffs/2026-10-08-day24-data-path-correction.md",
+      "exists": true
+    },
+    {
+      "document": "docs\\server-routing\\files\\data\\exports\\player-cdc.ndjson.md",
+      "target": "../../../../handoffs/2026-10-08-day24-data-path-correction.md",
+      "exists": true
+    },
+    {
+      "document": "docs\\handoffs\\2026-10-08-day24-period01-review.md",
+      "target": "2026-10-08-day24-data-path-correction.md",
+      "exists": true
+    }
+  ],
+  "existing_changes": "M docs/server-routing/README.md\n?? docs/handoffs/2026-10-08-day24-period01-review.md\n?? docs/server-routing/files/tools/check_day24_logic.py.md\n?? docs/server-routing/verification/day24-period01-review/checker-download-login-response.txt\n?? docs/server-routing/verification/day24-period01-review/checker-origin-local.json\n?? docs/server-routing/verification/day24-period01-review/checker-origin.json\n?? docs/server-routing/verification/day24-period01-review/checker-symbols.json\n?? docs/server-routing/verification/day24-period01-review/finish-state.json\n?? docs/server-routing/verification/day24-period01-review/isolated-review-summary.json\n?? docs/server-routing/verification/day24-period01-review/period01-current-project.json\n?? docs/server-routing/verification/day24-period01-review/period01-isolated-as-written.json\n?? docs/server-routing/verification/day24-period01-review/period01-isolated-query-fields-only-diagnostic.json\n?? docs/server-routing/verification/day24-period01-review/period01-sandbox-temp-failure.json\n?? docs/server-routing/verification/day24-period01-review/routing-before.json\n?? docs/server-routing/verification/day24-period01-review/routing-final.json\n?? docs/server-routing/verification/day24-period01-review/runtime-readiness.json\n?? docs/server-routing/verification/day24-period01-review/start-state.json\n?? server/game/management/commands/export_player_snapshot.py\n?? tools/check_day24_logic.py",
+  "note": "User source relocation and corrections existed before this request; this agent relocated only the already-generated data artifact and aligned documents."
+}

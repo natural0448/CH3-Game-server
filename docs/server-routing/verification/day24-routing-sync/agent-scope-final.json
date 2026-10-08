@@ -1,0 +1,661 @@
+{
+  "python_files": [
+    {
+      "path": "server/game/ad_gateway.py",
+      "document_exists": true,
+      "indexed": true,
+      "symbols": [
+        {
+          "kind": "class",
+          "qualified_name": "AdsUnavailable",
+          "line": 11,
+          "signature": "class AdsUnavailable(Exception)",
+          "signature_core": "AdsUnavailable",
+          "return_annotation": null,
+          "decorators": [],
+          "bases": [
+            "Exception"
+          ],
+          "documented": true
+        },
+        {
+          "kind": "function",
+          "qualified_name": "call_ads",
+          "line": 15,
+          "signature": "call_ads(path, payload)",
+          "signature_core": "call_ads(path, payload)",
+          "return_annotation": null,
+          "decorators": [],
+          "bases": [],
+          "documented": true
+        },
+        {
+          "kind": "function",
+          "qualified_name": "request_decision",
+          "line": 42,
+          "signature": "request_decision(player, slot_id)",
+          "signature_core": "request_decision(player, slot_id)",
+          "return_annotation": null,
+          "decorators": [],
+          "bases": [],
+          "documented": true
+        },
+        {
+          "kind": "function",
+          "qualified_name": "request_ad_event",
+          "line": 81,
+          "signature": "request_ad_event(player, decision_id, event_type)",
+          "signature_core": "request_ad_event(player, decision_id, event_type)",
+          "return_annotation": null,
+          "decorators": [],
+          "bases": [],
+          "documented": true
+        }
+      ],
+      "missing_signatures": [],
+      "parse_error": null
+    },
+    {
+      "path": "server/game/ad_views.py",
+      "document_exists": true,
+      "indexed": true,
+      "symbols": [
+        {
+          "kind": "function",
+          "qualified_name": "ad_preview",
+          "line": 15,
+          "signature": "ad_preview(request)",
+          "signature_core": "ad_preview(request)",
+          "return_annotation": null,
+          "decorators": [
+            "login_required",
+            "require_GET"
+          ],
+          "bases": [],
+          "documented": true
+        },
+        {
+          "kind": "function",
+          "qualified_name": "ad_decision",
+          "line": 20,
+          "signature": "ad_decision(request)",
+          "signature_core": "ad_decision(request)",
+          "return_annotation": null,
+          "decorators": [
+            "require_POST"
+          ],
+          "bases": [],
+          "documented": true
+        },
+        {
+          "kind": "function",
+          "qualified_name": "ad_event",
+          "line": 42,
+          "signature": "ad_event(request)",
+          "signature_core": "ad_event(request)",
+          "return_annotation": null,
+          "decorators": [
+            "require_POST"
+          ],
+          "bases": [],
+          "documented": true
+        }
+      ],
+      "missing_signatures": [],
+      "parse_error": null
+    },
+    {
+      "path": "server/game/urls.py",
+      "document_exists": true,
+      "indexed": true,
+      "symbols": [],
+      "missing_signatures": [],
+      "parse_error": null
+    },
+    {
+      "path": "server/game/views.py",
+      "document_exists": true,
+      "indexed": true,
+      "symbols": [
+        {
+          "kind": "function",
+          "qualified_name": "delivery_dashboard",
+          "line": 18,
+          "signature": "delivery_dashboard(request)",
+          "signature_core": "delivery_dashboard(request)",
+          "return_annotation": null,
+          "decorators": [
+            "require_GET"
+          ],
+          "bases": [],
+          "documented": true
+        },
+        {
+          "kind": "function",
+          "qualified_name": "player_view",
+          "line": 45,
+          "signature": "player_view(request)",
+          "signature_core": "player_view(request)",
+          "return_annotation": null,
+          "decorators": [
+            "require_GET"
+          ],
+          "bases": [],
+          "documented": true
+        },
+        {
+          "kind": "function",
+          "qualified_name": "play",
+          "line": 52,
+          "signature": "play(request)",
+          "signature_core": "play(request)",
+          "return_annotation": null,
+          "decorators": [
+            "login_required"
+          ],
+          "bases": [],
+          "documented": true
+        },
+        {
+          "kind": "function",
+          "qualified_name": "history",
+          "line": 57,
+          "signature": "history(request)",
+          "signature_core": "history(request)",
+          "return_annotation": null,
+          "decorators": [
+            "require_GET"
+          ],
+          "bases": [],
+          "documented": true
+        },
+        {
+          "kind": "function",
+          "qualified_name": "delivery_view",
+          "line": 70,
+          "signature": "delivery_view(request)",
+          "signature_core": "delivery_view(request)",
+          "return_annotation": null,
+          "decorators": [
+            "require_GET"
+          ],
+          "bases": [],
+          "documented": true
+        },
+        {
+          "kind": "function",
+          "qualified_name": "csrf_view",
+          "line": 82,
+          "signature": "csrf_view(request)",
+          "signature_core": "csrf_view(request)",
+          "return_annotation": null,
+          "decorators": [
+            "require_GET",
+            "ensure_csrf_cookie"
+          ],
+          "bases": [],
+          "documented": true
+        },
+        {
+          "kind": "function",
+          "qualified_name": "api_login",
+          "line": 89,
+          "signature": "api_login(request)",
+          "signature_core": "api_login(request)",
+          "return_annotation": null,
+          "decorators": [
+            "require_POST"
+          ],
+          "bases": [],
+          "documented": true
+        }
+      ],
+      "missing_signatures": [],
+      "parse_error": null
+    },
+    {
+      "path": "server/game/test_ads.py",
+      "document_exists": true,
+      "indexed": true,
+      "symbols": [
+        {
+          "kind": "function",
+          "qualified_name": "selection",
+          "line": 15,
+          "signature": "selection()",
+          "signature_core": "selection()",
+          "return_annotation": null,
+          "decorators": [],
+          "bases": [],
+          "documented": true
+        },
+        {
+          "kind": "class",
+          "qualified_name": "GatewayTests",
+          "line": 22,
+          "signature": "class GatewayTests(SimpleTestCase)",
+          "signature_core": "GatewayTests",
+          "return_annotation": null,
+          "decorators": [
+            "override_settings(ADS_BASE_URL='http://127.0.0.1:8001', ADS_MEDIA_ID='village-game', ADS_MEDIA_KEY='test-only-key')"
+          ],
+          "bases": [
+            "SimpleTestCase"
+          ],
+          "documented": true
+        },
+        {
+          "kind": "method",
+          "qualified_name": "GatewayTests.test_event_error_codes_are_preserved_without_private_details",
+          "line": 23,
+          "signature": "GatewayTests.test_event_error_codes_are_preserved_without_private_details(self)",
+          "signature_core": "GatewayTests.test_event_error_codes_are_preserved_without_private_details(self)",
+          "return_annotation": null,
+          "decorators": [],
+          "bases": [],
+          "documented": true
+        },
+        {
+          "kind": "method",
+          "qualified_name": "GatewayTests.test_event_public_receipt_duplicate_and_recipient",
+          "line": 35,
+          "signature": "GatewayTests.test_event_public_receipt_duplicate_and_recipient(self)",
+          "signature_core": "GatewayTests.test_event_public_receipt_duplicate_and_recipient(self)",
+          "return_annotation": null,
+          "decorators": [],
+          "bases": [],
+          "documented": true
+        },
+        {
+          "kind": "method",
+          "qualified_name": "GatewayTests.test_public_player_identity_and_legacy_amount_are_adapted",
+          "line": 51,
+          "signature": "GatewayTests.test_public_player_identity_and_legacy_amount_are_adapted(self)",
+          "signature_core": "GatewayTests.test_public_player_identity_and_legacy_amount_are_adapted(self)",
+          "return_annotation": null,
+          "decorators": [],
+          "bases": [],
+          "documented": true
+        },
+        {
+          "kind": "method",
+          "qualified_name": "GatewayTests.test_empty_and_invalid_response_or_missing_key",
+          "line": 61,
+          "signature": "GatewayTests.test_empty_and_invalid_response_or_missing_key(self)",
+          "signature_core": "GatewayTests.test_empty_and_invalid_response_or_missing_key(self)",
+          "return_annotation": null,
+          "decorators": [],
+          "bases": [],
+          "documented": true
+        },
+        {
+          "kind": "class",
+          "qualified_name": "RelayTests",
+          "line": 74,
+          "signature": "class RelayTests(TestCase)",
+          "signature_core": "RelayTests",
+          "return_annotation": null,
+          "decorators": [],
+          "bases": [
+            "TestCase"
+          ],
+          "documented": true
+        },
+        {
+          "kind": "method",
+          "qualified_name": "RelayTests.test_event_session_csrf_and_spoofed_recipient",
+          "line": 75,
+          "signature": "RelayTests.test_event_session_csrf_and_spoofed_recipient(self)",
+          "signature_core": "RelayTests.test_event_session_csrf_and_spoofed_recipient(self)",
+          "return_annotation": null,
+          "decorators": [],
+          "bases": [],
+          "documented": true
+        },
+        {
+          "kind": "method",
+          "qualified_name": "RelayTests.test_event_bad_input_and_outage",
+          "line": 91,
+          "signature": "RelayTests.test_event_bad_input_and_outage(self)",
+          "signature_core": "RelayTests.test_event_bad_input_and_outage(self)",
+          "return_annotation": null,
+          "decorators": [],
+          "bases": [],
+          "documented": true
+        },
+        {
+          "kind": "method",
+          "qualified_name": "RelayTests.test_event_snapshot_error_and_missing_player_status",
+          "line": 99,
+          "signature": "RelayTests.test_event_snapshot_error_and_missing_player_status(self)",
+          "signature_core": "RelayTests.test_event_snapshot_error_and_missing_player_status(self)",
+          "return_annotation": null,
+          "decorators": [],
+          "bases": [],
+          "documented": true
+        },
+        {
+          "kind": "method",
+          "qualified_name": "RelayTests.setUp",
+          "line": 109,
+          "signature": "RelayTests.setUp(self)",
+          "signature_core": "RelayTests.setUp(self)",
+          "return_annotation": null,
+          "decorators": [],
+          "bases": [],
+          "documented": true
+        },
+        {
+          "kind": "method",
+          "qualified_name": "RelayTests.test_login_post_only_and_current_player_ignore_spoofed_subject",
+          "line": 113,
+          "signature": "RelayTests.test_login_post_only_and_current_player_ignore_spoofed_subject(self)",
+          "signature_core": "RelayTests.test_login_post_only_and_current_player_ignore_spoofed_subject(self)",
+          "return_annotation": null,
+          "decorators": [],
+          "bases": [],
+          "documented": true
+        },
+        {
+          "kind": "method",
+          "qualified_name": "RelayTests.test_csrf_is_required_for_game_relay",
+          "line": 124,
+          "signature": "RelayTests.test_csrf_is_required_for_game_relay(self)",
+          "signature_core": "RelayTests.test_csrf_is_required_for_game_relay(self)",
+          "return_annotation": null,
+          "decorators": [],
+          "bases": [],
+          "documented": true
+        },
+        {
+          "kind": "method",
+          "qualified_name": "RelayTests.test_invalid_input_outage_and_preview",
+          "line": 135,
+          "signature": "RelayTests.test_invalid_input_outage_and_preview(self)",
+          "signature_core": "RelayTests.test_invalid_input_outage_and_preview(self)",
+          "return_annotation": null,
+          "decorators": [],
+          "bases": [],
+          "documented": true
+        }
+      ],
+      "missing_signatures": [],
+      "parse_error": null
+    },
+    {
+      "path": "config/settings.py",
+      "document_exists": true,
+      "indexed": true,
+      "symbols": [],
+      "missing_signatures": [],
+      "parse_error": null
+    },
+    {
+      "path": "server/game/management/commands/export_player_snapshot.py",
+      "document_exists": true,
+      "indexed": true,
+      "symbols": [
+        {
+          "kind": "class",
+          "qualified_name": "Command",
+          "line": 13,
+          "signature": "class Command(BaseCommand)",
+          "signature_core": "Command",
+          "return_annotation": null,
+          "decorators": [],
+          "bases": [
+            "BaseCommand"
+          ],
+          "documented": true
+        },
+        {
+          "kind": "method",
+          "qualified_name": "Command.add_arguments",
+          "line": 16,
+          "signature": "Command.add_arguments(self, parser)",
+          "signature_core": "Command.add_arguments(self, parser)",
+          "return_annotation": null,
+          "decorators": [],
+          "bases": [],
+          "documented": true
+        },
+        {
+          "kind": "method",
+          "qualified_name": "Command.handle",
+          "line": 19,
+          "signature": "Command.handle(self, *args, **options)",
+          "signature_core": "Command.handle(self, *args, **options)",
+          "return_annotation": null,
+          "decorators": [],
+          "bases": [],
+          "documented": true
+        }
+      ],
+      "missing_signatures": [],
+      "parse_error": null
+    },
+    {
+      "path": "tools/check_day24_logic.py",
+      "document_exists": true,
+      "indexed": true,
+      "symbols": [
+        {
+          "kind": "function",
+          "qualified_name": "row",
+          "line": 27,
+          "signature": "row(player_id=1, **updates)",
+          "signature_core": "row(player_id=1, **updates)",
+          "return_annotation": null,
+          "decorators": [],
+          "bases": [],
+          "documented": true
+        },
+        {
+          "kind": "function",
+          "qualified_name": "public",
+          "line": 35,
+          "signature": "public(value)",
+          "signature_core": "public(value)",
+          "return_annotation": null,
+          "decorators": [],
+          "bases": [],
+          "documented": true
+        },
+        {
+          "kind": "function",
+          "qualified_name": "write_rows",
+          "line": 39,
+          "signature": "write_rows(path, values)",
+          "signature_core": "write_rows(path, values)",
+          "return_annotation": null,
+          "decorators": [],
+          "bases": [],
+          "documented": true
+        },
+        {
+          "kind": "function",
+          "qualified_name": "equal",
+          "line": 45,
+          "signature": "equal(actual, expected)",
+          "signature_core": "equal(actual, expected)",
+          "return_annotation": null,
+          "decorators": [],
+          "bases": [],
+          "documented": true
+        },
+        {
+          "kind": "function",
+          "qualified_name": "rejected",
+          "line": 50,
+          "signature": "rejected(call, exceptions=CAUGHT)",
+          "signature_core": "rejected(call, exceptions=CAUGHT)",
+          "return_annotation": null,
+          "decorators": [],
+          "bases": [],
+          "documented": true
+        },
+        {
+          "kind": "class",
+          "qualified_name": "Checks",
+          "line": 58,
+          "signature": "class Checks",
+          "signature_core": "Checks",
+          "return_annotation": null,
+          "decorators": [],
+          "bases": [],
+          "documented": true
+        },
+        {
+          "kind": "method",
+          "qualified_name": "Checks.__init__",
+          "line": 59,
+          "signature": "Checks.__init__(self)",
+          "signature_core": "Checks.__init__(self)",
+          "return_annotation": null,
+          "decorators": [],
+          "bases": [],
+          "documented": true
+        },
+        {
+          "kind": "method",
+          "qualified_name": "Checks.run",
+          "line": 62,
+          "signature": "Checks.run(self, name, call)",
+          "signature_core": "Checks.run(self, name, call)",
+          "return_annotation": null,
+          "decorators": [],
+          "bases": [],
+          "documented": true
+        },
+        {
+          "kind": "method",
+          "qualified_name": "Checks.mutation",
+          "line": 71,
+          "signature": "Checks.mutation(self, name, call)",
+          "signature_core": "Checks.mutation(self, name, call)",
+          "return_annotation": null,
+          "decorators": [],
+          "bases": [],
+          "documented": true
+        },
+        {
+          "kind": "function",
+          "qualified_name": "command",
+          "line": 78,
+          "signature": "command(module_name, **options)",
+          "signature_core": "command(module_name, **options)",
+          "return_annotation": null,
+          "decorators": [],
+          "bases": [],
+          "documented": true
+        },
+        {
+          "kind": "function",
+          "qualified_name": "test_one",
+          "line": 86,
+          "signature": "test_one(checks, root)",
+          "signature_core": "test_one(checks, root)",
+          "return_annotation": null,
+          "decorators": [],
+          "bases": [],
+          "documented": true
+        },
+        {
+          "kind": "function",
+          "qualified_name": "test_two",
+          "line": 132,
+          "signature": "test_two(checks, module, root)",
+          "signature_core": "test_two(checks, module, root)",
+          "return_annotation": null,
+          "decorators": [],
+          "bases": [],
+          "documented": true
+        },
+        {
+          "kind": "function",
+          "qualified_name": "test_three",
+          "line": 165,
+          "signature": "test_three(checks, module, root)",
+          "signature_core": "test_three(checks, module, root)",
+          "return_annotation": null,
+          "decorators": [],
+          "bases": [],
+          "documented": true
+        },
+        {
+          "kind": "function",
+          "qualified_name": "test_four",
+          "line": 194,
+          "signature": "test_four(checks, module, root)",
+          "signature_core": "test_four(checks, module, root)",
+          "return_annotation": null,
+          "decorators": [],
+          "bases": [],
+          "documented": true
+        },
+        {
+          "kind": "function",
+          "qualified_name": "test_five",
+          "line": 229,
+          "signature": "test_five(checks, module, root)",
+          "signature_core": "test_five(checks, module, root)",
+          "return_annotation": null,
+          "decorators": [],
+          "bases": [],
+          "documented": true
+        },
+        {
+          "kind": "function",
+          "qualified_name": "test_six",
+          "line": 257,
+          "signature": "test_six(checks, module, root)",
+          "signature_core": "test_six(checks, module, root)",
+          "return_annotation": null,
+          "decorators": [],
+          "bases": [],
+          "documented": true
+        },
+        {
+          "kind": "function",
+          "qualified_name": "test_seven",
+          "line": 290,
+          "signature": "test_seven(checks, module, root)",
+          "signature_core": "test_seven(checks, module, root)",
+          "return_annotation": null,
+          "decorators": [],
+          "bases": [],
+          "documented": true
+        },
+        {
+          "kind": "function",
+          "qualified_name": "test_eight",
+          "line": 313,
+          "signature": "test_eight(checks, module, root)",
+          "signature_core": "test_eight(checks, module, root)",
+          "return_annotation": null,
+          "decorators": [],
+          "bases": [],
+          "documented": true
+        },
+        {
+          "kind": "function",
+          "qualified_name": "main",
+          "line": 367,
+          "signature": "main()",
+          "signature_core": "main()",
+          "return_annotation": null,
+          "decorators": [],
+          "bases": [],
+          "documented": true
+        }
+      ],
+      "missing_signatures": [],
+      "parse_error": null
+    }
+  ],
+  "summary": {
+    "python_file_count": 8,
+    "symbol_count": 50,
+    "ok": true
+  }
+}
