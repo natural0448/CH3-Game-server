@@ -2,9 +2,9 @@
 
 이 색인은 현재 문서화된 서버·Spark 개발 파일과 1:1 짝 문서를 연결한다. 아직 문서화하지 않은 기존 파일을 현재 구조처럼 설명하지 않는다.
 
-## 현재 진행 기준 · 2026-10-08
+## 현재 진행 기준 · 2026-10-12
 
-[현재 진행과 호출 경계](day24-progress.md)를 먼저 읽는다. 22일차 이미지 광고 연결과 23일차 광고 사건 중계는 기존 구현이며, 24일차는 **1교시 공개 Player snapshot 내보내기까지 구현**했다. 공식 1교시 검사는 **12개 통과·0개 실패**다. 실제 입력은 기존 루트 `data/exports/player-cdc.ndjson`에 있고 `server/data`는 없다. 광고의 2교시는 문제틀 작성 중으로 완료되지 않았고 3~8교시는 미적용이다.
+[현재 진행과 호출 경계](day24-progress.md)를 먼저 읽는다. 22일차 이미지 광고 연결과 23일차 광고 사건 중계는 기존 구현이다. 게임은 24일차 공개 Player snapshot 생산을 담당하며 공식 1교시 12/0 이력을 유지한다. before는 루트 data/exports/player-cdc.ndjson, 별도 after는 data/exports/player-snapshot-after.ndjson이고 각각 56행이다. 현재 검증 입력은 바깥 data/exports다. server/data/exports에도 별도 파일 3개가 관찰됐으며 원본과 bytes가 달라 그대로 보존했다. 광고는 8교시까지 구현·저장 결과를 검증했다. 이전 5교시 13/0·6교시 15/0·7교시 10/0 및 후속 8교시 24/0을 구분한다. 광고 data/exports/day24-input에 원본 56행과 계약을 실제 인계했고 원본/checksum 보존과 수신 계약 경로를 확인했다. [현재 완료 기록](../../../ad_server/docs/handoffs/2026-10-12-day24-period08-finish.md)을 따른다.
 
 상대 출력은 실행 폴더 기준이므로 Game-server 루트에서 `python server/manage.py export_player_snapshot --output data/exports/player-cdc.ndjson`을 사용한다. 광고 작업 폴더의 입력은 `../Game-server/data/exports/player-cdc.ndjson`이다. 파일은 이미 존재하며 초기 검토의 실패 기록과 현재 통과 결과를 구별한다. [이번 문서 정합화 기록](../handoffs/2026-10-08-game-routing-progress-sync.md)과 [기존 경로 정정 기록](../handoffs/2026-10-08-day24-data-path-correction.md)에 근거를 남겼다.
 
@@ -49,6 +49,7 @@
 | 현재 데이터 파일 | 짝 문서 | 책임 |
 | --- | --- | --- |
 | `data/exports/player-cdc.ndjson` | `files/data/exports/player-cdc.ndjson.md` | 사용자가 생성한 Player 공개 snapshot 원본. 기존 루트 data 폴더에 보관하며 광고의 2교시 입력으로 사용 |
+| `data/exports/player-snapshot-after.ndjson` | [문서](files/data/exports/player-snapshot-after.ndjson.md) | 사용자의 별도 after 출력. 광고 6·7교시 비교·누락 관찰 입력; 기존 before 보존 |
 | `.gitignore` | `files/.gitignore.md` | 실제 data 산출물은 제외하고 지정한 snapshot 라우팅 문서만 추적 가능하게 허용 |
 
 ## Django 설정
