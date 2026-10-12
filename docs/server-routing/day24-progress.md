@@ -1,14 +1,15 @@
-# 현재 진행과 서버 라우팅 · 2026-10-08
+# 현재 진행과 서버 라우팅 · 2026-10-12
 
-현재 24일차 구현은 **1교시 공개 Player snapshot 내보내기**까지다. 아래 표는 저장된 구현과 검증 결과를 구분한다. 후속 교시의 계획을 현재 라우팅으로 등록하지 않는다.
+게임은 1교시 공개 Player snapshot 생산을 담당하고 광고는 2교시 형식 검사를 담당한다. 2026-10-12에 두 교시 공식 검사와 기존 원본의 광고 관리명령 검사까지 통과했다. 아래는 실제 저장 구현과 확인한 증거다.
 
 | 범위 | 현재 구현과 검증 상태 | 실제 책임 위치 |
 |---|---|---|
 | 22일차 이미지 광고 연결 | 공개 광고 선택·미리보기·기존 이미지 연결 구현. 기존 검증 이력 유지 | `server/game/ad_gateway.py`, `server/game/ad_views.py`, preview template/static 파일 |
 | 23일차 사건 중계 | `request_ad_event` 및 `call_ads` 구현. 기존 교안 AST/계약·격리 테스트 통과 기록 유지. 공식 3교시 검사기는 미저장·미실행 | `server/game/ad_gateway.py` → 광고 `/api/media/events/`; 게임 `/api/ads/events/`는 `ad_views.ad_event` |
 | 24일차 1교시 | 공개 snapshot 관리 명령 구현. 공식 검사 **passed=12 / failed=0**. 실제 원본 56행·13,275 bytes | `server/game/management/commands/export_player_snapshot.py` → `data/exports/player-cdc.ndjson` |
-| 24일차 2교시 | **문제틀 작성 중·미완료**: 광고 입력 검사 코드는 아직 완성되지 않음 | 광고 `ads/snapshot_intake.py`의 미완성 사용자 문제틀. 공식 2교시 완료로 등록하지 않음 |
-| 24일차 3~8교시 | **미적용**: 준비 상태·변경 fixture·계약·비교·누락 요약·인계 | 후속 함수·관리 명령은 현재 구현으로 등록하지 않음 |
+| 24일차 2교시 | **완료 검증**: 공식 22 통과·0 실패, 실제 원본 56행·checksum 일치 | 광고 ads/snapshot_intake.py 및 ads/management/commands/inspect_player_snapshot.py |
+| 24일차 3교시 | **사용자 작성 중·공식 검증 미실행** | 광고 readiness 함수·관리명령 초안 |
+| 24일차 4~8교시 | **미적용**: 준비 상태·변경 fixture·계약·비교·누락 요약·인계 | 후속 함수·관리 명령은 현재 구현으로 등록하지 않음 |
 
 ## 현재 호출 경계
 
@@ -27,7 +28,7 @@ export_player_snapshot 관리 명령
   -> Player 공개 다섯 필드 ORM 읽기
   -> schema_version/source_kind/captured_at을 더한 8필드 NDJSON
   -> Game-server/data/exports/player-cdc.ndjson
-  -> 광고 입력 검사: 2교시 문제틀 작성 중·미완료
+  -> 광고 입력 검사: 2교시 완료 검증 (관리명령은 원본을 읽고 JSON 출력)
   -> 후속 준비 상태·계약·비교·누락 요약·인계: 미적용
 ```
 

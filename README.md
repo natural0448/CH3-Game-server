@@ -2,7 +2,7 @@
 
 ## 현재 진행 상태 · 2026-10-08
 
-24일차는 **1교시 Player 공개 snapshot 내보내기까지 구현**했다. 실제 관리 명령은 `server/game/management/commands/export_player_snapshot.py`이며 공식 1교시 검사 결과는 **12개 통과·0개 실패**다. 광고 2교시는 `ads/snapshot_intake.py` 문제틀 작성 중이며 완료되지 않았다. 3~8교시의 준비 상태·변경 fixture·계약·비교·누락 요약·인계는 미적용이다.
+24일차 게임 구현은 **1교시 Player 공개 snapshot 내보내기**다. 2026-10-12 공식 1교시 12개·광고 2교시 22개 검사 모두 통과했고 실제 원본의 광고 검사도 56행·checksum 일치다. 게임 관리명령은 server/game/management/commands/export_player_snapshot.py, 원본은 기존 루트 data/exports/player-cdc.ndjson이다. 광고는 snapshot_intake와 inspect_player_snapshot으로 파일을 읽으며 3교시는 검증 중 새로 작성되고 있으며, 4~8교시 후속 구현은 미적용이다.
 
 실제 원본은 기존 **`Game-server/data/exports/player-cdc.ndjson`**에 있다. `server/data`는 없다. 현재 파일은 56행·13,275 bytes이며 이미 생성되어 다시 내보낼 필요는 없다. 상대 출력 경로는 명령 실행 폴더를 기준으로 하므로 실행 위치는 Game-server 루트다. 광고 작업 폴더에서 후속 입력 경로는 `../Game-server/data/exports/player-cdc.ndjson`이다.
 
