@@ -1,4 +1,5 @@
 import json
+from django.conf import settings
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
 from django.db.models import Count, Q
@@ -8,6 +9,7 @@ from django.views.decorators.http import require_GET, require_POST
 from django.utils import timezone
 from game.models import Player, GameEvent
 from game.services import serialize_player, serialize_event
+from game.ad_gateway import AdsUnavailable, request_context
 from django.contrib.auth import authenticate, login as auth_login
 from django.middleware.csrf import get_token
 from django.views.decorators.csrf import ensure_csrf_cookie
@@ -104,3 +106,20 @@ def api_login(request):
         return JsonResponse({"authenticated": False,}, status=401)
     auth_login(request, user)
     return JsonResponse({"authenticated": True,})
+
+
+@require_GET
+def ad_context(request):
+    if not request.user.is_authenticated:
+        return JsonResponse({"error": "login_required"}, status=401)
+    player = Player.objects.filter(user=request.user).first()
+    if player is None:
+        return JsonResponse({"error": "player_missing"}, status=404)
+    try:
+        response = JsonResponse({"subject": {"media_id": settings.ADS_MEDIA_ID,
+                                              "subject_id": str(player.pk)},
+                                 "context": request_context(player)})
+        response["Cache-Control"] = "no-store"
+        return response
+    except AdsUnavailable:
+        return JsonResponse({"error": "ads_unavailable"}, status=503)

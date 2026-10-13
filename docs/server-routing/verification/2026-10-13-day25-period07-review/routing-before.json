@@ -1,0 +1,113 @@
+{
+  "schema_version": 1,
+  "repository": "C:\\MLO01-01\\Chapter3\\Game-server",
+  "git_head": "04bafae day25 - chapter1",
+  "git_status": [
+    " M server/game/ad_gateway.py",
+    " M server/game/urls.py",
+    "?? docs/server-routing/verification/2026-10-13-day25-period07-review/"
+  ],
+  "routing_dir": "docs/server-routing",
+  "scope": "working_tree",
+  "changed_paths": [
+    "docs/server-routing/verification/2026-10-13-day25-period07-review/start.json",
+    "server/game/ad_gateway.py",
+    "server/game/urls.py"
+  ],
+  "python_files": [
+    {
+      "path": "server/game/ad_gateway.py",
+      "state": "present",
+      "document": "docs/server-routing/files/server/game/ad_gateway.py.md",
+      "document_exists": true,
+      "indexed": true,
+      "symbols": [
+        {
+          "kind": "class",
+          "qualified_name": "AdsUnavailable",
+          "line": 12,
+          "signature": "class AdsUnavailable(Exception)",
+          "signature_core": "AdsUnavailable",
+          "return_annotation": null,
+          "decorators": [],
+          "bases": [
+            "Exception"
+          ],
+          "documented": true
+        },
+        {
+          "kind": "function",
+          "qualified_name": "call_ads",
+          "line": 16,
+          "signature": "call_ads(path, payload)",
+          "signature_core": "call_ads(path, payload)",
+          "return_annotation": null,
+          "decorators": [],
+          "bases": [],
+          "documented": true
+        },
+        {
+          "kind": "function",
+          "qualified_name": "request_decision",
+          "line": 43,
+          "signature": "request_decision(player, slot_id)",
+          "signature_core": "request_decision(player, slot_id)",
+          "return_annotation": null,
+          "decorators": [],
+          "bases": [],
+          "documented": true
+        },
+        {
+          "kind": "function",
+          "qualified_name": "request_ad_event",
+          "line": 75,
+          "signature": "request_ad_event(player, decision_id, event_type)",
+          "signature_core": "request_ad_event(player, decision_id, event_type)",
+          "return_annotation": null,
+          "decorators": [],
+          "bases": [],
+          "documented": true
+        },
+        {
+          "kind": "function",
+          "qualified_name": "request_context",
+          "line": 107,
+          "signature": "request_context(player)",
+          "signature_core": "request_context(player)",
+          "return_annotation": null,
+          "decorators": [],
+          "bases": [],
+          "documented": false
+        }
+      ],
+      "missing_signatures": [
+        "request_context(player)"
+      ],
+      "parse_error": null
+    },
+    {
+      "path": "server/game/urls.py",
+      "state": "present",
+      "document": "docs/server-routing/files/server/game/urls.py.md",
+      "document_exists": true,
+      "indexed": true,
+      "symbols": [],
+      "missing_signatures": [],
+      "parse_error": null
+    }
+  ],
+  "issues": [
+    {
+      "code": "missing_signature",
+      "path": "server/game/ad_gateway.py",
+      "detail": "request_context(player)"
+    }
+  ],
+  "summary": {
+    "changed_path_count": 3,
+    "python_file_count": 2,
+    "symbol_count": 5,
+    "issue_count": 1,
+    "ok": false
+  }
+}

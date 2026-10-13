@@ -6,9 +6,11 @@ from urllib.error import HTTPError
 from unittest.mock import patch
 
 from django.contrib.auth import get_user_model
-from django.test import Client, SimpleTestCase, TestCase, override_settings
+from django.test import Client, RequestFactory, SimpleTestCase, TestCase, override_settings
+from django.urls import resolve
 
-from game.ad_gateway import AdsUnavailable, request_ad_event, request_decision
+from game.ad_gateway import AdsUnavailable, request_ad_event, request_context, request_decision
+from game.views import ad_context
 from game.models import Player
 
 
@@ -141,3 +143,82 @@ class RelayTests(TestCase):
             self.assertEqual(self.client.post("/api/ads/decision/", data='{"slot_id":"village-board"}',
                                              content_type="application/json").status_code, 503)
         self.assertContains(self.client.get("/ads/preview/"), 'id="request-ad"')
+
+
+@override_settings(ADS_BASE_URL="http://127.0.0.1:8001", ADS_MEDIA_ID="village-game",
+                   ADS_MEDIA_KEY="test-only-key")
+class PlayerContextTests(SimpleTestCase):
+    def setUp(self):
+        self.factory = RequestFactory()
+        self.player = SimpleNamespace(pk=12)
+        self.context = {"player_id": "12", "room_id": "room-01", "coins": 26,
+                        "version": 461, "updated_at": "2026-10-13T06:36:55+00:00"}
+
+    def test_logged_in_player_ignores_query_recipient_and_does_not_cache(self):
+        self.assertIs(resolve("/api/ads/context/").func, ad_context)
+        request = self.factory.get("/api/ads/context/?subject_id=9999")
+        request.user = SimpleNamespace(is_authenticated=True, pk=99)
+        with patch("game.views.Player.objects.filter") as players, \
+                patch("game.views.request_context", return_value=self.context) as lookup:
+            players.return_value.first.return_value = self.player
+            response = ad_context(request)
+        players.assert_called_once_with(user=request.user)
+        lookup.assert_called_once_with(self.player)
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(json.loads(response.content)["subject"]["subject_id"], "12")
+        self.assertEqual(response["Cache-Control"], "no-store")
+
+    def test_login_missing_player_and_outage_have_separate_statuses(self):
+        request = self.factory.get("/api/ads/context/")
+        request.user = SimpleNamespace(is_authenticated=False)
+        with patch("game.views.Player.objects.filter") as players:
+            self.assertEqual(ad_context(request).status_code, 401)
+            players.assert_not_called()
+        request.user = SimpleNamespace(is_authenticated=True)
+        with patch("game.views.Player.objects.filter") as players:
+            players.return_value.first.return_value = None
+            self.assertEqual(ad_context(request).status_code, 404)
+        with patch("game.views.Player.objects.filter") as players, \
+                patch("game.views.request_context", side_effect=AdsUnavailable("fixture")):
+            players.return_value.first.return_value = self.player
+            response = ad_context(request)
+        self.assertEqual(response.status_code, 503)
+        self.assertEqual(json.loads(response.content), {"error": "ads_unavailable"})
+        self.assertEqual(ad_context(self.factory.post("/api/ads/context/")).status_code, 405)
+
+    def test_context_is_fetched_before_selection_and_passed_as_snapshot(self):
+        selection = {"decision_id": "fixture-decision", "slot_id": "village-board",
+                     "title": "숲 도구점", "body": "도구", "bid_units": 30,
+                     "creative_path": "/static/ads/creatives/forest-tools.png"}
+        first = io.BytesIO(json.dumps({"subject": {"media_id": "village-game", "subject_id": "12"},
+                                     "context": self.context}).encode())
+        second = io.BytesIO(json.dumps(selection).encode())
+        with patch("game.ad_gateway.urlopen", side_effect=[first, second]) as opened:
+            result = request_decision(self.player, "village-board")
+        lookup, choice = [call.args[0] for call in opened.call_args_list]
+        self.assertTrue(lookup.full_url.endswith("/api/media/context/"))
+        self.assertTrue(choice.full_url.endswith("/api/media/decision/"))
+        self.assertEqual(json.loads(lookup.data), {
+            "subject": {"media_id": "village-game", "subject_id": "12"}})
+        self.assertEqual(json.loads(choice.data)["context"], self.context)
+        self.assertEqual(result["bid_amount"], 30)
+        self.assertEqual(result["body"], "도구")
+        self.assertEqual(result["creative_path"], selection["creative_path"])
+        for call in opened.call_args_list:
+            self.assertEqual(call.kwargs["timeout"], 1.5)
+            self.assertEqual(call.args[0].get_header("X-media-id"), "village-game")
+
+    def test_response_recipient_types_and_timezone_are_validated(self):
+        subject = {"media_id": "village-game", "subject_id": "12"}
+        invalid = [({**subject, "subject_id": "9999"}, self.context),
+                   (subject, {**self.context, "version": True}),
+                   (subject, {**self.context, "updated_at": "2026-10-13T06:36:55"}),
+                   (subject, {**self.context, "private": "excluded"})]
+        for returned_subject, context in invalid:
+            response = io.BytesIO(json.dumps({"subject": returned_subject, "context": context}).encode())
+            with self.subTest(context=context), patch("game.ad_gateway.urlopen", return_value=response):
+                with self.assertRaises(AdsUnavailable):
+                    request_context(self.player)
+        response = io.BytesIO(json.dumps({"subject": subject, "context": {}}).encode())
+        with patch("game.ad_gateway.urlopen", return_value=response):
+            self.assertEqual(request_context(self.player), {})

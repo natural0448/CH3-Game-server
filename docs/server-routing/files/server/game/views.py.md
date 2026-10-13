@@ -40,3 +40,10 @@ POST JSON의 username/password 타입을 확인하고 `authenticate`와 `auth_lo
 - `status`: 쿼리 문자열의 `all`, `pending`, `sent` 중 하나.
 - `checked_at`: `timezone.now()`.
 - Player와 GameEvent: MySQL의 Django ORM 조회 결과.
+
+
+## ad_context(request)
+
+25일차 제공 함수 전체를 기존 views.py 끝에 추가했다. request는 기본값 없는 HttpRequest이며 require_GET가 GET만 허용한다. 미로그인 JSON 401, Player 없음 404, AdsUnavailable 503, 정상은 subject/context JSON 200·Cache-Control=no-store다.
+
+의사코드: request.user.is_authenticated → Player.objects.filter(user=request.user).first → request_context(player) → 서버 settings.ADS_MEDIA_ID와 str(player.pk)의 subject 및 공개 context 반환. 직접 호출은 Player 조회, game.ad_gateway.request_context, JsonResponse다. request_context는 공개 다섯 필드 또는 {}를 반환하며 외부 광고 장애는 AdsUnavailable다. URL의 subject_id/Player 번호는 읽지 않으므로 쿼리로 타인의 대상을 지정하지 못한다. settings/request_context/AdsUnavailable import만 추가하고 기존 화면·조회·인증 함수는 보존했다. Player·공개 복사본·decision을 쓰지 않는다.

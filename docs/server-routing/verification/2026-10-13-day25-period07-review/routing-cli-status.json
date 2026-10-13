@@ -1,0 +1,12 @@
+{
+  "after": {
+    "exit": 0,
+    "stdout": "",
+    "stderr": "Failed to find real location of C:\\Users\\이해나\\AppData\\Local\\Programs\\Python\\Python314\\python.exe"
+  },
+  "followup_fix": {
+    "exit": 0,
+    "stdout": "",
+    "stderr": "Failed to find real location of C:\\Users\\이해나\\AppData\\Local\\Programs\\Python\\Python314\\python.exe"
+  }
+}

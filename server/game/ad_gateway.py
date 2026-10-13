@@ -1,4 +1,5 @@
 """Game-session Player to public recipient, with server-only media authentication."""
+from datetime import datetime
 import json
 from urllib.error import HTTPError, URLError
 from urllib.request import Request, urlopen
@@ -40,42 +41,35 @@ def call_ads(path, payload):
 
 
 def request_decision(player, slot_id):
-    if slot_id not in ("village-board", "lobby-banner"):
-        raise ValueError("invalid_slot")
+    media_id = settings.ADS_MEDIA_ID
     if not settings.ADS_MEDIA_KEY:
         raise AdsUnavailable("media_key_missing")
-    media_id = settings.ADS_MEDIA_ID
-    request = Request(settings.ADS_BASE_URL + "/api/media/decision/", method="POST",
-                      data=json.dumps({"media_id": media_id,
-                          "subject": {"media_id": media_id, "subject_id": str(player.pk)},
-                          "slot_id": slot_id, "context": {}}).encode("utf-8"),
-                      headers={"Content-Type": "application/json", "Accept": "application/json",
-                               "X-Media-ID": media_id, "X-Media-Key": settings.ADS_MEDIA_KEY})
+    payload = {
+        "media_id": media_id,
+        "subject": {"media_id": media_id, "subject_id": str(player.pk)},
+        "slot_id": slot_id,
+        "context": request_context(player),
+    }
+    request = Request(
+        settings.ADS_BASE_URL.rstrip("/") + "/api/media/decision/",
+        data=json.dumps(payload).encode("utf-8"),
+        headers={"Content-Type": "application/json", "Accept": "application/json",
+                 "X-Media-ID": media_id, "X-Media-Key": settings.ADS_MEDIA_KEY},
+        method="POST",
+    )
     try:
-        with urlopen(request, timeout=3) as response:
-            raw = response.read(65537)
-        if len(raw) > 65536:
-            raise ValueError("oversized_response")
-        data = json.loads(raw)
+        with urlopen(request, timeout=1.5) as response:
+            data = json.load(response)
         if not isinstance(data, dict):
             raise ValueError("invalid_response")
         if data.get("empty") is True or data.get("ad", "selected") is None:
-            return {"ad": None}
-        amount = data.get("bid_amount", data.get("bid_units"))
-        path = data.get("creative_path", "")
-        if (data.get("slot_id") != slot_id or type(amount) is not int or not 1 <= amount <= 10000
-                or not isinstance(path, str) or path not in CREATIVE_PATHS):
-            raise ValueError("invalid_selection")
-        result = {key: data[key] for key in ("decision_id", "campaign_id", "title", "slot_id", "policy_version")}
-        if any(not isinstance(value, str) or not value for value in result.values()):
-            raise ValueError("invalid_selection")
-        body = data.get("body", "")
-        if not isinstance(body, str) or len(body) > 300 or len(result["title"]) > 80:
-            raise ValueError("invalid_creative")
-        return {**result, "body": body, "creative_path": path, "bid_amount": amount,
-                "bid_units": amount, "empty": False}
-    except (HTTPError, URLError, TimeoutError, OSError, ValueError, KeyError, TypeError) as exc:
-        raise AdsUnavailable("ads_unavailable") from exc
+            return {**data, "ad": None}
+        if data.get("slot_id") != slot_id:
+            raise ValueError("slot_mismatch")
+        return {**data, "body": data.get("body", ""),
+                "bid_amount": data.get("bid_amount", data.get("bid_units"))}
+    except (HTTPError, URLError, TimeoutError, OSError, ValueError, KeyError, TypeError) as error:
+        raise AdsUnavailable("ads_unavailable") from error
 
 
 def request_ad_event(player, decision_id, event_type):
@@ -108,3 +102,39 @@ def request_ad_event(player, decision_id, event_type):
             or type(data.get("created")) is not bool):
         raise AdsUnavailable("invalid_ad_event_response")
     return {name: data[name] for name in ("event_id", "event_type", "created")}
+
+
+def request_context(player):
+    media_id = settings.ADS_MEDIA_ID
+    if not settings.ADS_MEDIA_KEY:
+        raise AdsUnavailable("media_key_missing")
+    subject = {"media_id": media_id, "subject_id": str(player.pk)}
+    payload = {"subject": subject}
+    headers = {"Content-Type": "application/json", "Accept": "application/json", "X-Media-ID": media_id, "X-Media-Key": settings.ADS_MEDIA_KEY}
+    request = Request(
+        settings.ADS_BASE_URL.rstrip("/") + "/api/media/context/",
+        data=json.dumps(payload, allow_nan=False).encode("utf-8"),
+        headers=headers,
+        method="POST",
+    )
+    try:
+        with urlopen(request, timeout=1.5) as response:
+            data = json.load(response)
+        if (not isinstance(data, dict) or data.get("subject") != subject
+                or not isinstance(data.get("context"), dict)):
+            raise ValueError("invalid_context_response")
+        context = data["context"]
+        if context:
+            if (set(context) != {"player_id", "room_id", "coins", "version", "updated_at"}
+                    or context["player_id"] != subject["subject_id"]
+                    or not isinstance(context["room_id"], str)
+                    or type(context["coins"]) is not int
+                    or type(context["version"]) is not int or context["version"] < 0
+                    or not isinstance(context["updated_at"], str)):
+                raise ValueError("invalid_public_context")
+            instant = datetime.fromisoformat(context["updated_at"])
+            if instant.tzinfo is None or instant.utcoffset() is None:
+                raise ValueError("context_time_requires_timezone")
+        return dict(context)
+    except (HTTPError, URLError, TimeoutError, OSError, ValueError, KeyError, TypeError) as error:
+        raise AdsUnavailable("ads_unavailable") from error

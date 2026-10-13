@@ -1,0 +1,125 @@
+{
+  "head": {
+    "exit": 0,
+    "stdout": "04bafae day25 - chapter1",
+    "stderr": ""
+  },
+  "baseline_user_changes": [
+    "server/game/ad_gateway.py",
+    "server/game/urls.py"
+  ],
+  "source_sha256_matches_start": {
+    "server/game/ad_gateway.py": true,
+    "server/game/urls.py": true
+  },
+  "agent_source_changes": [],
+  "agent_document_paths": [
+    "docs/server-routing/files/server/game/ad_gateway.py.md",
+    "docs/server-routing/files/server/game/urls.py.md",
+    "docs/server-routing/README.md",
+    "docs/handoffs/2026-10-13-day25-period07-review.md"
+  ],
+  "status": {
+    "exit": 0,
+    "stdout": "M docs/server-routing/README.md\n M docs/server-routing/files/server/game/ad_gateway.py.md\n M docs/server-routing/files/server/game/urls.py.md\n M server/game/ad_gateway.py\n M server/game/urls.py\n?? docs/handoffs/2026-10-13-day25-period07-review.md\n?? docs/server-routing/verification/2026-10-13-day25-period07-review/",
+    "stderr": ""
+  },
+  "unstaged": {
+    "exit": 0,
+    "stdout": "M\tdocs/server-routing/README.md\nM\tdocs/server-routing/files/server/game/ad_gateway.py.md\nM\tdocs/server-routing/files/server/game/urls.py.md\nM\tserver/game/ad_gateway.py\nM\tserver/game/urls.py",
+    "stderr": "warning: in the working copy of 'config/urls.py', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'server/game/ad_gateway.py', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'server/game/urls.py', LF will be replaced by CRLF the next time Git touches it"
+  },
+  "staged": {
+    "exit": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "untracked": {
+    "exit": 0,
+    "stdout": "docs/handoffs/2026-10-13-day25-period07-review.md\ndocs/server-routing/verification/2026-10-13-day25-period07-review/routing-before.json\ndocs/server-routing/verification/2026-10-13-day25-period07-review/routing-cli-after.json\ndocs/server-routing/verification/2026-10-13-day25-period07-review/routing-cli-status.json\ndocs/server-routing/verification/2026-10-13-day25-period07-review/routing-final.json\ndocs/server-routing/verification/2026-10-13-day25-period07-review/start.json",
+    "stderr": ""
+  },
+  "routing_scope_passed": true,
+  "routing_cli_exit": 0,
+  "full_diff_check": {
+    "exit": 0,
+    "stdout": "",
+    "stderr": "warning: in the working copy of 'config/urls.py', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'server/game/ad_gateway.py', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'server/game/urls.py', LF will be replaced by CRLF the next time Git touches it"
+  },
+  "document_diff_check": {
+    "exit": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "functional_state": "7교시 통합 미완료; 소스 수정 미적용",
+  "mongo_process_mutations": false,
+  "business_db_mutations": false,
+  "missing_local_links": [],
+  "followup_fix": {
+    "agent_changed_existing_sources": [
+      "server/game/urls.py",
+      "server/game/views.py",
+      "server/game/test_ads.py"
+    ],
+    "expected_changed_existing_sources": [
+      "server/game/views.py",
+      "server/game/urls.py",
+      "server/game/test_ads.py"
+    ],
+    "untouched_user_sources_preserved": {
+      "server/game/ad_gateway.py": true
+    },
+    "new_development_files_remaining": false,
+    "temporary_development_files_removed": true,
+    "pending_cleanup_evidence_folder": "docs/server-routing/verification/2026-10-13-day25-period07-fix",
+    "cleanup_status": "complete_after_explicit_user_approval",
+    "routing_scope_count": 4,
+    "routing_scope_passed": true,
+    "routing_cli_exit": 0,
+    "missing_local_links": [],
+    "full_diff_check": {
+      "exit": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    "agent_source_document_diff_check": {
+      "exit": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    "status": {
+      "exit": 0,
+      "stdout": "AM docs/handoffs/2026-10-13-day25-period07-review.md\nMM docs/server-routing/README.md\nMM docs/server-routing/files/server/game/ad_gateway.py.md\n M docs/server-routing/files/server/game/test_ads.py.md\nMM docs/server-routing/files/server/game/urls.py.md\n M docs/server-routing/files/server/game/views.py.md\nAM docs/server-routing/verification/2026-10-13-day25-period07-review/finish.json\nA  docs/server-routing/verification/2026-10-13-day25-period07-review/routing-before.json\nAM docs/server-routing/verification/2026-10-13-day25-period07-review/routing-cli-after.json\nAM docs/server-routing/verification/2026-10-13-day25-period07-review/routing-cli-status.json\nAM docs/server-routing/verification/2026-10-13-day25-period07-review/routing-final.json\nAM docs/server-routing/verification/2026-10-13-day25-period07-review/start.json\nM  server/game/ad_gateway.py\n M server/game/test_ads.py\nM  server/game/urls.py\nM  server/game/views.py",
+      "stderr": ""
+    },
+    "staged": {
+      "exit": 0,
+      "stdout": "A\tdocs/handoffs/2026-10-13-day25-period07-review.md\nM\tdocs/server-routing/README.md\nM\tdocs/server-routing/files/server/game/ad_gateway.py.md\nM\tdocs/server-routing/files/server/game/urls.py.md\nA\tdocs/server-routing/verification/2026-10-13-day25-period07-review/finish.json\nA\tdocs/server-routing/verification/2026-10-13-day25-period07-review/routing-before.json\nA\tdocs/server-routing/verification/2026-10-13-day25-period07-review/routing-cli-after.json\nA\tdocs/server-routing/verification/2026-10-13-day25-period07-review/routing-cli-status.json\nA\tdocs/server-routing/verification/2026-10-13-day25-period07-review/routing-final.json\nA\tdocs/server-routing/verification/2026-10-13-day25-period07-review/start.json\nM\tserver/game/ad_gateway.py\nM\tserver/game/urls.py\nM\tserver/game/views.py",
+      "stderr": ""
+    },
+    "unstaged": {
+      "exit": 0,
+      "stdout": "M\tdocs/handoffs/2026-10-13-day25-period07-review.md\nM\tdocs/server-routing/README.md\nM\tdocs/server-routing/files/server/game/ad_gateway.py.md\nM\tdocs/server-routing/files/server/game/test_ads.py.md\nM\tdocs/server-routing/files/server/game/urls.py.md\nM\tdocs/server-routing/files/server/game/views.py.md\nM\tdocs/server-routing/verification/2026-10-13-day25-period07-review/finish.json\nM\tdocs/server-routing/verification/2026-10-13-day25-period07-review/routing-cli-after.json\nM\tdocs/server-routing/verification/2026-10-13-day25-period07-review/routing-cli-status.json\nM\tdocs/server-routing/verification/2026-10-13-day25-period07-review/routing-final.json\nM\tdocs/server-routing/verification/2026-10-13-day25-period07-review/start.json\nM\tserver/game/test_ads.py",
+      "stderr": ""
+    },
+    "untracked": {
+      "exit": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    "tests": "ads18/game6 passed; both check passed",
+    "production_mutations": false,
+    "cleanup_user_answer": "새 검증 기록 폴더 두 개 삭제",
+    "new_evidence_folder_exists": false,
+    "auto_review_initial_rejection_preserved": true,
+    "new_untracked_paths_since_fix_start": [],
+    "generated_cleanup_paths_remaining_in_index": [],
+    "index_cleanup_generated_paths_only": true,
+    "concurrent_user_staged_changes_preserved": true,
+    "head": {
+      "exit": 0,
+      "stdout": "04bafae day25 - chapter1",
+      "stderr": ""
+    }
+  }
+}

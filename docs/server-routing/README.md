@@ -188,3 +188,10 @@
 | 개발 파일 | 짝 문서 |
 |---|---|
 | README.md | [문서](files/README.md.md) |
+
+
+## 25일차 7교시 사용자 진행 검토 · 2026-10-13
+
+후속 수정에서 기존 server/game/views.py에 교안 제공 ad_context를 추가하고 server/game/urls.py의 한 항목을 views.ad_context에 연결했다. ad_gateway의 request_context·request_decision과 기존 선택/사건/미리보기/인증 경로는 보존했다. 광고 context URL·헤더 인증도 연결됐다. 두 서버 check 성공, context/관련 회귀 24개 통과다. 로그인 브라우저의 새 두 결정 관찰은 사용자 실행 단계이며 과거 빈 context 기록을 갱신하지 않았다.
+
+기존 test_ads.py에 context 검사를 넣었으며 새 개발 파일·examples 폴더는 제거했다. 문서와 검증은 기존 짝 문서·verification/2026-10-13-day25-period07-review·[기존 인수인계 후속 항목](../handoffs/2026-10-13-day25-period07-review.md)에 반영했다. 새 검증 기록 폴더는 사용자의 명시적 승인 후 경로·목록·해시를 재검증하여 삭제했다. [광고 전체 기록](../../../ad_server/docs/handoffs/2026-10-13-day25-period07-review.md)을 따른다. 게임 data는 기존 Game-server/data이고 추가 server/data는 만들지 않는다.

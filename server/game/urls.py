@@ -6,6 +6,7 @@ from game import ad_views, auth_views, views
 app_name = "game"
 
 urlpatterns = [
+    path("play/", views.play, name="play"),
     path("ads/preview/", ad_views.ad_preview, name="ad-preview"),
     path("api/ads/decision/", ad_views.ad_decision, name="ad-decision"),
     path("api/ads/events/", ad_views.ad_event, name="ad-events"),
@@ -19,4 +20,7 @@ urlpatterns = [
     path("api/history/", views.history, name="history"),
     path("api/auth/csrf/",views.csrf_view,name="csrf",),
     path("api/auth/login/",views.api_login,name="api-login",),
+    path("ads-preview/", ad_views.ad_preview, name="ad-preview"),
+    path("api/ads/events/", ad_views.ad_event, name="ad-events"),
+    path("api/ads/context/", views.ad_context, name="ad-context"),
 ]

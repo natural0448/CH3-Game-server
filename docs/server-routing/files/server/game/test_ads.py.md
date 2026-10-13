@@ -161,3 +161,28 @@
 ## 상태·값 출처
 
 지역 변수는 해당 함수가 소유하며 request/입력·서버 설정·DB 조회 또는 위 의사코드의 생성 단계에서 얻는다. 저장 snapshot과 receipt의 쓰기는 서비스/사건 계층이 맡는다. 테스트 연결·patch·가짜 응답은 해당 테스트 클래스만 소유하고 정리한다. 비밀값·쿠키·CSRF 토큰은 문서/증거에 복사하지 않는다.
+
+
+## class PlayerContextTests(SimpleTestCase)
+
+25일차 context 검사를 기존 test_ads.py에 추가했다. 실제 User/Player/광고 DB를 만들지 않고 RequestFactory·Player 조회 mock·BytesIO HTTP fixture를 사용한다. 기존 GatewayTests/RelayTests 본문은 보존했다. 모든 test 메서드는 기본값 없는 self, 정상 반환 None, 실패 AssertionError 계약이다. 고정 ADS 설정·ID 12·다섯 공개 필드는 synthetic fixture이고 실제 키/세션은 사용하지 않는다.
+
+### PlayerContextTests.setUp(self)
+
+self는 기본값 없는 테스트 인스턴스다. 반환 None. 의사코드: RequestFactory → pk 12 Player namespace → 공개 context fixture를 self에 보관. 직접 호출은 RequestFactory와 SimpleNamespace다. 각 테스트 인스턴스가 fixture를 소유한다.
+
+### PlayerContextTests.test_logged_in_player_ignores_query_recipient_and_does_not_cache(self)
+
+의사코드: resolver가 views.ad_context인지 확인 → subject_id=9999 요청에도 로그인 user로 Player 조회 → pk 12 gateway 조회 → subject 12·200·no-store 확인. 직접 호출은 resolve, factory.get, patch, ad_context, json.loads와 assert다.
+
+### PlayerContextTests.test_login_missing_player_and_outage_have_separate_statuses(self)
+
+의사코드: 비로그인 401/ORM 미호출 → Player 없음404 → gateway 장애503 공개 오류 → POST405. 직접 호출은 ad_context, factory.get/post, patch, AdsUnavailable fixture, json.loads와 assert다.
+
+### PlayerContextTests.test_context_is_fetched_before_selection_and_passed_as_snapshot(self)
+
+의사코드: context 응답/선택 응답 두 BytesIO → request_decision → 호출 순서·URL·subject-only 본문·선택 context·body/image/금액·두 timeout 검사. 직접 호출은 io.BytesIO, json.dumps/loads, patch, request_decision, Request.get_header와 assert다. DB 결정 기록은 만들지 않는다.
+
+### PlayerContextTests.test_response_recipient_types_and_timezone_are_validated(self)
+
+의사코드: 다른 대상·bool version·naive 시각·추가 필드 응답은 AdsUnavailable → 빈 정상 context는 {}. 직접 호출은 BytesIO, JSON, patch, request_context, subTest/assertRaises/assertEqual이다. 응답 검증과 빈 복사본 정상 상태를 구별한다.

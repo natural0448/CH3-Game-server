@@ -23,16 +23,11 @@
 
 ## `request_decision(player, slot_id)`
 
-| 파라미터 | 기본값 | 의미·허용 범위 |
-|---|---|---|
-| player | 없음 | 로그인 세션의 Django Player 객체; pk를 subject_id로 변환. |
-| slot_id | 없음 | village-board 또는 lobby-banner. |
+2026-10-13 사용자 저장본은 25일차 7교시 제공 완성 함수와 AST가 같다. player는 기본값 없는 로그인 Player 객체, slot_id는 기본값 없는 슬롯 문자열이다. 이 함수는 slot_id를 자체 허용 목록으로 검사하지 않으며 실제 ad_views.ad_decision 호출자가 village-board/lobby-banner를 검사한다.
 
-반환·실패: 공개 dict 또는 ad:null; ValueError(invalid_slot)/AdsUnavailable.
+반환은 선택 응답 dict에 body 기본 빈 문자열·bid_amount(없으면 bid_units)를 보완한 사전이다. empty=True 또는 ad=None이면 원래 응답을 보존하고 ad=None을 넣어 반환한다. 서버 키 없음은 AdsUnavailable(media_key_missing), 선택 호출의 HTTP/통신/파싱/슬롯 오류는 AdsUnavailable(ads_unavailable)이다. context 조회 실패도 호출자에게 전파된다.
 
-의사코드: 슬롯/서버 키 검사 → 로그인 Player subject와 두 헤더 POST → read 65537 뒤 65536 bytes 상한·슬롯/금액/소재/공개 문자열 검증 → 공개 선택 정규화. 이 함수는 call_ads를 호출하지 않으며 이번 작업에서 기존 본문을 보존했다.
-
-직접 호출: `AdsUnavailable`, `Request`, `ValueError`, `any`, `data.get`, `isinstance`, `json.dumps`, `json.dumps({'media_id': media_id, 'subject': {'media_id': media_id, 'subject_id': str(player.pk)}, 'slot_id': slot_id, 'context': {}}).encode`, `json.loads`, `len`, `response.read`, `result.values`, `str`, `type`, `urlopen`.
+의사코드: 서버 설정 매체/키 검사 → request_context(player) 공개 복사본을 payload.context에 넣기 → 두 매체 헤더와 top-level media_id로 /api/media/decision/ POST → timeout 1.5초 → JSON 사전·빈 광고·동일 슬롯 검사 → 응답 반환. 직접 호출은 request_context, Request, json.dumps/json.load, urlopen, dict.get다. 요청 URL은 ADS_BASE_URL.rstrip('/')에서 시작한다. 과거 본문의 read 상한·금액·소재 검사와 context={} 설명은 현재 함수에 해당하지 않는다. 이 계층은 DB를 쓰지 않으며 광고 서버 선택 서비스가 결정 저장을 맡는다.
 
 ## `request_ad_event(player, decision_id, event_type)`
 
@@ -47,6 +42,14 @@
 의사코드: 서버 키 검사 → ID 1..128자·종류 검사 → 설정의 매체 ID와 str(player.pk)로 payload 구성 → call_ads로 /api/media/events/ 호출 → 503 구별 → 200 외에는 사전 여부 확인 후 허용 오류만 ValueError로 전달 → 200은 사전·동일 사건 ID·동일 종류·created bool 검사 → 공개 세 필드 반환.
 
 직접 호출: `call_ads`, `AdsUnavailable`, `ValueError`, `data.get`, `isinstance`, `len`, `str`, `type`. call_ads는 상태와 JSON 두 값을 반환한다. 허용 오류는 decision_snapshot_missing·decision_not_found_for_subject·impression_required·decision_id_required·event_type_invalid이며 그 외는 ad_event_rejected다. 로그인 Player 조회와 HTTP 응답 변환은 호출하는 ad_views.ad_event의 책임이다.
+
+## `request_context(player)`
+
+player는 기본값 없는 로그인 Player 객체다. 반환은 검증한 공개 context의 새 dict이며 문서 없음·삭제 상태의 {}도 허용한다. 서버 키 없음은 AdsUnavailable(media_key_missing), HTTP/통신/응답 계약 오류는 AdsUnavailable(ads_unavailable)이다.
+
+의사코드: settings.ADS_MEDIA_ID와 str(player.pk)로 subject → subject-only payload → JSON·Accept·X-Media-ID·X-Media-Key 헤더 → /api/media/context/ POST(timeout=1.5초) → 응답 subject 동일·context 사전 검사 → 비어 있지 않으면 정확한 다섯 필드·동일 ID·타입·version>=0·aware ISO 시각 검사 → dict(context). 직접 호출은 Request, json.dumps(allow_nan=False), urlopen, json.load, datetime.fromisoformat, dict다. 매체 키의 출처는 서버 settings이며 응답으로 복사하지 않는다. 두 HTTP 호출의 timeout을 전체 원자 작업/deadline으로 해석하지 않는다.
+
+현재 함수는 교안 AST와 같고 후속 수정에서도 본문을 보존했다. 광고 인증이 헤더 기반으로 연결돼 subject-only payload를 받아들이며 /api/media/context/도 등록됐다. 현재 context 조회 다음 선택 요청에 해당 공개 사전을 넣는 순서와 각각 1.5초 timeout을 테스트에서 확인했다.
 
 ## 상태·값 출처
 
